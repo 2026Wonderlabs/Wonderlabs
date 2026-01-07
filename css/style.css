@@ -278,7 +278,7 @@ footer {
 /* -------------------
    RESPONSIVE
 ------------------- */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .about-preview {
     grid-template-columns: 1fr;
     text-align: center;
@@ -287,6 +287,42 @@ footer {
   .nav-links {
     display: none;
   }
+  .nav-toggle {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    color: #cfd8dc;
+    cursor: pointer;
+    margin-left: 0.6rem;
+    z-index: 1200;
+  }
+  /* when nav is open on small screens */
+  body.nav-open .nav-links {
+    display: flex !important;
+    position: fixed;
+    top: 60px;
+    left: 12px;
+    right: 12px;
+    background: rgba(8,12,20,0.98);
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(2,6,12,0.6);
+    z-index: 1200;
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+  }
+  body.nav-open .nav-links a {
+    color: #e6f7ff;
+    padding: 0.6rem 0.8rem;
+    display: block;
+    border-radius: 6px;
+  }
+  /* make sure login/logout and theme controls are visible and stack if needed */
+  .login-btn { z-index: 1200; }
+  #theme-toggle { z-index: 1200; }
 }
 .features-carousel {
   display: flex;

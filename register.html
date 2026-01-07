@@ -44,8 +44,12 @@
         </div>
     </div>
 </form>
-<a href="login.html" style="display: block; text-align: center; margin-top: 1em; color: deepskyblue;">Already have an account? Login here.</a>
-<p style="text-align:center; margin-top:.5em;"><a href="users.html" style="color: #777; font-size: .9em;">View registered users (debug)</a></p>
+<div style="max-width:400px; margin: 1em auto; text-align:center;">
+  <a href="login.html" style="display: block; margin-bottom:.5em; color: deepskyblue;">Already have an account? Login here.</a>
+  <button id="export-users" style="padding:.4em .8em; border-radius:6px; border:1px solid #ccc; background:#fff; color:#111; cursor:pointer;">Export accounts (copy JSON)</button>
+  <button id="import-users" style="padding:.4em .8em; border-radius:6px; border:1px solid #ccc; background:#fff; color:#111; cursor:pointer; margin-left:.5em;">Import accounts (paste JSON)</button>
+  <p style="text-align:center; margin-top:.5em;"><a href="users.html" style="color: #777; font-size: .9em;">View registered users (debug)</a></p>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>
