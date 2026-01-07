@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registered Users</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; max-width: 800px; margin: 1em auto; }
+    th, td { padding: .6em; border: 1px solid #ddd; text-align: left }
+    th { background: #f4f6f8 }
+    .controls { text-align:center; margin-top: 1em }
+    .small { font-size: .9em; color: #666 }
+    .center { text-align:center }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a> • <a href="login.html">Login</a> • <a href="register.html">Register</a>
+  </nav>
+  <main>
+    <h1 style="text-align:center;">Registered Users</h1>
+    <div id="users-list" style="max-width:900px;margin:20px auto; padding:10px;"></div>
+
+    <div class="controls center">
+      <button id="copy-json">Copy users JSON</button>
+      <button id="clear-all">Delete all users</button>
+      <p class="small">Passwords are not displayed for security.</p>
+    </div>
+  </main>
+
+  <script>
+    function normalizeStoredUsers() {
+      let raw = localStorage.getItem('users');
+      if (!raw) return false;
+      try {
+        let parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          const newUsers = {};
+          parsed.forEach((item, i) => {
+            if (!item) return;
+            const key = (item.username || item.displayName || item.name || `user${i}`).toString().trim().toLowerCase();
+            newUsers[key] = item;
+          });
+          localStorage.setItem('users', JSON.stringify(newUsers));
+          return true;
+        }
+        let needsFix = false;
+        Object.keys(parsed).forEach(k => {
+          const v = parsed[k];
+          if (v == null || typeof v !== 'object') needsFix = true;
+        });
+        if (needsFix) {
+          const newUsers = {};
+          Object.keys(parsed).forEach(k => {
+            const v = parsed[k];
+            if (v && typeof v === 'object') newUsers[k] = v;
+            else if (v != null) newUsers[k] = { displayName: String(v) };
+          });
+          localStorage.setItem('users', JSON.stringify(newUsers));
+          return true;
+        }
+        return false;
+      } catch (e) {
+        console.error('Failed to parse users JSON', e);
+        return false;
+      }
+    }
+
+    function renderUsers() {
+      const container = document.getElementById('users-list');
+      let users = JSON.parse(localStorage.getItem('users') || '{}');
+      container.innerHTML = '';
+
+      if (Array.isArray(users)) {
+        const temp = {};
+        users.forEach((item, i) => {
+          if (!item || typeof item !== 'object') {
+            if (item != null) temp[`item${i}`] = { displayName: String(item) };
+            return;
+          }
+          const key = (item.username || item.displayName || item.name || `user${i}`).toString().trim().toLowerCase();
+          temp[key] = item;
+        });
+        users = temp;
+      }
+
+      const keys = Object.keys(users);
+      if (!keys.length) {
+        container.textContent = 'No registered users.';
+        return;
+      }
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      thead.innerHTML = '<tr><th>Display Name</th><th>Username (key)</th><th>Email</th><th>Actions</th></tr>';
+      table.appendChild(thead);
+      const tbody = document.createElement('tbody');
+
+      keys.forEach(key => {
+        const u = users[key] || {};
+        const display = (u.displayName || u.name || u.username || key);
+        const email = u.email || '';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${display}</td><td>${key}</td><td>${email}</td><td><button data-user="${key}" class="del">Delete</button></td>`;
+        tbody.appendChild(tr);
+      });
+
+      table.appendChild(tbody);
+      container.appendChild(table);
+
+      // attach delete handlers
+      container.querySelectorAll('button.del').forEach(btn => {
+        btn.addEventListener('click', () =&gt; {
+          const k = btn.getAttribute('data-user');
+          if (!confirm(`Delete user "${k}"?`)) return;
+          const users = JSON.parse(localStorage.getItem('users') || '{}');
+          delete users[k];
+          localStorage.setItem('users', JSON.stringify(users));
+          renderUsers();
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () =&gt; {
+      renderUsers();
+      document.getElementById('copy-json').addEventListener('click', () =&gt; {
+        const users = localStorage.getItem('users') || '{}';
+        navigator.clipboard.writeText(users).then(() =&gt; alert('Users JSON copied to clipboard.'));
+      });
+
+      document.getElementById('clear-all').addEventListener('click', () =&gt; {
+        if (!confirm('Delete ALL users? This cannot be undone.')) return;
+        localStorage.removeItem('users');
+        localStorage.removeItem('currentUser');
+        renderUsers();
+      });
+
+      const normalizeBtn = document.createElement('button');
+      normalizeBtn.textContent = 'Normalize users storage';
+      normalizeBtn.style.marginLeft = '10px';
+      normalizeBtn.addEventListener('click', () =&gt; {
+        const changed = normalizeStoredUsers();
+        if (changed) {
+          alert('Users storage normalized. Re-rendering list.');
+        } else {
+          alert('No normalization needed or failed. Check console for details.');
+        }
+        renderUsers();
+      });
+      document.querySelector('.controls').appendChild(normalizeBtn);
+    });
+  </script>
+</body>
+</html>

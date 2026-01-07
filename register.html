@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+    <h1>Wonder Labs</h1>
+    <p>Welcome to Wonder Labs! Explore our innovative projects and cutting-edge research.</p>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Lessons</a>
+        <a href="simulations.html">Simulations</a>
+        <a href="forum.html">Forum</a>
+        <a href="team.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href ="login.html">Login</a>
+    </nav>
+<section>
+    <h1 style="text-align: center; color: deepskyblue;">Register</h1>
+    <p style="text-align: center; color: #1C1F26;">Create your Wonder Labs account to access exclusive content and participate in our community.</p>
+</section>      
+<form id="register-form">
+    <div style="max-width: 400px; margin: auto; padding: 1em; border: 1px solid #CCC; border-radius: 1em;">
+        <div style="margin-bottom: 1em;">
+            <label for="username" style="margin-bottom: .5em; color: #333333; display: block;">Username:</label>
+            <input type="text" id="username" name="username" style="width: 100%; padding: .5em; border: 1px solid #CCC; border-radius: 4px;" required>
+        </div>
+        <div style="margin-bottom: 1em;">
+            <label for="email" style="margin-bottom: .5em; color: #333333; display: block;">Email:</label>
+            <input type="email" id="email" name="email" style="width: 100%; padding: .5em; border: 1px solid #CCC; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 1em;">
+            <label for="password" style="margin-bottom: .5em; color: #333333; display: block;">Password:</label>
+            <input type="password" id="password" name="password" style="width: 100%; padding: .5em; border: 1px solid #CCC; border-radius: 4px;" required>
+        </div>
+        <p id="register-msg" style="text-align:center; margin-top:10px;"></p>
+        <div style="text-align: center;">
+            <button type="submit" style="padding: 0.7em 2em; color: #FFF; background-color: deepskyblue; border: none; border-radius: 4px; cursor: pointer;">Register</button>
+        </div>
+    </div>
+</form>
+<a href="login.html" style="display: block; text-align: center; margin-top: 1em; color: deepskyblue;">Already have an account? Login here.</a>
+<p style="text-align:center; margin-top:.5em;"><a href="users.html" style="color: #777; font-size: .9em;">View registered users (debug)</a></p>
+<script src="js/main.js"></script>
+</body>
+</html>
