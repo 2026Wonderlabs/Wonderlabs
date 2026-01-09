@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="30">
+  <title>Lessons - Wonder Labs</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+<nav>
+      <div class="logo">
+        <span>⚛</span>
+        <h1>Wonder Labs</h1>
+      </div>
+      <span id="user-greeting"></span>
+
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="simulations.html">Simulations</a></li>
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <a class="login-btn" href="../login.html">Log In</a>
+      <button id="logout-btn" class="login-btn" style="display:none; margin-left:0.5rem;">Logout</button>
+      <button id="theme-toggle">🌙</button>
+
+    </nav>
+
+    <h1 style="text-align: center;color: tomato;"><u>Wonder Labs Lessons</u></h1>
+    <div id="level-select">
+      <button data-level="gcse">GCSE</button>
+      <button data-level="alevel">A-Level</button>
+      <button data-level="advanced">Advanced</button>
+    </div>
+  </header>
+
+  <main>
+    <aside id="lesson-menu">
+      <!-- List of lessons will go here -->
+    </aside>
+
+    <section id="lesson-content">
+      <h2 id="lesson-title">Select a lesson</h2>
+      <div id="lesson-steps">
+        <!-- Step content will appear here -->
+      </div>
+      <div id="lesson-controls">
+        <button id="prev-step">Previous</button>
+        <button id="next-step">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="lessons.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

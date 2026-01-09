@@ -1,17 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="30">
   <title>Wonder Labs — Admin Dashboard</title>
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
+  <!-- HEADER -->
   <header class="admin-header">
     <h1>Admin Dashboard</h1>
     <div class="admin-meta">Only visible to <strong>Admin123</strong></div>
   </header>
 
+  <!-- NAVIGATION -->
   <nav class="admin-nav">
     <button data-panel="overview" class="active">Overview</button>
     <button data-panel="users">Users</button>
@@ -19,7 +22,9 @@
     <button data-panel="logs">Logs</button>
   </nav>
 
+  <!-- MAIN PANEL -->
   <main id="admin-main">
+    <!-- OVERVIEW -->
     <section id="panel-overview" class="panel active">
       <h2>Overview</h2>
       <div class="stats">
@@ -27,16 +32,27 @@
         <div class="stat"><strong id="stat-lessons">0</strong><span>Lessons</span></div>
         <div class="stat"><strong id="stat-sims">0</strong><span>Simulations</span></div>
       </div>
+      <p>Future: graphs and analytics will appear here.</p>
     </section>
 
+    <!-- USERS MANAGEMENT -->
     <section id="panel-users" class="panel" style="display:none;">
       <h2>Users</h2>
-
       <div class="users-controls">
         <div class="left">
-          <input id="user-search" placeholder="Search by username, display or email" />
-          <select id="filter-role"><option value="">All roles</option><option value="user">User</option><option value="moderator">Moderator</option><option value="admin">Admin</option></select>
-          <select id="filter-status"><option value="">All statuses</option><option value="active">Active</option><option value="suspended">Suspended</option><option value="banned">Banned</option></select>
+          <input id="user-search" placeholder="Search username, display, email" />
+          <select id="filter-role">
+            <option value="">All roles</option>
+            <option value="user">User</option>
+            <option value="moderator">Moderator</option>
+            <option value="admin">Admin</option>
+          </select>
+          <select id="filter-status">
+            <option value="">All statuses</option>
+            <option value="active">Active</option>
+            <option value="suspended">Suspended</option>
+            <option value="banned">Banned</option>
+          </select>
         </div>
         <div class="right">
           <button id="create-user-btn">Create user</button>
@@ -46,35 +62,48 @@
 
       <div id="users-table-wrap">Loading users…</div>
 
+      <!-- CREATE USER FORM -->
       <div id="create-user-form" class="panel" style="display:none; margin-top:1rem;">
         <h3>Create new user</h3>
         <div class="form-row"><label>Username</label><input id="new-username" /></div>
         <div class="form-row"><label>Display name</label><input id="new-display" /></div>
         <div class="form-row"><label>Email</label><input id="new-email" type="email" /></div>
         <div class="form-row"><label>Password</label><input id="new-password" type="password" /></div>
-        <div class="form-row"><label>Role</label><select id="new-role"><option value="user">User</option><option value="moderator">Moderator</option><option value="admin">Admin</option></select></div>
-        <div style="margin-top:.6rem;"><button id="save-new-user">Save</button> <button id="cancel-new-user">Cancel</button></div>
+        <div class="form-row"><label>Role</label>
+          <select id="new-role">
+            <option value="user">User</option>
+            <option value="moderator">Moderator</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div style="margin-top:.6rem;">
+          <button id="save-new-user">Save</button>
+          <button id="cancel-new-user" class="secondary">Cancel</button>
+        </div>
       </div>
-
     </section>
 
+    <!-- CONTENT PANEL -->
     <section id="panel-content" class="panel" style="display:none;">
-      <h2>Content</h2>
-      <p>Content management coming soon (create/edit/publish lessons & simulations).</p>
+      <h2>Content Management</h2>
+      <p>Future: create, edit, and publish lessons & simulations.</p>
     </section>
 
+    <!-- LOGS PANEL -->
     <section id="panel-logs" class="panel" style="display:none;">
       <h2>Activity Logs</h2>
-      <p>Activity and moderation tools will appear here.</p>
+      <p>Future: view user activity, moderation logs, and admin actions.</p>
     </section>
 
-    <div id="admin-toast" style="position:fixed;right:16px;bottom:16px;display:none;padding:.6rem 1rem;border-radius:6px;background:#222;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.5);z-index:2200"></div>
+    <!-- TOAST -->
+    <div id="admin-toast" class="toast" style="display:none;"></div>
   </main>
 
+  <!-- ACCESS DENIED -->
   <div id="access-denied" class="overlay" style="display:none;">
     <div class="box">
       <h2>Access denied</h2>
-      <p>You don't have permission to view this page. Only <strong>Admin123</strong> can access the dashboard.</p>
+      <p>Only <strong>Admin123</strong> can access this page.</p>
       <p><a href="../login.html">Return to login</a></p>
     </div>
   </div>
