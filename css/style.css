@@ -76,6 +76,18 @@ nav {
   text-decoration: none;
   line-height: 1;
 }
+.A-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #4fc3f7, #81c784);
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+}
 
 /* -------------------
    HERO
@@ -413,35 +425,17 @@ body {
 a {
   transition: color 0.3s ease;
 }
-.center-btn {
-  display: block;       /* make it a block element */
-  margin: 0 auto;       /* horizontal auto margin centers it */
-  width: 200px;         /* needed for auto centering */
-}
-.center-btn:hover {
-  background-color: rgb(255, 0, 0); /* change color on hover */
-  transform: scale(1.05);    /* slightly bigger */
-}
-.center-btn:active {
-  background-color: red;
-  transform: scale(0.98); /* looks pressed */
-}
-.center-btn.outline {
-  background: transparent;
-  border: 2px solid tomato;
-  color: tomato;
-}
-.center-btn.outline:hover {
-  background: tomato;
-  color: white;
-}
-.center-btn.outline:active {
-  background: darkred;
-  border-color: darkred;
-}
-.center-btn {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* soft shadow */
-}
-.center-btn:active {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* pressed shadow */
-}
+
+/* Announcements */
+#announcements { background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; }
+.announcement { background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px; margin-bottom: 0.75rem; border-left: 6px solid transparent; display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; }
+.announcement .ann-body { flex:1; }
+.announcement h3 { margin-bottom: 0.35rem; }
+.announcement p { color: #cfd8dc; margin-bottom: 0.6rem; }
+.announcement small { color: #90a4ae; display:block; margin-top:0.5rem; }
+.announcement.normal { border-left-color: #81c784; }
+.announcement.important { border-left-color: #ffb300; }
+.announcement.urgent { border-left-color: #ff5252; }
+.announcement .controls { display:flex; gap:0.5rem; }
+.announcement .controls button { background: transparent; border: 1px solid rgba(255,255,255,0.08); color: #fff; padding:0.4rem 0.6rem; border-radius:6px; cursor:pointer; }
+body.light .announcement .controls button { color:#111; border-color: rgba(0,0,0,0.12); }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Science Questions Hub | Wonder Labs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="30">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <span>⚛</span>
+      <h1>Wonder Labs</h1>
+    </div>
+
+    <span id="user-greeting"></span>
+
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="simulations.html">Simulations</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="A-btn" href="announcements.html" style="color: black;">Announcements</a></li>
+    </ul>
+
+    <a class="login-btn" href="../login.html">Log In</a>
+    <button id="logout-btn" class="login-btn" style="display:none;">Logout</button>
+    <button id="theme-toggle">🌙</button>
+  </nav>
+</header>
+
+<main>
+  <!-- INTRO -->
+  <section id="forum-intro" style="text-align:center; padding:2em;">
+    <h1 style="color:#ff0051;">🧠 Collaborative Science Forum</h1>
+    <p>Work together to solve unanswered scientific questions using experiments, data, simulations, and discussion.</p>
+    <p>Join teams or contribute publicly. All contributions help real scientific learning 🌍🔬</p>
+  </section>
+
+  <!-- FILTERS & SEARCH -->
+  <section id="forum-controls">
+    <input type="text" id="search-questions" placeholder="Search questions...">
+    <select id="filter-category">
+      <option value="">All Categories</option>
+      <option value="biology">Biology</option>
+      <option value="chemistry">Chemistry</option>
+      <option value="physics">Physics</option>
+      <option value="climate">Climate</option>
+      <option value="astronomy">Astronomy</option>
+    </select>
+    <select id="filter-level">
+      <option value="">All Levels</option>
+      <option value="gcse">GCSE</option>
+      <option value="alevel">A-Level</option>
+      <option value="advanced">Advanced</option>
+    </select>
+    <select id="filter-status">
+      <option value="">All Statuses</option>
+      <option value="open">Open</option>
+      <option value="investigating">Investigating</option>
+      <option value="partial">Partial Solution</option>
+      <option value="needs-data">Needs Data</option>
+    </select>
+    <button id="ask-question-btn">➕ Ask a Question</button>
+  </section>
+
+  <!-- QUESTIONS LIST -->
+  <section id="questions-list">
+    <!-- JS will dynamically inject questions here -->
+    <!-- Example structure repeated per question -->
+    <!-- 15 questions will be preloaded via JS -->
+    <!-- Each question has: public whiteboard, discussion, team collaboration -->
+  </section>
+
+  <!-- ASK QUESTION MODAL -->
+  <section id="ask-question" style="display:none;">
+    <h2>Ask a New Question</h2>
+    <form id="question-form">
+      <label>Title: <input type="text" id="question-title" required></label>
+      <label>Category:
+        <select id="question-category" required>
+          <option value="">Select</option>
+          <option value="biology">Biology</option>
+          <option value="chemistry">Chemistry</option>
+          <option value="physics">Physics</option>
+          <option value="climate">Climate</option>
+          <option value="astronomy">Astronomy</option>
+        </select>
+      </label>
+      <label>Level:
+        <select id="question-level" required>
+          <option value="">Select</option>
+          <option value="gcse">GCSE</option>
+          <option value="alevel">A-Level</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </label>
+      <label>Description: <textarea id="question-description" rows="6" required></textarea></label>
+      <label>What’s already known (optional): <textarea id="question-known" rows="4"></textarea></label>
+      <button type="submit">Submit Question</button>
+      <button type="button" id="cancel-question">Cancel</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Wonder Labs — Collaborative science for everyone ⚛</p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="forum.js"></script>
+</body>
+</html>

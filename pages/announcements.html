@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Wonder Labs - Announcements</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span>⚛</span>
+                <h1>Wonder Labs</h1>
+            </div>
+            <span id="user-greeting"></span>
+
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="simulations.html">Simulations</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <a class="login-btn" href="../login.html">Log In</a>
+            <button id="logout-btn" class="login-btn" style="display:none; margin-left:0.5rem;">Logout</button>
+            <button id="theme-toggle">🌙</button>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+<main>
+  <h1 style="text-align:center; color:orange;">📢 Latest Announcements</h1>
+  <p style="text-align:center;">
+    All official updates, news, and posts from Wonder Labs.
+  </p>
+
+  <!-- ANNOUNCEMENTS DISPLAY -->
+  <section id="announcements" style="max-width:800px; margin:2em auto;border-color: orange; border: 2px solid orange; border-radius: 8px; padding: 1em;">
+    <p style="text-align:center;">Loading announcements...</p>
+  </section>
+
+  <!-- ADMIN CONTROLS (admins only) -->
+  <section id="admin-announcements" style="display:none; max-width:800px; margin:3em auto;">
+    <h2>🛠 Admin: Post Announcement</h2>
+
+    <form id="announcement-form">
+      <label>
+        Title
+        <input type="text" id="announcement-title" required>
+      </label>
+
+      <label>
+        Message
+        <textarea id="announcement-message" rows="5" required></textarea>
+      </label>
+
+      <label>
+        Priority
+        <select id="announcement-priority">
+          <option value="normal">Normal</option>
+          <option value="important">Important</option>
+          <option value="urgent">Urgent</option>
+        </select>
+      </label>
+
+      <div class="form-actions">
+        <button id="announcement-submit" type="submit">📢 Publish Announcement</button>
+        <button id="announcement-cancel" type="button" style="display:none; margin-left:0.5rem;">Cancel Edit</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Wonder Labs. Built for curiosity.</p>
+        <div class="social-links">
+            <a class="social youtube" href="https://youtube.com/@wonderlabs4u?si=luEjNlCX56uXVFyH" target="_blank" aria-label="YouTube">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M23.5 6.2a2.8 2.8 0 0 0-1.9-2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.6.7A2.8 2.8 0 0 0 .5 6.2 29.5 29.5 0 0 0 0 12a29.5 29.5 0 0 0 .5 5.8 2.8 2.8 0 0 0 1.9 2c2.3.7 9.6.7 9.6.7s7.3 0 9.6-.7a2.8 2.8 0 0 0 1.9-2A29.5 29.5 0 0 0 24 12a29.5 29.5 0 0 0-.5-5.8zM9.75 15.02v-6l6 3-6 3z"></path></svg>
+                <span class="label">YouTube</span>
+            </a>
+            <a class="social x" href="https://x.com/wonderlab4u" target="_blank" aria-label="X (formerly Twitter)">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M3 3L21 21M21 3L3 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="label">X</span>
+            </a>
+            <a class="social discord" href="https://discord.gg/2ERSvjBP" target="_blank" aria-label="Discord">
+                <svg class="icon" viewBox="0 0 71 55"><path fill="#7289DA" d="M60.104 4.552A58.33 58.33 0 0046.4 0c-.2.376-.404.864-.576 1.248-5.48-1.248-11.288-1.248-16.768 0-.176-.384-.376-.864-.576-1.248a58.184 58.184 0 00-13.704 4.552C.664 21.12-1.2 37.2.48 52.112a60.248 60.248 0 0017.872 3.68c1.36-.992 2.568-2.016 3.616-3.072a45.68 45.68 0 01-6.4-3.04c.544-.384 1.08-.768 1.592-1.152 12.48 5.888 26.064 5.888 38.544 0 .512.384 1.048.768 1.592 1.152a45.696 45.696 0 01-6.4 3.04c1.048 1.056 2.256 2.08 3.616 3.072a60.264 60.264 0 0017.872-3.68c1.776-14.912-.192-30.992-14.544-47.56zM23.928 37.424c-3.168 0-5.76-2.88-5.76-6.4s2.568-6.4 5.76-6.4c3.2 0 5.792 2.88 5.76 6.4 0 3.52-2.56 6.4-5.76 6.4zm23.136 0c-3.168 0-5.76-2.88-5.76-6.4s2.568-6.4 5.76-6.4c3.2 0 5.76 2.88 5.76 6.4 0 3.52-2.56 6.4-5.76 6.4z"/></svg>
+                <span class="label">Discord</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../js/main.js"></script>
+    <script src="announcements.js"></script>
+</body>
+</html>
