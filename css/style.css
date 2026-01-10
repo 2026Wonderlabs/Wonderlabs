@@ -413,3 +413,35 @@ body {
 a {
   transition: color 0.3s ease;
 }
+.center-btn {
+  display: block;       /* make it a block element */
+  margin: 0 auto;       /* horizontal auto margin centers it */
+  width: 200px;         /* needed for auto centering */
+}
+.center-btn:hover {
+  background-color: rgb(255, 0, 0); /* change color on hover */
+  transform: scale(1.05);    /* slightly bigger */
+}
+.center-btn:active {
+  background-color: red;
+  transform: scale(0.98); /* looks pressed */
+}
+.center-btn.outline {
+  background: transparent;
+  border: 2px solid tomato;
+  color: tomato;
+}
+.center-btn.outline:hover {
+  background: tomato;
+  color: white;
+}
+.center-btn.outline:active {
+  background: darkred;
+  border-color: darkred;
+}
+.center-btn {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* soft shadow */
+}
+.center-btn:active {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* pressed shadow */
+}

@@ -3,58 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="30">
-  <title>Lessons - Wonder Labs</title>
+  <title>Climate Tracker - Wonder Labs</title>
   <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js for graphs -->
 </head>
 <body>
   <header>
-<nav>
+      <nav>
       <div class="logo">
         <span>⚛</span>
-        <h1>Wonder Labs</h1>
+        <h1>Wonder Labs- climate project</h1>
       </div>
       <span id="user-greeting"></span>
 
 
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
         <li><a href="simulations.html">Simulations</a></li>
         <li><a href="forum.html">Forum</a></li>
-        <li><a href="climate.html">Climate project</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
-      <a class="login-btn" href="../login.html">Log In</a>
+      
+      <a class="login-btn" href="login.html">Log In</a>
       <button id="logout-btn" class="login-btn" style="display:none; margin-left:0.5rem;">Logout</button>
       <button id="theme-toggle">🌙</button>
 
     </nav>
-
-    <h1 style="text-align: center;color: tomato;"><u>Wonder Labs Lessons</u></h1>
-    <div id="level-select">
-      <button data-level="gcse">GCSE</button>
-      <button data-level="alevel">A-Level</button>
-      <button data-level="advanced">Advanced</button>
-    </div>
   </header>
 
   <main>
-    <aside id="lesson-menu">
-      <!-- List of lessons will go here -->
-    </aside>
-
-    <section id="lesson-content">
-      <h2 id="lesson-title">Select a lesson</h2>
-      <div id="lesson-steps">
-        <!-- Step content will appear here -->
-      </div>
-      <div id="lesson-controls">
-        <button id="prev-step">Previous</button>
-        <button id="next-step">Next</button>
-      </div>
+    <h1 style="text-align: center; color: rgb(4, 185, 82);">🌍Climate Project🌴</h1>
+    <!-- Intro -->
+    <section id="intro" style ="text-align: center; padding: 2em;">
+      <h2>Track Your Local Climate</h2>
+      <p>Input your local climate data and watch your graphs update in real-time! 🌡️💧🌿</p>
+      <p>Learn how your local temperature, rainfall, and more compare over time.</p>
+      <p>all inputted data will be used for actual climate research</p>
     </section>
+
+    <!-- Input Form -->
+    <section id="input-form">
+      <h3 style="text-align: center; color: rgb(4, 185, 82);">Enter Climate Data</h3>
+      <form id="climate-form">
+        <label>Location 🌍:<input type="text" id="location" required></label>
+        <label>Date 📅:<input type="date" id="date" required></label>
+        <label>Temperature (°C) 🌡️:<input type="number" id="temperature" required></label>
+        <label>Persipitation (mm) 💧:<input type="number" id="Persipitation" default="0" required></label>
+        <label>Type of Persipitation<select id="precipitation-type">
+          <option value="rain">Rain</option>
+          <option value="snow">Snow</option>
+          <option value="hail">Hail</option>
+        </select></label><br>
+        <label>Notes 📝:<input type="text" id="notes"></label><br>
+        <button type="submit" class="center-btn" style="background-color: rgb(14, 14, 164); color: rgb(111, 255, 111); font-size: 16px; padding: 10px; border-radius: 50px; cursor: pointer;">Submit ✅</button>
+      </form>
+    </section>
+
+    <!-- Data Table -->
+    <section id="data-log">
+      <h3>Your Climate Log</h3>
+      <div id="climate-table-wrap"></div>
+      <button id="clear-log">Clear All Data ❌</button>
+    </section>
+
+    <!-- Graphs -->
+    <section id="visualizations">
+      <h3>Graphs</h3>
+      <canvas id="temp-chart" height="200"></canvas>
+      <canvas id="rain-chart" height="200"></canvas>
+    </section>
+
   </main>
 
   <footer>
@@ -74,7 +95,7 @@
       </a>
     </div>
   </footer>
-  <script src="lessons.js"></script>
+  <script src="climate.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>
