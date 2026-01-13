@@ -15,13 +15,11 @@
                 <span>⚛</span>
                 <h1>Wonder Labs</h1>
             </div>
-            <span id="user-greeting"></span>
-
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="lessons.html">Lessons</a></li>
+          <button id="nav-toggle" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
                 <li><a href="simulations.html">Simulations</a></li>
                 <li><a href="forum.html">Forum</a></li>
+                <li><a href="experiments.html">Experiments</a></li>
+                <li><a href="virtual-lab.html">Virtual Lab</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -49,17 +47,17 @@
     <h2>🛠 Admin: Post Announcement</h2>
 
     <form id="announcement-form">
-      <label>
+      <label class="A-label">
         Title
         <input type="text" id="announcement-title" required>
       </label>
-
-      <label>
+<br>
+      <label class="A-label">
         Message
         <textarea id="announcement-message" rows="5" required></textarea>
       </label>
-
-      <label>
+<br>
+      <label class="A-label">
         Priority
         <select id="announcement-priority">
           <option value="normal">Normal</option>
@@ -67,7 +65,7 @@
           <option value="urgent">Urgent</option>
         </select>
       </label>
-
+<br>
       <div class="form-actions">
         <button id="announcement-submit" type="submit">📢 Publish Announcement</button>
         <button id="announcement-cancel" type="button" style="display:none; margin-left:0.5rem;">Cancel Edit</button>
@@ -98,6 +96,6 @@
 
     <!-- SCRIPTS -->
     <script src="../js/main.js"></script>
-    <script src="announcements.js"></script>
+    <script src="../js/announcements.js"></script>
 </body>
 </html>
