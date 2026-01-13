@@ -445,3 +445,23 @@ body.light .announcement .controls button { color:#111; border-color: rgba(0,0,0
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
+/* Hide the button by default */
+#nav-toggle {
+  display: none;
+}
+
+/* Show it only on screens smaller than 768px (mobile) */
+@media (max-width: 768px) {
+  #nav-toggle {
+    display: block;
+  }
+
+  /* You may also want to hide the full nav links on mobile */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: block; /* Show when toggled */
+  }
+}
