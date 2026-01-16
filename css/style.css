@@ -32,8 +32,7 @@ header {
 }
 
 nav {
-  max-width: 1200px;
-  margin: auto;
+  width: 100%;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -43,8 +42,8 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.3rem;
+  gap: 0.2rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #4fc3f7;
 }
@@ -52,15 +51,17 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  justify-content: space-between;
+  flex: 1;
+  margin-left: 3rem;
 }
 
-.nav-links a {
+#user-greeting, .nav-links a {
   color: #cfd8dc;
   font-weight: 500;
 }
 
-.nav-links a:hover {
+#user-greeting:hover, .nav-links a:hover {
   color: #4fc3f7;
 }
 
@@ -127,6 +128,13 @@ nav {
   color: #0b0f1a;
   font-weight: bold;
 }
+#lsn-btn {
+  color: rgb(255, 255, 255);
+  font-size: large;
+}
+#lsn-btn:hover {
+  color: #00b3ff;
+}
 
 /* -------------------
    FEATURES
@@ -166,6 +174,18 @@ nav {
 .feature-card a {
   font-weight: bold;
   color: #81c784;
+}
+.feature-card {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.feature-card.active {
+  opacity: 1;
+}
+
+.feature-card.fade-in {
+  opacity: 1;
 }
 
 /* -------------------
@@ -464,4 +484,292 @@ body.light .announcement .controls button { color:#111; border-color: rgba(0,0,0
   .nav-links.open {
     display: block; /* Show when toggled */
   }
+}
+
+
+
+/* -----------------------------
+   MAIN LAB LAYOUT
+----------------------------- */
+#virtual-lab {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* -----------------------------
+   LEFT PANEL (equipment + chemicals)
+----------------------------- */
+#side-panel {
+  width: 260px;
+  background: #1f2933;
+  color: #fff;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+#side-panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #e4e7eb;
+}
+
+.panel-section {
+  margin-bottom: 24px;
+}
+
+#side-panel ul {
+  list-style: none;
+}
+
+#side-panel li {
+  background: #323f4b;
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  cursor: grab;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+#side-panel li:hover {
+  background: #3e4c59;
+}
+
+/* -----------------------------
+   WORKSPACE (canvas area)
+----------------------------- */
+#workspace {
+  flex: 1;
+  background: #e5e9f0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lab-canvas {
+  width: 100%;
+  height: 100%;
+  background: #d8dee9;
+  border: 1px solid #cbd2d9;
+}
+
+/* -----------------------------
+   RIGHT PANEL (info)
+----------------------------- */
+#info-panel {
+  width: 260px;
+  background: #ffffff;
+  border-left: 1px solid #d8e2ec;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+#info-panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+#info-output {
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+}
+
+#info-output p {
+  background: #f1f5f9;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border-left: 4px solid #3b82f6;
+}
+
+/* -----------------------------
+   MAIN LAYOUT
+----------------------------- */
+#forum-main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* -----------------------------
+   LEFT SIDEBAR (Topics)
+----------------------------- */
+#topic-sidebar {
+  width: 240px;
+  background: #1f2933;
+  color: #fff;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+#topic-sidebar h2 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+#topic-list {
+  list-style: none;
+}
+
+#topic-list li {
+  padding: 10px;
+  margin-bottom: 6px;
+  background: #323f4b;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#topic-list li:hover,
+#topic-list li.active {
+  background: #3e4c59;
+}
+
+/* -----------------------------
+   CENTER: Question List
+----------------------------- */
+#question-list {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.topic-group {
+  margin-bottom: 30px;
+}
+
+.topic-group h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #1f2933;
+}
+
+.topic-group ul {
+  list-style: none;
+}
+
+.topic-group li {
+  padding: 10px;
+  margin-bottom: 6px;
+  background: #ffffff;
+  border: 1px solid #d8e2ec;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.topic-group li:hover {
+  background: #e5e9f0;
+}
+
+/* -----------------------------
+   RIGHT PANEL: Question Details
+----------------------------- */
+#question-details {
+  width: 300px;
+  background: #ffffff;
+  border-left: 1px solid #d8e2ec;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+#question-details h2 {
+  margin-bottom: 12px;
+}
+
+#details-content {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.4rem;
+}
+
+#collab-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#collab-options.hidden {
+  display: none;
+}
+
+#collab-options button {
+  padding: 10px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#collab-options button:hover {
+  background: #2563eb;
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  width: 80%;
+  max-width: 700px;
+  max-height: 80vh;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+#modal-body {
+  color: black;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#modal-close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: black;
+}
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* full screen height */
+}
+
+/* Sidebar */
+#sidebar {
+  width: 250px;              /* fixed width */
+  background: #0d1b2a;       /* dark sci‑fi vibe */
+  color: white;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Main content area */
+.main-dash {
+  flex: 1;                   /* take up remaining space */
+  padding: 2rem;
+  background: #f5f7fa;       /* light background */
+  overflow-y: auto;          /* scroll if content is long */
+  box-sizing: border-box;
+}
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
 }

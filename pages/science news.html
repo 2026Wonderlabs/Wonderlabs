@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science News - Wonder Labs</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <meta http-equiv="refresh" content="600">
+</head>
+<body>
+    <header>
+    <nav>
+      <div class="logo">
+        <span>⚛</span>
+        <h1>Wonder Labs</h1>
+      </div>
+      <button id="nav-toggle" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
+      <span id="user-greeting"></span>
+
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="simulations.html">Simulations</a></li>
+        <li><a href="forum.html">Forum</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="enter-lab.html">Virtual Lab</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="A-btn" href="announcements.html" style="color: black;">Announcements</a></li>
+      </ul>
+
+      
+      <a class="login-btn" href="login.html">Log In</a>
+      <button id="logout-btn" class="login-btn" style="display:none; margin-left:0.5rem;">Logout</button>
+      <button id="theme-toggle">🌙</button>
+
+    </nav>
+  </header>
+  <main>
+    <h1 style="text-align:center; color:orange;">📰 Science News</h1>
+    <p style="text-align:center;">
+      Stay updated with the latest discoveries, research, and breakthroughs in the world of science.
+    </p>
+
+    <section id="science-news" style="max-width:800px; margin:2em auto;border-color: orange; border: 2px solid orange; border-radius: 8px; padding: 1em;">
+        <p style="text-align:center;">Loading science news...</p>
+    </section>
+  <div id="news-modal" class="modal">
+  <div class="modal-content">
+    <span id="modal-close">&times;</span>
+    <h2 id="modal-title"></h2>
+    <div id="modal-body"></div>
+    <a id="modal-link" href="#" target="_blank">Open full article</a>
+  </div>
+</div>
+  </main>
+<script src="../js/science-news.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

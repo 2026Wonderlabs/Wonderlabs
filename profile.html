@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <link rel="stylesheet" href="css/style.css">
+    <title>wonder labs profile</title>
+</head>
+<body style="color: black;">
+    <header style="text-align: center; margin: 2em; color: deeppink; background-color: aqua; padding: 1em; border-radius: 10px;">
+        <h1 >wonder labs profile</h1>
+        <p>Welcome to the Wonder Labs profile page. Here your stats, account information, and achievements will be displayed.</p>
+    </header>
+<div class="dashboard-container">
+    <aside>
+        <nav id="sidebar">
+            <ul>
+                <li class="active" data-target="user-info">user information ℹ️</li>
+                <li data-target="stats">account stats 📈</li>
+                <li data-target="achievements">achievements 📙</li>
+                <li data-target="settings">settings ⚙️</li>
+                <li>logout</li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-dash">
+        <div class="section" id="user-info">
+            <h2>User Information</h2>
+            <p>Name: [User's Name]</p>
+            <p>Email: [User's Email]</p>
+            <p>Member since: [Join Date]</p>
+        </div>
+        <div class="section" id="stats">
+            <h2>Account Stats</h2>
+            <p>Lessons Completed: [Number]</p>
+            <p>Simulations Run: [Number]</p>
+            <p>Forum Posts: [Number]</p>
+        </div>
+        <div class="section" id="achievements">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Achievement 1: [Description]</li>
+                <li>Achievement 2: [Description]</li>
+                <li>Achievement 3: [Description]</li>
+            </ul>
+        </div>
+        <div class="section" id="settings">
+            <h2>Settings</h2>
+            <p><a href="#">Change Password</a></p>
+            <p><a href="#">Notification Preferences</a></p>
+            <p><a href="#">Privacy Settings</a></p>
+        </div>
+    </main>
+</div>
+<script src="js/profile.js"></script>
+</body>
+</html>

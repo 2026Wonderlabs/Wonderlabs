@@ -1,0 +1,48 @@
+#topper{
+    background-color: #0080ff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    height: 100px;
+}
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;               /* stick to left side */
+    width: 250px;
+    height: 100vh;
+    background: #000000;
+    padding: 20px;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+    transform: translateX(-100%); /* hidden by default */
+    transition: transform 0.3s ease;
+}
+
+#sidebar.open {
+    transform: translateX(0); /* slide in */
+}
+
+.toggleBtn {
+    position: fixed;
+    top: 20px;
+    left: 80%;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    background: linear-gradient(to right, #00f260, #8ac5ff);
+}
+.toggleBtn:last-of-type {
+    left: 92%;
+}
+#dropzone {
+    width: 50%;
+    height: 90%;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    position: absolute;
+    top: 100px;      /* vertical position */
+    left: 75%;       /* anchor horizontally */
+    transform: translateX(-50%); /* center horizontally */
+    z-index: 5;
+}

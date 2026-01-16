@@ -1,99 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Wonder Labs - Virtual Lab</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/virtual-lab.css">
+  <meta http-equiv="refresh" content="60">
+  <title>virtual-lab</title>
 </head>
 <body>
-    <header>
-    <nav>
-      <div class="logo">
-        <span>⚛</span>
-        <h1>Wonder Labs</h1>
-      </div>
-      <button id="nav-toggle" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
-      <span id="user-greeting"></span>
-
-
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="lessons.html">Lessons</a></li>
-        <li><a href="simulations.html">Simulations</a></li>
-        <li><a href="forum.html">Forum</a></li>
-        <li><a href="experiments.html">Experiments</a></li>
-        <li><a href="virtual-lab.html">Virtual Lab</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a class="A-btn" href="announcements.html" style="color: black;">Announcements</a></li>
-      </ul>
-
-      
-      <a class="login-btn" href="login.html">Log In</a>
-      <button id="logout-btn" class="login-btn" style="display:none; margin-left:0.5rem;">Logout</button>
-      <button id="theme-toggle">🌙</button>
-
-    </nav>
-  </header>
-  <main id="lab-landing">
-
-  <!-- HERO / INTRO SECTION -->
-  <section id="lab-hero" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; background:linear-gradient(135deg, #0d1b2a, #1b263b); color:white; text-align:center; padding:2em;">
-    <h1 style="font-size:3em; margin-bottom:0.5em;">🔬 Wonder Labs Sandbox</h1>
-    <p style="font-size:1.2em; max-width:600px; margin-bottom:2em;">
-      Step inside the ultimate virtual laboratory. Explore, experiment, and discover — no missions, no restrictions. Mix chemicals, study organisms, run physics experiments, or simulate biological processes — everything is at your fingertips.
-    </p>
-    <button id="enter-lab-btn" style="padding:1em 2em; font-size:1.5em; background:#ff0051; color:white; border:none; border-radius:10px; cursor:pointer; transition:0.3s;">
-      🧪 Enter Lab
-    </button>
-  </section>
-
-  <!-- OPTIONAL PREVIEW / FEATURED TOOLS -->
-  <section id="lab-preview" style="display:flex; flex-wrap:wrap; justify-content:center; padding:2em; background:#f0f2f5;">
-    <div class="tool-preview" style="width:150px; margin:1em; text-align:center;">
-      <img src="../assets/chemicals.png" alt="Chemicals" style="width:100%; border-radius:10px;">
-      <p>All Chemicals</p>
-    </div>
-    <div class="tool-preview" style="width:150px; margin:1em; text-align:center;">
-      <img src="../assets/microscope.png" alt="Microscope" style="width:100%; border-radius:10px;">
-      <p>Microscopes</p>
-    </div>
-    <div class="tool-preview" style="width:150px; margin:1em; text-align:center;">
-      <img src="../assets/viruses.png" alt="Microorganisms" style="width:100%; border-radius:10px;">
-      <p>Viruses & Amoebas</p>
-    </div>
-    <div class="tool-preview" style="width:150px; margin:1em; text-align:center;">
-      <img src="../assets/tools.png" alt="Lab Tools" style="width:100%; border-radius:10px;">
-      <p>Lab Instruments</p>
-    </div>
-    <div class="tool-preview" style="width:150px; margin:1em; text-align:center;">
-      <img src="../assets/physics.png" alt="Physics Experiments" style="width:100%; border-radius:10px;">
-      <p>Physics Setups</p>
-    </div>
-  </section>
-
-</main>
-
-   <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Wonder Labs. Built for curiosity.</p>
-    <div class="social-links">
-      <a class="social youtube" href="https://youtube.com/@wonderlabs4u?si=luEjNlCX56uXVFyH" target="_blank" aria-label="YouTube">
-        <svg class="icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true"><path d="M23.5 6.2a2.8 2.8 0 0 0-1.9-2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.6.7A2.8 2.8 0 0 0 .5 6.2 29.5 29.5 0 0 0 0 12a29.5 29.5 0 0 0 .5 5.8 2.8 2.8 0 0 0 1.9 2c2.3.7 9.6.7 9.6.7s7.3 0 9.6-.7a2.8 2.8 0 0 0 1.9-2A29.5 29.5 0 0 0 24 12a29.5 29.5 0 0 0-.5-5.8zM9.75 15.02v-6l6 3-6 3z"></path></svg>
-        <span class="label">YouTube</span>
-      </a>
-      <a class="social x" href="https://x.com/wonderlab4u" target="_blank" aria-label="X (formerly Twitter)">
-        <svg class="icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true"><path d="M18 7L11 14M6 7l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-        <span class="label">X</span>
-      </a>
-      <a class="social discord" href="https://discord.gg/2ERSvjBP" target="_blank" aria-label="Discord">
-        <svg class="icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true"><path d="M8.5 11.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm7 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM4.5 6s1.2-1.8 5.5-1.8c4.3 0 5.5 1.8 5.5 1.8S18 6 18 10v2c0 4-2 6-6 6s-6-2-6-6v-2c0-4-.999-4-1-4z" /></svg>
-        <span class="label">Discord</span>
-      </a>
-    </div>
-  </footer>
-  <script src="../js/main.js"></script>
+  <div id="topper">
+    <h1>Virtual Lab</h1>
+  </div>
+<div id="sidebar">
+  <ul>
+    <li>tool 1</li>
+    <li>tool 2</li>
+    <li>tool 3</li>
+    <li>tool 4</li>
+    <li>tool 5</li>
+  </ul>
+</div>
+<div id="dropzone"></div>
+<button class="toggleBtn">Toggle Sidebar</button>
+<button class="toggleBtn"><a href="../index.html">Home</a></button>
+  
   <script src="../js/virtual-lab.js"></script>
 </body>
 </html>

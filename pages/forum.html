@@ -9,113 +9,139 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">
+        <span>⚛</span>
+        <h1>Wonder Labs</h1>
+      </div>
+      <button id="nav-toggle" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
+      <span id="user-greeting"></span>
 
-<header>
-  <nav>
-    <div class="logo">
-      <span>⚛</span>
-      <h1>Wonder Labs</h1>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="simulations.html">Simulations</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="enter-lab.html">Virtual Lab</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="science news.html">Science News</a></li>
+        <li><a class="A-btn" href="announcements.html" style="color: black;">Announcements</a></li>
+      </ul>
+
+      <a class="login-btn" href="../login.html">Log In</a>
+      <button id="logout-btn" class="login-btn" style="display:none; margin-left:0.5rem;">Logout</button>
+      <button id="theme-toggle">🌙</button>
+
+    </nav>
+  </header>
+<main id="forum-main">
+
+  <!-- LEFT: Topic Filters -->
+  <aside id="topic-sidebar">
+    <h2>Topics</h2>
+    <ul id="topic-list">
+      <li data-topic="physics">Physics</li>
+      <li data-topic="chemistry">Chemistry</li>
+      <li data-topic="biology">Biology</li>
+      <li data-topic="astronomy">Astronomy</li>
+      <li data-topic="earth-science">Earth Science</li>
+      <li data-topic="technology">Technology</li>
+    </ul>
+  </aside>
+
+  <!-- CENTER: Question List Grouped by Topic -->
+  <section id="question-list">
+
+    <div class="topic-group" data-topic="physics">
+      <h3>Physics</h3>
+      <ul>
+        <li data-id="1">What is dark matter made of?</li>
+        <li data-id="2">Why does the universe expand faster over time?</li>
+      </ul>
     </div>
 
-    <button id="nav-toggle" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">☰</button>
-    <span id="user-greeting"></span>
+    <div class="topic-group" data-topic="chemistry">
+      <h3>Chemistry</h3>
+      <ul>
+        <li data-id="3">Why do some reactions violate expected kinetics?</li>
+        <li data-id="4">What determines the limits of chemical stability?</li>
+      </ul>
+    </div>
 
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="lessons.html">Lessons</a></li>
-      <li><a href="simulations.html">Simulations</a></li>
-      <li><a href="experiments.html">Experiments</a></li>
-      <li><a href="virtual-lab.html">Virtual Lab</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a class="A-btn" href="announcements.html" style="color: black;">Announcements</a></li>
-    </ul>
+    <div class="topic-group" data-topic="biology">
+      <h3>Biology</h3>
+      <ul>
+        <li data-id="5">Why do humans dream?</li>
+        <li data-id="6">How did life originate on Earth?</li>
+      </ul>
+    </div>
 
-    <a class="login-btn" href="../login.html">Log In</a>
-    <button id="logout-btn" class="login-btn" style="display:none;">Logout</button>
-    <button id="theme-toggle">🌙</button>
-  </nav>
-</header>
+    <div class="topic-group" data-topic="astronomy">
+      <h3>Astronomy</h3>
+      <ul>
+        <li data-id="7">What is the true nature of black holes?</li>
+        <li data-id="8">Are there Earth-like planets with life?</li>
+      </ul>
+    </div>
 
-<main>
-  <!-- INTRO -->
-  <section id="forum-intro" style="text-align:center; padding:2em;">
-    <h1 style="color:#ff0051;">🧠 Collaborative Science Forum</h1>
-    <p>Work together to solve unanswered scientific questions using experiments, data, simulations, and discussion.</p>
-    <p>Join teams or contribute publicly. All contributions help real scientific learning 🌍🔬</p>
+    <div class="topic-group" data-topic="earth-science">
+      <h3>Earth Science</h3>
+      <ul>
+        <li data-id="9">What triggers sudden climate shifts?</li>
+        <li data-id="10">How deep does microbial life extend underground?</li>
+      </ul>
+    </div>
+
+    <div class="topic-group" data-topic="technology">
+      <h3>Technology</h3>
+      <ul>
+        <li data-id="11">Can quantum computing break classical encryption?</li>
+        <li data-id="12">What are the limits of AI self‑learning?</li>
+      </ul>
+    </div>
+
   </section>
 
-  <!-- FILTERS & SEARCH -->
-  <section id="forum-controls">
-    <input type="text" id="search-questions" placeholder="Search questions...">
-    <select id="filter-category">
-      <option value="">All Categories</option>
-      <option value="biology">Biology</option>
-      <option value="chemistry">Chemistry</option>
-      <option value="physics">Physics</option>
-      <option value="climate">Climate</option>
-      <option value="astronomy">Astronomy</option>
-    </select>
-    <select id="filter-level">
-      <option value="">All Levels</option>
-      <option value="gcse">GCSE</option>
-      <option value="alevel">A-Level</option>
-      <option value="advanced">Advanced</option>
-    </select>
-    <select id="filter-status">
-      <option value="">All Statuses</option>
-      <option value="open">Open</option>
-      <option value="investigating">Investigating</option>
-      <option value="partial">Partial Solution</option>
-      <option value="needs-data">Needs Data</option>
-    </select>
-    <button id="ask-question-btn">➕ Ask a Question</button>
-  </section>
+  <!-- RIGHT: Question Details + Collaboration Options -->
+  <aside id="question-details">
+    <h2>Question Details</h2>
+    <div id="details-content">
+      <p>Select a question to view details.</p>
+    </div>
 
-  <!-- QUESTIONS LIST -->
-  <section id="questions-list">
-    <!-- JS will dynamically inject questions here -->
-    <!-- Example structure repeated per question -->
-    <!-- 15 questions will be preloaded via JS -->
-    <!-- Each question has: public whiteboard, discussion, team collaboration -->
-  </section>
-
-  <!-- ASK QUESTION MODAL -->
-  <section id="ask-question" style="display:none;">
-    <h2>Ask a New Question</h2>
-    <form id="question-form">
-      <label>Title: <input type="text" id="question-title" required></label>
-      <label>Category:
-        <select id="question-category" required>
-          <option value="">Select</option>
-          <option value="biology">Biology</option>
-          <option value="chemistry">Chemistry</option>
-          <option value="physics">Physics</option>
-          <option value="climate">Climate</option>
-          <option value="astronomy">Astronomy</option>
-        </select>
-      </label>
-      <label>Level:
-        <select id="question-level" required>
-          <option value="">Select</option>
-          <option value="gcse">GCSE</option>
-          <option value="alevel">A-Level</option>
-          <option value="advanced">Advanced</option>
-        </select>
-      </label>
-      <label>Description: <textarea id="question-description" rows="6" required></textarea></label>
-      <label>What’s already known (optional): <textarea id="question-known" rows="4"></textarea></label>
-      <button type="submit">Submit Question</button>
-      <button type="button" id="cancel-question">Cancel</button>
-    </form>
-  </section>
+    <div id="collab-options" class="hidden">
+      <h3>Work on this Question</h3>
+      <button data-mode="solo">Work Solo</button>
+      <button data-mode="team">Create a Team Room</button>
+      <button data-mode="public">Join Public Room</button>
+    </div>
+  </aside>
 
 </main>
 
-<footer>
-  <p>© 2026 Wonder Labs — Collaborative science for everyone ⚛</p>
-</footer>
-
+ <footer>
+    <p>© 2026 Wonder Labs. Built for curiosity.</p>
+    <div class="social-links">
+      <a class="social youtube" href="https://youtube.com/@wonderlabs4u?si=luEjNlCX56uXVFyH" target="_blank" aria-label="YouTube">
+        <svg class="icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" role="img" aria-hidden="true"><path d="M23.5 6.2a2.8 2.8 0 0 0-1.9-2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.6.7A2.8 2.8 0 0 0 .5 6.2 29.5 29.5 0 0 0 0 12a29.5 29.5 0 0 0 .5 5.8 2.8 2.8 0 0 0 1.9 2c2.3.7 9.6.7 9.6.7s7.3 0 9.6-.7a2.8 2.8 0 0 0 1.9-2A29.5 29.5 0 0 0 24 12a29.5 29.5 0 0 0-.5-5.8zM9.75 15.02v-6l6 3-6 3z"></path></svg>
+        <span class="label">YouTube</span>
+      </a>
+      <a class="social x" href="https://x.com/wonderlab4u" target="_blank" aria-label="X (formerly Twitter)">
+  <svg class="icon" viewBox="0 0 24 24" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 3L21 21M21 3L3 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span class="label">X</span>
+</a>
+<a class="social discord" href="https://discord.gg/2ERSvjBP" target="_blank" aria-label="Discord">
+  <svg class="icon" viewBox="0 0 71 55" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#7289DA" d="M60.104 4.552A58.33 58.33 0 0046.4 0c-.2.376-.404.864-.576 1.248-5.48-1.248-11.288-1.248-16.768 0-.176-.384-.376-.864-.576-1.248a58.184 58.184 0 00-13.704 4.552C.664 21.12-1.2 37.2.48 52.112a60.248 60.248 0 0017.872 3.68c1.36-.992 2.568-2.016 3.616-3.072a45.68 45.68 0 01-6.4-3.04c.544-.384 1.08-.768 1.592-1.152 12.48 5.888 26.064 5.888 38.544 0 .512.384 1.048.768 1.592 1.152a45.696 45.696 0 01-6.4 3.04c1.048 1.056 2.256 2.08 3.616 3.072a60.264 60.264 0 0017.872-3.68c1.776-14.912-.192-30.992-14.544-47.56zM23.928 37.424c-3.168 0-5.76-2.88-5.76-6.4s2.568-6.4 5.76-6.4c3.2 0 5.792 2.88 5.76 6.4 0 3.52-2.56 6.4-5.76 6.4zm23.136 0c-3.168 0-5.76-2.88-5.76-6.4s2.568-6.4 5.76-6.4c3.2 0 5.76 2.88 5.76 6.4 0 3.52-2.56 6.4-5.76 6.4z"/>
+  </svg>
+  <span class="label">Discord</span>
+</a>
+  </div>
+  </footer>
 <script src="../js/main.js"></script>
 <script src="../js/forum.js"></script>
 </body>

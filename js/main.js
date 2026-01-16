@@ -211,3 +211,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+// ------------------------------
+// FEATURE CARD CAROUSEL
+// ------------------------------
+
+let currentCard = 0;
+const cards = document.querySelectorAll(".feature-card");
+let autoRotateInterval;
+
+// Show a specific card with fade transition
+function showCard(index) {
+  cards.forEach(card => {
+    card.classList.remove("active");
+    card.classList.remove("fade-in");
+  });
+
+  cards[index].classList.add("active");
+
+  // Trigger fade animation
+  setTimeout(() => {
+    cards[index].classList.add("fade-in");
+  }, 20);
+}
+
+// Next / Previous controls
+function nextCard() {
+  currentCard = (currentCard + 1) % cards.length;
+  showCard(currentCard);
+}
+
+function prevCard() {
+  currentCard = (currentCard - 1 + cards.length) % cards.length;
+  showCard(currentCard);
+}
+
+// ------------------------------
+// AUTO‑ROTATION
+// ------------------------------
+function startAutoRotate() {
+  autoRotateInterval = setInterval(nextCard, 4000); // rotates every 4 seconds
+}
+
+function stopAutoRotate() {
+  clearInterval(autoRotateInterval);
+}
+
+startAutoRotate();
+
+// Pause auto‑rotate when user interacts
+document.querySelector(".features-carousel").addEventListener("mouseenter", stopAutoRotate);
+document.querySelector(".features-carousel").addEventListener("mouseleave", startAutoRotate);
+
+
+// ------------------------------
+// TOUCH / SWIPE SUPPORT (Mobile)
+// ------------------------------
+let startX = 0;
+
+document.querySelector(".features-carousel").addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  stopAutoRotate();
+});
+
+document.querySelector(".features-carousel").addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) nextCard();   // swipe left
+    else prevCard();            // swipe right
+  }
+
+  startAutoRotate();
+});
