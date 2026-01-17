@@ -1,1 +1,520 @@
-<!-- Hydrogen simulation page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wonder Labs Atom Simulator</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #050816, #000);
+    font-family: Arial, sans-serif;
+  }
+
+  #ui {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.94);
+    padding: 15px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  }
+
+  #ui h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 13px;
+    display: block;
+    margin-top: 8px;
+  }
+
+  select, button {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+  }
+
+  button {
+    background: #2b6cb0;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #2c5282;
+  }
+
+  #info {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+<div id="ui">
+  <h2>Atom Simulator</h2>
+
+  <label>Element</label>
+  <select id="elementSelect"></select>
+
+  <label>Mode</label>
+  <button id="modeBtn">Bohr Model</button>
+
+  <div id="info"></div>
+  <label>Decay Type</label>
+<select id="decayType">
+  <option value="auto">Auto (recommended)</option>
+  <option value="alpha">Alpha Decay (α)</option>
+  <option value="beta">Beta Decay (β⁻)</option>
+  <option value="gamma">Gamma Decay (γ)</option>
+</select>
+  <button id="decayBtn">Decay Mode</button>
+
+  <p style="font-size:11px; margin-top:8px;">
+    Drag to rotate • Scroll to zoom  
+  </p>
+</div>
+<button id="returnBtn">Return to Simulations</button>
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+<script>
+/* -----------------------------
+   FULL PERIODIC TABLE (118 elements)
+----------------------------- */
+const ELEMENT_META = [
+  [1,"H","Hydrogen"],[2,"He","Helium"],[3,"Li","Lithium"],[4,"Be","Beryllium"],
+  [5,"B","Boron"],[6,"C","Carbon"],[7,"N","Nitrogen"],[8,"O","Oxygen"],
+  [9,"F","Fluorine"],[10,"Ne","Neon"],[11,"Na","Sodium"],[12,"Mg","Magnesium"],
+  [13,"Al","Aluminium"],[14,"Si","Silicon"],[15,"P","Phosphorus"],[16,"S","Sulfur"],
+  [17,"Cl","Chlorine"],[18,"Ar","Argon"],[19,"K","Potassium"],[20,"Ca","Calcium"],
+  [21,"Sc","Scandium"],[22,"Ti","Titanium"],[23,"V","Vanadium"],[24,"Cr","Chromium"],
+  [25,"Mn","Manganese"],[26,"Fe","Iron"],[27,"Co","Cobalt"],[28,"Ni","Nickel"],
+  [29,"Cu","Copper"],[30,"Zn","Zinc"],[31,"Ga","Gallium"],[32,"Ge","Germanium"],
+  [33,"As","Arsenic"],[34,"Se","Selenium"],[35,"Br","Bromine"],[36,"Kr","Krypton"],
+  [37,"Rb","Rubidium"],[38,"Sr","Strontium"],[39,"Y","Yttrium"],[40,"Zr","Zirconium"],
+  [41,"Nb","Niobium"],[42,"Mo","Molybdenum"],[43,"Tc","Technetium"],[44,"Ru","Ruthenium"],
+  [45,"Rh","Rhodium"],[46,"Pd","Palladium"],[47,"Ag","Silver"],[48,"Cd","Cadmium"],
+  [49,"In","Indium"],[50,"Sn","Tin"],[51,"Sb","Antimony"],[52,"Te","Tellurium"],
+  [53,"I","Iodine"],[54,"Xe","Xenon"],[55,"Cs","Caesium"],[56,"Ba","Barium"],
+  [57,"La","Lanthanum"],[58,"Ce","Cerium"],[59,"Pr","Praseodymium"],[60,"Nd","Neodymium"],
+  [61,"Pm","Promethium"],[62,"Sm","Samarium"],[63,"Eu","Europium"],[64,"Gd","Gadolinium"],
+  [65,"Tb","Terbium"],[66,"Dy","Dysprosium"],[67,"Ho","Holmium"],[68,"Er","Erbium"],
+  [69,"Tm","Thulium"],[70,"Yb","Ytterbium"],[71,"Lu","Lutetium"],[72,"Hf","Hafnium"],
+  [73,"Ta","Tantalum"],[74,"W","Tungsten"],[75,"Re","Rhenium"],[76,"Os","Osmium"],
+  [77,"Ir","Iridium"],[78,"Pt","Platinum"],[79,"Au","Gold"],[80,"Hg","Mercury"],
+  [81,"Tl","Thallium"],[82,"Pb","Lead"],[83,"Bi","Bismuth"],[84,"Po","Polonium"],
+  [85,"At","Astatine"],[86,"Rn","Radon"],[87,"Fr","Francium"],[88,"Ra","Radium"],
+  [89,"Ac","Actinium"],[90,"Th","Thorium"],[91,"Pa","Protactinium"],[92,"U","Uranium"],
+  [93,"Np","Neptunium"],[94,"Pu","Plutonium"],[95,"Am","Americium"],[96,"Cm","Curium"],
+  [97,"Bk","Berkelium"],[98,"Cf","Californium"],[99,"Es","Einsteinium"],[100,"Fm","Fermium"],
+  [101,"Md","Mendelevium"],[102,"No","Nobelium"],[103,"Lr","Lawrencium"],[104,"Rf","Rutherfordium"],
+  [105,"Db","Dubnium"],[106,"Sg","Seaborgium"],[107,"Bh","Bohrium"],[108,"Hs","Hassium"],
+  [109,"Mt","Meitnerium"],[110,"Ds","Darmstadtium"],[111,"Rg","Roentgenium"],[112,"Cn","Copernicium"],
+  [113,"Nh","Nihonium"],[114,"Fl","Flerovium"],[115,"Mc","Moscovium"],[116,"Lv","Livermorium"],
+  [117,"Ts","Tennessine"],[118,"Og","Oganesson"]
+];
+
+/* Shell filling rule */
+function shellsForZ(Z) {
+  const caps = [2,8,18,32,32,18,8];
+  const shells = [];
+  let left = Z;
+  for (let c of caps) {
+    if (left <= 0) break;
+    const take = Math.min(c, left);
+    shells.push(take);
+    left -= take;
+  }
+  return shells;
+}
+
+const ELEMENTS = {};
+ELEMENT_META.forEach(([Z,sym,name]) => {
+  ELEMENTS[sym] = { Z, name, shells: shellsForZ(Z) };
+});
+
+/* -----------------------------
+   UI setup
+----------------------------- */
+const elementSelect = document.getElementById("elementSelect");
+const infoBox = document.getElementById("info");
+const modeBtn = document.getElementById("modeBtn");
+
+ELEMENT_META.forEach(([Z,sym,name]) => {
+  const opt = document.createElement("option");
+  opt.value = sym;
+  opt.textContent = `${sym} (${Z}) ${name}`;
+  elementSelect.appendChild(opt);
+});
+elementSelect.value = "H";
+
+/* -----------------------------
+   Three.js scene
+----------------------------- */
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
+
+const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 2000);
+camera.position.set(0, 20, 80);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+const light = new THREE.PointLight(0xffffff, 1.2);
+light.position.set(25,25,25);
+scene.add(light);
+
+const nucleusGroup = new THREE.Group();
+const electronGroup = new THREE.Group();
+scene.add(nucleusGroup);
+scene.add(electronGroup);
+
+/* -----------------------------
+   Nucleus (protons + neutrons)
+----------------------------- */
+function buildNucleus(Z) {
+  nucleusGroup.clear();
+
+  const protonCount = Z;
+  const neutronCount = Z;
+
+  const protonGeom = new THREE.SphereGeometry(0.6, 16, 16);
+  const neutronGeom = new THREE.SphereGeometry(0.6, 16, 16);
+
+  const protonMat = new THREE.MeshPhongMaterial({
+    color: 0xff4444,
+    emissive: 0x330000
+  });
+
+  const neutronMat = new THREE.MeshPhongMaterial({
+    color: 0xaaaaaa,
+    emissive: 0x222222
+  });
+
+  const total = protonCount + neutronCount;
+
+  for (let i = 0; i < total; i++) {
+    const isProton = i < protonCount;
+    const geom = isProton ? protonGeom : neutronGeom;
+    const mat = isProton ? protonMat : neutronMat;
+
+    const particle = new THREE.Mesh(geom, mat);
+
+    const r = Math.cbrt(Math.random()) * 2.2;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+
+    particle.position.set(
+      r * Math.sin(phi) * Math.cos(theta),
+      r * Math.sin(phi) * Math.sin(theta),
+      r * Math.cos(phi)
+    );
+
+    particle.userData.base = particle.position.clone();
+    particle.userData.phase = Math.random() * Math.PI * 2;
+
+    nucleusGroup.add(particle);
+  }
+}
+
+/* -----------------------------
+   Bohr electrons + trails
+----------------------------- */
+const electrons = [];
+const TRAIL_LENGTH = 40;
+
+function buildBohr(shells) {
+  electronGroup.clear();
+  electrons.length = 0;
+
+  const electronGeom = new THREE.SphereGeometry(0.4, 16, 16);
+  const electronMat = new THREE.MeshPhongMaterial({ color: 0x66aaff });
+
+  shells.forEach((count, i) => {
+    const radius = 6 + i * 4;
+
+    for (let e = 0; e < count; e++) {
+      const mesh = new THREE.Mesh(electronGeom, electronMat);
+      const angle = (e / count) * Math.PI * 2;
+      const speed = 0.01 + i * 0.004;
+
+      const trailGeom = new THREE.BufferGeometry();
+      const positions = new Float32Array(TRAIL_LENGTH * 3);
+      trailGeom.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      const trailMat = new THREE.LineBasicMaterial({
+        color: 0x66aaff,
+        transparent: true,
+        opacity: 0.6
+      });
+      const trailLine = new THREE.Line(trailGeom, trailMat);
+
+      electronGroup.add(mesh);
+      electronGroup.add(trailLine);
+
+      electrons.push({
+        mesh,
+        radius,
+        angle,
+        speed,
+        trailGeom,
+        trailPositions: positions
+      });
+    }
+  });
+}
+
+/* -----------------------------
+   Quantum cloud
+----------------------------- */
+function buildCloud(shells) {
+  electronGroup.clear();
+  electrons.length = 0;
+
+  shells.forEach((count, i) => {
+    const radius = 6 + i * 4;
+    const points = new THREE.BufferGeometry();
+    const num = count * 200;
+
+    const positions = new Float32Array(num * 3);
+    for (let p = 0; p < num; p++) {
+      const r = radius * (0.5 + Math.random()*0.5);
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2*Math.random()-1);
+
+      positions[p*3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[p*3+1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[p*3+2] = r * Math.cos(phi);
+    }
+
+    points.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+    const mat = new THREE.PointsMaterial({
+      color: 0x66aaff,
+      size: 0.15,
+      transparent: true,
+      opacity: 0.8
+    });
+
+    electronGroup.add(new THREE.Points(points, mat));
+  });
+}
+
+/* -----------------------------
+   Auto camera
+----------------------------- */
+function adjustCamera(shellCount) {
+  camera.position.z = 30 + shellCount * 8;
+  camera.position.y = shellCount * 2;
+  camera.lookAt(0, 0, 0);
+}
+
+/* -----------------------------
+   Update model + labels
+----------------------------- */
+let quantumMode = false;
+
+function updateInfo(sym) {
+  const el = ELEMENTS[sym];
+  infoBox.innerHTML =
+    `<strong>${el.name}</strong> (Z=${el.Z}, ${sym})<br>` +
+    `Shells: [${el.shells.join(", ")}]<br>` +
+    (quantumMode ? "Quantum cloud mode" : "Bohr model with electron trails");
+}
+
+function updateModel() {
+  const sym = elementSelect.value;
+  const el = ELEMENTS[sym];
+
+  buildNucleus(el.Z);
+  if (quantumMode) buildCloud(el.shells);
+  else buildBohr(el.shells);
+
+  adjustCamera(el.shells.length);
+  updateInfo(sym);
+}
+
+/* -----------------------------
+   Animation
+----------------------------- */
+let time = 0;
+
+function animate() {
+  requestAnimationFrame(animate);
+  time += 0.01;
+
+  nucleusGroup.children.forEach(p => {
+    const base = p.userData.base;
+    const phase = p.userData.phase;
+    p.position.x = base.x + Math.sin(time * 2 + phase) * 0.1;
+    p.position.y = base.y + Math.cos(time * 2.3 + phase) * 0.1;
+    p.position.z = base.z + Math.sin(time * 1.7 + phase) * 0.1;
+  });
+
+  if (!quantumMode) {
+    electrons.forEach(e => {
+      e.angle += e.speed;
+      const x = Math.cos(e.angle) * e.radius;
+      const z = Math.sin(e.angle) * e.radius;
+      e.mesh.position.set(x, 0, z);
+
+      const pos = e.trailPositions;
+      for (let i = TRAIL_LENGTH - 1; i > 0; i--) {
+        pos[i*3]   = pos[(i-1)*3];
+        pos[i*3+1] = pos[(i-1)*3+1];
+        pos[i*3+2] = pos[(i-1)*3+2];
+      }
+      pos[0] = x;
+      pos[1] = 0;
+      pos[2] = z;
+      e.trailGeom.attributes.position.needsUpdate = true;
+    });
+  }
+
+  renderer.render(scene, camera);
+}
+animate();
+
+/* -----------------------------
+   Controls
+----------------------------- */
+let dragging = false;
+let prevX = 0;
+
+renderer.domElement.addEventListener("mousedown", e => {
+  dragging = true;
+  prevX = e.clientX;
+});
+
+window.addEventListener("mouseup", () => dragging = false);
+
+window.addEventListener("mousemove", e => {
+  if (!dragging) return;
+  const dx = e.clientX - prevX;
+  prevX = e.clientX;
+  scene.rotation.y += dx * 0.005;
+});
+
+renderer.domElement.addEventListener("wheel", e => {
+  camera.position.z += e.deltaY * 0.02;
+});
+
+/* -----------------------------
+   UI events
+----------------------------- */
+elementSelect.addEventListener("change", updateModel);
+
+modeBtn.addEventListener("click", () => {
+  quantumMode = !quantumMode;
+  modeBtn.textContent = quantumMode ? "Quantum Cloud" : "Bohr Model";
+  updateModel();
+});
+document.getElementById("decayBtn").addEventListener("click", () => {
+  triggerDecay();
+});
+function triggerDecay() {
+  const sym = elementSelect.value;
+  const el = ELEMENTS[sym];
+  const selected = document.getElementById("decayType").value;
+
+  let mode = selected;
+
+  // Auto mode chooses based on atomic number
+  if (mode === "auto") {
+    if (el.Z > 82) mode = "alpha";      // heavy elements
+    else if (el.Z > 20) mode = "beta";  // medium elements
+    else mode = "gamma";                // light elements
+  }
+
+  if (mode === "alpha") {
+    performAlphaDecay(el);
+  } else if (mode === "beta") {
+    performBetaDecay(el);
+  } else {
+    performGammaDecay(el);
+  }
+}
+function performAlphaDecay(el) {
+  // Visual particle
+  spawnDecayParticle(0xffaa00);
+
+  const newZ = Math.max(1, el.Z - 2);
+  const newSym = ELEMENT_META.find(e => e[0] === newZ)[1];
+
+  elementSelect.value = newSym;
+  updateModel();
+}
+function performBetaDecay(el) {
+  // Visual particle
+  spawnDecayParticle(0x55aaff);
+
+  const newZ = Math.min(118, el.Z + 1);
+  const newSym = ELEMENT_META.find(e => e[0] === newZ)[1];
+
+  elementSelect.value = newSym;
+  updateModel();
+}
+function performGammaDecay(el) {
+  spawnDecayFlash();
+}
+function spawnDecayParticle(color) {
+  const geom = new THREE.SphereGeometry(0.8, 16, 16);
+  const mat = new THREE.MeshBasicMaterial({ color });
+  const particle = new THREE.Mesh(geom, mat);
+
+  particle.position.set(0, 0, 0);
+  scene.add(particle);
+
+  let t = 0;
+  const dir = new THREE.Vector3(
+    Math.random()*2-1,
+    Math.random()*2-1,
+    Math.random()*2-1
+  ).normalize();
+
+  function animateParticle() {
+    t += 0.02;
+    particle.position.addScaledVector(dir, 0.8);
+    particle.material.opacity = 1 - t;
+
+    if (t < 1) requestAnimationFrame(animateParticle);
+    else scene.remove(particle);
+  }
+
+  animateParticle();
+}
+function spawnDecayFlash() {
+  const flash = new THREE.PointLight(0xffffff, 5, 50);
+  flash.position.set(0,0,0);
+  scene.add(flash);
+
+  let t = 0;
+  function animateFlash() {
+    t += 0.05;
+    flash.intensity = 5 * (1 - t);
+    if (t < 1) requestAnimationFrame(animateFlash);
+    else scene.remove(flash);
+  }
+  animateFlash();
+}
+document.getElementById("returnBtn").addEventListener("click", () => {
+  window.location.href = "../pages/simulations.html";
+});
+/* Start */
+updateModel();
+</script>
+
+</body>
+</html>

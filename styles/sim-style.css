@@ -1,0 +1,14 @@
+.return-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.6rem 1.2rem;
+  background: #1a1f36;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.return-btn:hover {
+  background: #2a2f46;
+}

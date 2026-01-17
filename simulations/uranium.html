@@ -1,1 +1,734 @@
-<!-- Uranium simulation page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wonder Labs · Uranium‑235 Simulation</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #050816, #000);
+    font-family: Arial, sans-serif;
+  }
+
+  #ui {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.95);
+    padding: 15px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  }
+
+  #ui h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+
+  .tabs {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 6px 4px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    margin-right: 4px;
+    background: #f3f3f3;
+  }
+
+  .tab.active {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  label {
+    font-size: 13px;
+    display: block;
+    margin-top: 8px;
+  }
+
+  button, input[type="range"] {
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  button {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    background: #2b6cb0;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #2c5282;
+  }
+
+  #returnBtn {
+    background: #444;
+    margin-top: 10px;
+  }
+
+  #returnBtn:hover {
+    background: #222;
+  }
+
+  #info {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .gauge-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .gauge-label {
+    flex: 1;
+  }
+
+  .gauge-value {
+    width: 60px;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<div id="ui">
+  <h2>Uranium‑235 Simulation</h2>
+
+  <div class="tabs">
+    <div class="tab active" id="tabFission">Fission</div>
+    <div class="tab" id="tabChain">Chain Reaction</div>
+    <div class="tab" id="tabPlant">Power Plant</div>
+  </div>
+
+  <!-- Fission mode controls -->
+  <div id="panelFission">
+    <button id="triggerFissionBtn">Trigger Fission</button>
+    <div id="fissionInfo" style="font-size:12px; margin-top:8px;">
+      U‑235 nucleus hit by a neutron splits into two daughter nuclei and releases more neutrons and energy.
+    </div>
+  </div>
+
+  <!-- Chain reaction controls -->
+  <div id="panelChain" style="display:none;">
+    <label>Uranium Density</label>
+    <input type="range" id="densitySlider" min="0.2" max="1.0" step="0.1" value="0.6">
+
+    <label>Neutron Speed</label>
+    <input type="range" id="speedSlider" min="0.5" max="2.0" step="0.1" value="1.0">
+
+    <label>Fission Probability</label>
+    <input type="range" id="probSlider" min="0.2" max="1.0" step="0.1" value="0.7">
+
+    <button id="startChainBtn">Start Chain Reaction</button>
+    <button id="resetChainBtn" style="margin-top:4px; background:#666;">Reset</button>
+
+    <div id="chainStatus" style="font-size:12px; margin-top:8px;">
+      Status: Ready (adjust sliders, then start)
+    </div>
+  </div>
+
+  <!-- Power plant controls -->
+  <div id="panelPlant" style="display:none;">
+    <label>Control Rods (Insertion)</label>
+    <input type="range" id="rodsSlider" min="0" max="100" step="1" value="60">
+
+    <div class="gauge-row">
+      <div class="gauge-label">Neutron Flux</div>
+      <div class="gauge-value" id="fluxValue">Low</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">Core Heat</div>
+      <div class="gauge-value" id="heatValue">Cool</div>
+    </div>
+    <div class="gauge-row">
+      <div class="gauge-label">Power Output</div>
+      <div class="gauge-value" id="powerValue">0%</div>
+    </div>
+
+    <div id="safetyStatus" style="font-size:12px; margin-top:8px;">
+      Safety: Stable
+    </div>
+  </div>
+
+  <button id="returnBtn">Return to Simulations</button>
+
+  <div id="info"></div>
+</div>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+<script>
+/* -----------------------------
+   Basic scene setup
+----------------------------- */
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
+
+const camera = new THREE.PerspectiveCamera(45, innerWidth/innerHeight, 0.1, 2000);
+camera.position.set(0, 20, 80);
+camera.lookAt(0,0,0);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+const light = new THREE.PointLight(0xffffff, 1.4);
+light.position.set(40,40,40);
+scene.add(light);
+
+/* Groups for different modes */
+const fissionGroup = new THREE.Group();
+const chainGroup = new THREE.Group();
+const plantGroup = new THREE.Group();
+scene.add(fissionGroup);
+scene.add(chainGroup);
+scene.add(plantGroup);
+
+/* Track current mode: "fission" | "chain" | "plant" */
+let currentMode = "fission";
+
+/* -----------------------------
+   Shared interaction
+----------------------------- */
+let dragging = false;
+let prevX = 0;
+
+renderer.domElement.addEventListener("mousedown", e => {
+  dragging = true;
+  prevX = e.clientX;
+});
+
+window.addEventListener("mouseup", () => dragging = false);
+
+window.addEventListener("mousemove", e => {
+  if (!dragging) return;
+  const dx = e.clientX - prevX;
+  prevX = e.clientX;
+  scene.rotation.y += dx * 0.005;
+});
+
+renderer.domElement.addEventListener("wheel", e => {
+  camera.position.z += e.deltaY * 0.02;
+  camera.position.z = Math.max(20, Math.min(140, camera.position.z));
+});
+
+window.addEventListener("resize", () => {
+  camera.aspect = innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+/* -----------------------------
+   Fission mode
+----------------------------- */
+let fissionReady = true;
+let fissionNeutron = null;
+let fissionNucleusParticles = [];
+let fissionDaughters = [];
+let fissionExtraNeutrons = [];
+let fissionTime = 0;
+
+function buildU235Nucleus(group) {
+  // Clear previous
+  group.clear();
+  fissionNucleusParticles = [];
+  fissionDaughters = [];
+  fissionExtraNeutrons = [];
+  fissionNeutron = null;
+  fissionTime = 0;
+  fissionReady = true;
+
+  const protonCount = 92;
+  const neutronCount = 143; // U-235 has 143 neutrons
+  const total = protonCount + neutronCount;
+
+  const protonGeom = new THREE.SphereGeometry(0.6, 16, 16);
+  const neutronGeom = new THREE.SphereGeometry(0.6, 16, 16);
+
+  const protonMat = new THREE.MeshPhongMaterial({ color: 0xff4444, emissive: 0x330000 });
+  const neutronMat = new THREE.MeshPhongMaterial({ color: 0xaaaaaa, emissive: 0x222222 });
+
+  for (let i = 0; i < total; i++) {
+    const isProton = i < protonCount;
+    const geom = isProton ? protonGeom : neutronGeom;
+    const mat = isProton ? protonMat : neutronMat;
+
+    const p = new THREE.Mesh(geom, mat);
+
+    const r = Math.cbrt(Math.random()) * 4;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2*Math.random()-1);
+
+    p.position.set(
+      r * Math.sin(phi) * Math.cos(theta),
+      r * Math.sin(phi) * Math.sin(theta),
+      r * Math.cos(phi)
+    );
+
+    p.userData.base = p.position.clone();
+    p.userData.phase = Math.random() * Math.PI * 2;
+
+    group.add(p);
+    fissionNucleusParticles.push(p);
+  }
+
+  // Incoming neutron
+  const nGeom = new THREE.SphereGeometry(0.5, 16, 16);
+  const nMat = new THREE.MeshPhongMaterial({ color: 0x55aaff, emissive: 0x001133 });
+  const neutron = new THREE.Mesh(nGeom, nMat);
+  neutron.position.set(-40, 0, 0);
+  group.add(neutron);
+  fissionNeutron = neutron;
+}
+
+function triggerFission() {
+  if (!fissionReady) return;
+  fissionReady = false;
+  fissionTime = 0;
+}
+
+/* Realistic-ish daughter nuclei: Ba-141 + Kr-92 */
+function createDaughters() {
+  const daughterGeom = new THREE.SphereGeometry(2.5, 24, 24);
+  const mat1 = new THREE.MeshPhongMaterial({ color: 0x88ff88, emissive: 0x113311 });
+  const mat2 = new THREE.MeshPhongMaterial({ color: 0x88ddff, emissive: 0x112233 });
+
+  const d1 = new THREE.Mesh(daughterGeom, mat1);
+  const d2 = new THREE.Mesh(daughterGeom, mat2);
+
+  d1.position.set(-6, 0, 0);
+  d2.position.set(6, 0, 0);
+
+  fissionGroup.add(d1);
+  fissionGroup.add(d2);
+  fissionDaughters.push(d1, d2);
+
+  // Extra neutrons
+  const nGeom = new THREE.SphereGeometry(0.5, 16, 16);
+  const nMat = new THREE.MeshPhongMaterial({ color: 0x55aaff, emissive: 0x001133 });
+
+  const count = 3;
+  for (let i = 0; i < count; i++) {
+    const n = new THREE.Mesh(nGeom, nMat);
+    n.position.set(0,0,0);
+    const dir = new THREE.Vector3(
+      Math.random()*2-1,
+      Math.random()*2-1,
+      Math.random()*2-1
+    ).normalize();
+    n.userData.dir = dir;
+    fissionGroup.add(n);
+    fissionExtraNeutrons.push(n);
+  }
+
+  // Energy flash (light)
+  const flash = new THREE.PointLight(0xffdd88, 4, 60);
+  flash.position.set(0,0,0);
+  fissionGroup.add(flash);
+  setTimeout(() => fissionGroup.remove(flash), 600);
+}
+
+/* -----------------------------
+   Chain reaction mode
+----------------------------- */
+let chainRunning = false;
+let chainNuclei = [];
+let chainNeutrons = [];
+let chainEnergy = 0;
+
+function buildChainField() {
+  chainGroup.clear();
+  chainNuclei = [];
+  chainNeutrons = [];
+  chainEnergy = 0;
+
+  const density = parseFloat(document.getElementById("densitySlider").value); // 0.2–1.0
+  const count = Math.floor(40 * density);
+
+  const nucGeom = new THREE.SphereGeometry(1.2, 16, 16);
+  const nucMat = new THREE.MeshPhongMaterial({ color: 0xcccccc, emissive: 0x222222 });
+
+  for (let i = 0; i < count; i++) {
+    const m = new THREE.Mesh(nucGeom, nucMat);
+    m.position.set(
+      (Math.random()-0.5)*40,
+      (Math.random()-0.5)*20,
+      (Math.random()-0.5)*40
+    );
+    m.userData.alive = true;
+    chainGroup.add(m);
+    chainNuclei.push(m);
+  }
+
+  // Seed neutron
+  spawnChainNeutron(new THREE.Vector3(0,0,0));
+}
+
+function spawnChainNeutron(pos) {
+  const nGeom = new THREE.SphereGeometry(0.5, 12, 12);
+  const nMat = new THREE.MeshPhongMaterial({ color: 0x55aaff, emissive: 0x001133 });
+  const n = new THREE.Mesh(nGeom, nMat);
+  n.position.copy(pos);
+  const dir = new THREE.Vector3(
+    Math.random()*2-1,
+    Math.random()*2-1,
+    Math.random()*2-1
+  ).normalize();
+  n.userData.dir = dir;
+  chainGroup.add(n);
+  chainNeutrons.push(n);
+}
+
+function startChainReaction() {
+  chainRunning = true;
+  document.getElementById("chainStatus").textContent = "Status: Running (watch the reaction)";
+  buildChainField();
+}
+
+function resetChainReaction() {
+  chainRunning = false;
+  chainGroup.clear();
+  chainNuclei = [];
+  chainNeutrons = [];
+  chainEnergy = 0;
+  document.getElementById("chainStatus").textContent = "Status: Ready (adjust sliders, then start)";
+}
+
+/* -----------------------------
+   Power plant mode
+----------------------------- */
+let plantFlux = 0;
+let plantHeat = 0;
+let plantPower = 0;
+let turbineMesh = null;
+let coreMesh = null;
+let rodsMesh = null;
+
+function buildPlantScene() {
+  plantGroup.clear();
+
+  // Core
+  const coreGeom = new THREE.CylinderGeometry(6, 6, 8, 32);
+  const coreMat = new THREE.MeshPhongMaterial({
+    color: 0x4444ff,
+    emissive: 0x000022
+  });
+  coreMesh = new THREE.Mesh(coreGeom, coreMat);
+  coreMesh.position.set(0,0,0);
+  plantGroup.add(coreMesh);
+
+  // Control rods
+  const rodsGeom = new THREE.BoxGeometry(1, 10, 1);
+  const rodsMat = new THREE.MeshPhongMaterial({ color: 0x333333, emissive: 0x111111 });
+  rodsMesh = new THREE.Mesh(rodsGeom, rodsMat);
+  rodsMesh.position.set(0,6,0);
+  plantGroup.add(rodsMesh);
+
+  // Turbine
+  const turbineGeom = new THREE.TorusGeometry(10, 0.6, 16, 40);
+  const turbineMat = new THREE.MeshPhongMaterial({ color: 0xdddddd, emissive: 0x222222 });
+  turbineMesh = new THREE.Mesh(turbineGeom, turbineMat);
+  turbineMesh.rotation.x = Math.PI/2;
+  turbineMesh.position.set(0, -12, 0);
+  plantGroup.add(turbineMesh);
+
+  plantFlux = 0;
+  plantHeat = 0;
+  plantPower = 0;
+}
+
+/* -----------------------------
+   Tabs + panels
+----------------------------- */
+const tabFission = document.getElementById("tabFission");
+const tabChain = document.getElementById("tabChain");
+const tabPlant = document.getElementById("tabPlant");
+
+const panelFission = document.getElementById("panelFission");
+const panelChain = document.getElementById("panelChain");
+const panelPlant = document.getElementById("panelPlant");
+
+function setMode(mode) {
+  currentMode = mode;
+
+  tabFission.classList.remove("active");
+  tabChain.classList.remove("active");
+  tabPlant.classList.remove("active");
+  panelFission.style.display = "none";
+  panelChain.style.display = "none";
+  panelPlant.style.display = "none";
+
+  fissionGroup.visible = false;
+  chainGroup.visible = false;
+  plantGroup.visible = false;
+
+  if (mode === "fission") {
+    tabFission.classList.add("active");
+    panelFission.style.display = "block";
+    fissionGroup.visible = true;
+  } else if (mode === "chain") {
+    tabChain.classList.add("active");
+    panelChain.style.display = "block";
+    chainGroup.visible = true;
+  } else if (mode === "plant") {
+    tabPlant.classList.add("active");
+    panelPlant.style.display = "block";
+    plantGroup.visible = true;
+  }
+}
+
+tabFission.addEventListener("click", () => setMode("fission"));
+tabChain.addEventListener("click", () => setMode("chain"));
+tabPlant.addEventListener("click", () => setMode("plant"));
+
+/* -----------------------------
+   UI events
+----------------------------- */
+document.getElementById("triggerFissionBtn").addEventListener("click", () => {
+  triggerFission();
+});
+
+document.getElementById("startChainBtn").addEventListener("click", () => {
+  startChainReaction();
+});
+
+document.getElementById("resetChainBtn").addEventListener("click", () => {
+  resetChainReaction();
+});
+
+document.getElementById("rodsSlider").addEventListener("input", () => {
+  // handled in animation loop
+});
+
+document.getElementById("returnBtn").addEventListener("click", () => {
+  window.location.href = "../pages/simulations.html";
+});
+
+/* -----------------------------
+   Info text
+----------------------------- */
+const infoBox = document.getElementById("info");
+function updateInfo() {
+  if (currentMode === "fission") {
+    infoBox.innerHTML =
+      "<strong>Fission Mode:</strong> U‑235 absorbs a neutron, becomes unstable, and splits into two smaller nuclei, " +
+      "releasing extra neutrons and energy.";
+  } else if (currentMode === "chain") {
+    infoBox.innerHTML =
+      "<strong>Chain Reaction Mode:</strong> Released neutrons can trigger further fissions. Density, speed, and probability " +
+      "control whether the reaction is subcritical, critical, or supercritical.";
+  } else {
+    infoBox.innerHTML =
+      "<strong>Power Plant Mode:</strong> Control rods absorb neutrons to regulate the chain reaction. Neutron flux drives " +
+      "heat production, which spins a turbine to generate electrical power.";
+  }
+}
+
+/* -----------------------------
+   Animation loop
+----------------------------- */
+let time = 0;
+
+function animate() {
+  requestAnimationFrame(animate);
+  time += 0.01;
+
+  // Fission mode animation
+  if (currentMode === "fission") {
+    // gentle nucleus wobble
+    fissionNucleusParticles.forEach(p => {
+      const base = p.userData.base;
+      const phase = p.userData.phase;
+      p.position.x = base.x + Math.sin(time*2 + phase)*0.1;
+      p.position.y = base.y + Math.cos(time*2.3 + phase)*0.1;
+      p.position.z = base.z + Math.sin(time*1.7 + phase)*0.1;
+    });
+
+    if (fissionNeutron) {
+      if (fissionReady) {
+        // idle: neutron slowly approaches
+        fissionNeutron.position.x += 0.05;
+      } else {
+        // active fission sequence
+        fissionTime += 0.02;
+        fissionNeutron.position.x += 0.8;
+
+        if (fissionTime > 0.4 && fissionNucleusParticles.length > 0) {
+          // remove original nucleus
+          fissionNucleusParticles.forEach(p => fissionGroup.remove(p));
+          fissionNucleusParticles = [];
+          createDaughters();
+        }
+
+        // move daughters apart
+        fissionDaughters.forEach((d, i) => {
+          const dir = i === 0 ? -1 : 1;
+          d.position.x += dir * 0.15;
+        });
+
+        // extra neutrons fly away
+        fissionExtraNeutrons.forEach(n => {
+          n.position.addScaledVector(n.userData.dir, 0.6);
+        });
+      }
+    }
+  }
+
+  // Chain reaction animation
+  if (currentMode === "chain" && chainRunning) {
+    const speed = parseFloat(document.getElementById("speedSlider").value); // 0.5–2.0
+    const prob = parseFloat(document.getElementById("probSlider").value);   // 0.2–1.0
+
+    // move neutrons
+    chainNeutrons.forEach(n => {
+      n.position.addScaledVector(n.userData.dir, 0.4 * speed);
+    });
+
+    // check collisions
+    const newNeutrons = [];
+    chainNeutrons.forEach(n => {
+      chainNuclei.forEach(m => {
+        if (!m.userData.alive) return;
+        const dist = n.position.distanceTo(m.position);
+        if (dist < 2.0) {
+          // possible fission
+          if (Math.random() < prob) {
+            m.userData.alive = false;
+            m.material.emissive.setHex(0x552200);
+            chainEnergy += 1;
+
+            // spawn 2–3 new neutrons
+            const count = 2 + Math.floor(Math.random()*2);
+            for (let i = 0; i < count; i++) {
+              const nnGeom = new THREE.SphereGeometry(0.5, 12, 12);
+              const nnMat = new THREE.MeshPhongMaterial({ color: 0x55aaff, emissive: 0x001133 });
+              const nn = new THREE.Mesh(nnGeom, nnMat);
+              nn.position.copy(m.position);
+              const dir = new THREE.Vector3(
+                Math.random()*2-1,
+                Math.random()*2-1,
+                Math.random()*2-1
+              ).normalize();
+              nn.userData.dir = dir;
+              chainGroup.add(nn);
+              newNeutrons.push(nn);
+            }
+
+            // small flash
+            const flash = new THREE.PointLight(0xffdd88, 3, 30);
+            flash.position.copy(m.position);
+            chainGroup.add(flash);
+            setTimeout(() => chainGroup.remove(flash), 300);
+          }
+        }
+      });
+    });
+
+    // remove neutrons that left the field
+    chainNeutrons = chainNeutrons.filter(n => {
+      const p = n.position;
+      const alive = Math.abs(p.x) < 60 && Math.abs(p.y) < 40 && Math.abs(p.z) < 60;
+      if (!alive) chainGroup.remove(n);
+      return alive;
+    });
+
+    chainNeutrons.push(...newNeutrons);
+
+    // update status
+    let status = "Subcritical";
+    if (chainEnergy > 10 && chainEnergy < 40) status = "Critical";
+    if (chainEnergy >= 40) status = "Supercritical";
+    document.getElementById("chainStatus").textContent =
+      `Status: ${status} (Fissions: ${chainEnergy})`;
+  }
+
+  // Power plant animation
+  if (currentMode === "plant") {
+    const rods = parseInt(document.getElementById("rodsSlider").value, 10); // 0–100
+    const insertion = rods / 100; // 0–1
+
+    // flux inversely related to rods insertion
+    plantFlux = (1 - insertion);
+    plantHeat += (plantFlux - plantHeat) * 0.02;
+    plantPower += (plantHeat - plantPower) * 0.02;
+
+    // clamp
+    plantFlux = Math.max(0, Math.min(1, plantFlux));
+    plantHeat = Math.max(0, Math.min(1, plantHeat));
+    plantPower = Math.max(0, Math.min(1, plantPower));
+
+    // update visuals
+    if (coreMesh) {
+      const baseColor = new THREE.Color(0x222244);
+      const hotColor = new THREE.Color(0xff5522);
+      const mix = baseColor.clone().lerp(hotColor, plantHeat);
+      coreMesh.material.color.copy(mix);
+      coreMesh.material.emissive.copy(mix.clone().multiplyScalar(0.3));
+    }
+
+    if (rodsMesh) {
+      rodsMesh.position.y = 6 + insertion * 4;
+    }
+
+    if (turbineMesh) {
+      turbineMesh.rotation.z += 0.05 * plantPower;
+    }
+
+    // update gauges
+    const fluxLabel = plantFlux < 0.2 ? "Very Low" :
+                      plantFlux < 0.5 ? "Low" :
+                      plantFlux < 0.8 ? "Medium" : "High";
+    const heatLabel = plantHeat < 0.2 ? "Cool" :
+                      plantHeat < 0.5 ? "Warm" :
+                      plantHeat < 0.8 ? "Hot" : "Very Hot";
+
+    document.getElementById("fluxValue").textContent = fluxLabel;
+    document.getElementById("heatValue").textContent = heatLabel;
+    document.getElementById("powerValue").textContent = Math.round(plantPower * 100) + "%";
+
+    let safety = "Stable";
+    if (plantHeat > 0.85) safety = "Overheating (insert rods!)";
+    document.getElementById("safetyStatus").textContent = "Safety: " + safety;
+  }
+
+  renderer.render(scene, camera);
+}
+animate();
+
+/* -----------------------------
+   Initial setup
+----------------------------- */
+buildU235Nucleus(fissionGroup);
+buildChainField(); // prebuild, but hidden until mode
+buildPlantScene();
+setMode("fission");
+updateInfo();
+
+/* Update info when mode changes */
+["fission","chain","plant"].forEach(m => {
+  // we already wired tab clicks; just hook into setMode via MutationObserver-like approach
+});
+setInterval(updateInfo, 300);
+</script>
+
+</body>
+</html>
