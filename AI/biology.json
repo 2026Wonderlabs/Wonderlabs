@@ -1,0 +1,140 @@
+[
+  {
+    "name": "magnification",
+    "keywords": ["microscope", "image size", "real size", "magnification"],
+    "formula": "magnification = image_size / real_size",
+    "variables": {
+      "magnification": "how many times larger the image is",
+      "image_size": "measured size of the image",
+      "real_size": "actual size of the object"
+    },
+    "description": "Calculates how much larger or smaller an image is compared to the real object."
+  },
+  {
+    "name": "population change",
+    "keywords": ["population", "ecology", "births", "deaths"],
+    "formula": "population_change = births + immigration - deaths - emigration",
+    "variables": {
+      "births": "number of births",
+      "immigration": "organisms entering",
+      "deaths": "number of deaths",
+      "emigration": "organisms leaving"
+    },
+    "description": "Determines how a population size changes over time."
+  },
+  {
+    "name": "percentage change",
+    "keywords": ["percentage", "change", "growth", "decrease"],
+    "formula": "percentage_change = ((new_value - original_value) / original_value) * 100",
+    "variables": {
+      "new_value": "final measured value",
+      "original_value": "starting value"
+    },
+    "description": "Calculates percentage increase or decrease."
+  },
+  {
+    "name": "surface area to volume ratio",
+    "keywords": ["sa:v", "cells", "diffusion", "ratio"],
+    "formula": "sa_to_volume_ratio = surface_area / volume",
+    "variables": {
+      "surface_area": "total surface area",
+      "volume": "total volume"
+    },
+    "description": "Shows how surface area compares to volume, important for diffusion in organisms."
+  },
+  {
+    "name": "bmi",
+    "keywords": ["body mass index", "health", "mass", "height"],
+    "formula": "bmi = mass / (height * height)",
+    "variables": {
+      "mass": "body mass in kilograms",
+      "height": "height in metres"
+    },
+    "description": "Estimates whether body mass is healthy for a given height."
+  },
+  {
+    "name": "cardiac output",
+    "keywords": ["heart", "blood flow", "stroke volume", "heart rate"],
+    "formula": "cardiac_output = stroke_volume * heart_rate",
+    "variables": {
+      "stroke_volume": "volume of blood pumped per beat",
+      "heart_rate": "beats per minute"
+    },
+    "description": "Amount of blood pumped by the heart per minute."
+  },
+  {
+    "name": "photosynthesis",
+    "keywords": ["plants", "glucose", "oxygen", "carbon dioxide"],
+    "formula": "6CO2 + 6H2O -> C6H12O6 + 6O2",
+    "variables": {
+      "CO2": "carbon dioxide",
+      "H2O": "water",
+      "C6H12O6": "glucose",
+      "O2": "oxygen"
+    },
+    "description": "The chemical equation for photosynthesis in plants."
+  },
+  {
+    "name": "aerobic respiration",
+    "keywords": ["respiration", "energy", "oxygen"],
+    "formula": "glucose + oxygen -> carbon_dioxide + water",
+    "variables": {
+      "glucose": "sugar used for energy",
+      "oxygen": "gas required for aerobic respiration",
+      "carbon_dioxide": "waste gas",
+      "water": "product of respiration"
+    },
+    "description": "Energy‑releasing reaction that uses oxygen."
+  },
+  {
+    "name": "anaerobic respiration animals",
+    "keywords": ["respiration", "anaerobic", "lactic acid"],
+    "formula": "glucose -> lactic_acid",
+    "variables": {
+      "glucose": "sugar used for energy",
+      "lactic_acid": "product formed without oxygen"
+    },
+    "description": "Anaerobic respiration in animals during hard exercise."
+  },
+  {
+    "name": "anaerobic respiration yeast",
+    "keywords": ["respiration", "fermentation", "ethanol", "yeast"],
+    "formula": "glucose -> ethanol + carbon_dioxide",
+    "variables": {
+      "glucose": "sugar used for energy",
+      "ethanol": "alcohol produced by yeast",
+      "carbon_dioxide": "gas released during fermentation"
+    },
+    "description": "Anaerobic respiration in yeast, also known as fermentation."
+  },
+  {
+    "name": "efficiency of biomass transfer",
+    "keywords": ["energy", "trophic levels", "biomass", "efficiency"],
+    "formula": "efficiency = (energy_transferred / energy_available) * 100",
+    "variables": {
+      "energy_transferred": "energy passed to the next trophic level",
+      "energy_available": "energy available at the previous level"
+    },
+    "description": "Shows how much energy is transferred between trophic levels."
+  },
+  {
+    "name": "rate of reaction",
+    "keywords": ["rate", "reaction", "photosynthesis", "time"],
+    "formula": "rate = change_in_amount / time",
+    "variables": {
+      "change_in_amount": "amount of product formed or reactant used",
+      "time": "time taken"
+    },
+    "description": "General formula for calculating the rate of a biological process."
+  },
+  {
+    "name": "population density",
+    "keywords": ["population", "density", "ecology", "area"],
+    "formula": "population_density = number_of_organisms / area",
+    "variables": {
+      "number_of_organisms": "count of individuals",
+      "area": "area sampled"
+    },
+    "description": "Measures how many organisms live in a given area."
+  }
+]

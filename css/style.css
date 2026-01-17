@@ -773,3 +773,39 @@ body.light .announcement .controls button { color:#111; border-color: rgba(0,0,0
 .section.active {
   display: block;
 }
+#help-btn {
+  position: fixed;
+  bottom: 20px;        /* distance from bottom */
+  left: 50%;           /* move to the horizontal center */
+  transform: translateX(-50%); /* pull it back by half its width */
+  z-index: 9999;       /* keep it above other elements */
+   background: #4fc3f7;
+    color: #020617;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(79, 195, 247, 0.6);
+    transition: background 0.3s, transform 0.2s;
+}
+#help-btn:hover {
+  background: #81c784;
+  transform: translateX(-50%) translateY(-4px);
+}
+ol.rules {
+  counter-reset: rule-counter;
+  list-style: none;
+  padding-left: 0;
+}
+
+ol.rules li {
+  counter-increment: rule-counter;
+  margin: 6px 0;
+}
+
+ol.rules li::before {
+  content: "Rule " counter(rule-counter) ": ";
+  font-weight: bold;
+}

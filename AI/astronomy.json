@@ -1,0 +1,114 @@
+[
+  {
+    "name": "orbital speed",
+    "keywords": ["orbit", "speed", "astronomy", "circular motion"],
+    "formula": "orbital_speed = distance / time",
+    "variables": {
+      "orbital_speed": "speed of an object in orbit",
+      "distance": "distance travelled in one orbit",
+      "time": "time taken for one orbit"
+    },
+    "description": "Basic formula for calculating the speed of an orbiting object."
+  },
+  {
+    "name": "orbital period",
+    "keywords": ["orbit", "period", "astronomy"],
+    "formula": "orbital_period = 2 * pi * orbital_radius / orbital_speed",
+    "variables": {
+      "orbital_period": "time taken for one full orbit",
+      "orbital_radius": "distance from the centre of orbit",
+      "orbital_speed": "speed of the orbiting object"
+    },
+    "description": "Relates orbital radius and speed to the time for one orbit."
+  },
+  {
+    "name": "gravitational force",
+    "keywords": ["gravity", "force", "astronomy", "physics"],
+    "formula": "force = G * m1 * m2 / (distance^2)",
+    "variables": {
+      "force": "gravitational force between two masses",
+      "G": "gravitational constant",
+      "m1": "mass of first object",
+      "m2": "mass of second object",
+      "distance": "distance between the centres of the masses"
+    },
+    "description": "Newton's law of universal gravitation."
+  },
+  {
+    "name": "weight",
+    "keywords": ["weight", "gravity", "mass", "astronomy"],
+    "formula": "weight = mass * gravitational_field_strength",
+    "variables": {
+      "weight": "force due to gravity",
+      "mass": "mass of the object",
+      "gravitational_field_strength": "strength of gravity on a planet or moon"
+    },
+    "description": "Used to calculate weight on different planets."
+  },
+  {
+    "name": "light speed equation",
+    "keywords": ["light", "speed", "waves", "astronomy"],
+    "formula": "speed_of_light = frequency * wavelength",
+    "variables": {
+      "speed_of_light": "speed of electromagnetic waves",
+      "frequency": "number of waves per second",
+      "wavelength": "distance between wave peaks"
+    },
+    "description": "Wave equation applied to light and other electromagnetic waves."
+  },
+  {
+    "name": "redshift",
+    "keywords": ["redshift", "expansion", "universe", "astronomy"],
+    "formula": "redshift = (observed_wavelength - rest_wavelength) / rest_wavelength",
+    "variables": {
+      "redshift": "fractional increase in wavelength",
+      "observed_wavelength": "measured wavelength from a distant galaxy",
+      "rest_wavelength": "original wavelength emitted"
+    },
+    "description": "Used to measure how fast galaxies are moving away from us."
+  },
+  {
+    "name": "hubbles law",
+    "keywords": ["hubble", "expansion", "universe", "astronomy"],
+    "formula": "recessional_velocity = hubble_constant * distance",
+    "variables": {
+      "recessional_velocity": "speed at which a galaxy moves away",
+      "hubble_constant": "rate of expansion of the universe",
+      "distance": "distance to the galaxy"
+    },
+    "description": "Shows that galaxies further away move faster, evidence for expansion."
+  },
+  {
+    "name": "apparent brightness",
+    "keywords": ["brightness", "luminosity", "astronomy"],
+    "formula": "apparent_brightness = luminosity / (4 * pi * distance^2)",
+    "variables": {
+      "apparent_brightness": "brightness observed from Earth",
+      "luminosity": "total energy output of a star",
+      "distance": "distance from the star to the observer"
+    },
+    "description": "Inverse square law for light from stars."
+  },
+  {
+    "name": "escape velocity",
+    "keywords": ["escape velocity", "gravity", "astronomy"],
+    "formula": "escape_velocity = sqrt(2 * G * mass / radius)",
+    "variables": {
+      "escape_velocity": "minimum speed needed to escape a body's gravity",
+      "G": "gravitational constant",
+      "mass": "mass of the planet or moon",
+      "radius": "distance from the centre of the body"
+    },
+    "description": "Speed required to leave a planet or moon without further propulsion."
+  },
+  {
+    "name": "parallax distance",
+    "keywords": ["parallax", "distance", "stars", "astronomy"],
+    "formula": "distance = 1 / parallax_angle",
+    "variables": {
+      "distance": "distance to the star in parsecs",
+      "parallax_angle": "apparent shift in arcseconds"
+    },
+    "description": "Used to measure distances to nearby stars."
+  }
+]

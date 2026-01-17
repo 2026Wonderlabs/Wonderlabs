@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wonderlabs – FAQs</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0b1020;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    header {
+      background: #151b35;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #252b4a;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      margin: 0.3rem 0 0;
+      color: #b0b6d6;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.5rem;
+    }
+    .breadcrumb {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      color: #9aa0c2;
+    }
+    .breadcrumb a {
+      color: #c5cbff;
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    h2 {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #252b4a;
+      padding-bottom: 0.4rem;
+    }
+    details {
+      background: #151b35;
+      border-radius: 8px;
+      margin: 0.8rem 0;
+      border: 1px solid #252b4a;
+      padding: 0.8rem 1rem;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      list-style: none;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 0.5rem;
+      color: #c5cbff;
+      transition: transform 0.15s ease;
+    }
+    details[open] summary::before {
+      transform: rotate(90deg);
+    }
+    details p {
+      margin: 0.6rem 0 0.2rem;
+      color: #d7dcff;
+    }
+    a {
+      color: #8fd3ff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      font-size: 0.85rem;
+      color: #8a90b5;
+      border-top: 1px solid #252b4a;
+      background: #0b1020;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wonderlabs – Frequently Asked Questions</h1>
+    <p>Answers to common questions about the Wonderlabs site and how to use it.</p>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a> › FAQs
+    </nav>
+
+    <section>
+      <h2>General questions</h2>
+
+      <details>
+        <summary>What is Wonderlabs?</summary>
+        <p>
+          Wonderlabs is a project hosted on GitHub Pages at
+          <code>https://2026wonderlabs.github.io/Wonderlabs/</code>. It’s a space for experiments,
+          ideas, and projects related to [briefly describe what you’re doing here].
+        </p>
+      </details>
+
+      <details>
+        <summary>Who created Wonderlabs?</summary>
+        <p>
+          Wonderlabs is created and maintained by Cauley. The site may change often as new ideas,
+          features, and experiments are added.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do I navigate the site?</summary>
+        <p>
+          Use the main links (such as <code>index.html</code>, <code>projects.html</code>,
+          <code>faqs.html</code>, etc.) from the homepage. If you’re viewing this on GitHub Pages,
+          each page is just a separate <code>.html</code> file in the same project.
+        </p>
+      </details>
+    </section>
+
+    <section>
+      <h2>Google Search & visibility</h2>
+
+      <details>
+        <summary>Why did I get an email from Google Search Console?</summary>
+        <p>
+          Google Search Console detected that pages from Wonderlabs are now appearing in Google
+          Search results. The email is just a notification that Google has started collecting
+          search data (impressions, clicks, and errors) for your site.
+        </p>
+      </details>
+
+      <details>
+        <summary>How can I see my site in Google Search?</summary>
+        <p>
+          Go to Google and search for:
+        </p>
+        <p><code>site:2026wonderlabs.github.io/Wonderlabs</code></p>
+        <p>
+          This shows the pages from Wonderlabs that Google has indexed. Over time, your site may
+          also appear for normal keyword searches related to your content.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do I check my search performance?</summary>
+        <p>
+          Visit <a href="https://search.google.com/search-console" target="_blank"
+            >Google Search Console</a
+          >
+          and sign in with the same Google account that received the email. In the
+          <strong>Performance</strong> report, you can see impressions, clicks, top pages, and top
+          queries for Wonderlabs.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if I don’t see my site in search yet?</summary>
+        <p>
+          It can take time for Google to fully index and rank a new site. Make sure your pages are
+          accessible (no major errors), and keep updating the site with useful content. Over time,
+          visibility usually improves.
+        </p>
+      </details>
+    </section>
+
+    <section>
+      <h2>Technical & site management</h2>
+
+      <details>
+        <summary>Where is Wonderlabs hosted?</summary>
+        <p>
+          Wonderlabs is hosted on GitHub Pages under the repository
+          <code>2026wonderlabs.github.io/Wonderlabs</code>. Any changes pushed to the repository
+          will update the live site after a short delay.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do I edit this FAQ page?</summary>
+        <p>
+          Open <code>faqs.html</code> in your code editor or on GitHub, edit the questions and
+          answers inside the <code>&lt;details&gt;</code> blocks, then commit and push your changes.
+          Refresh the live site to see the updates.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I add more questions?</summary>
+        <p>
+          Yes. Copy one of the existing <code>&lt;details&gt;...&lt;/details&gt;</code> blocks,
+          paste it below, and change the text inside <code>&lt;summary&gt;</code> and
+          <code>&lt;p&gt;</code> to your new question and answer.
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Wonderlabs. All rights reserved.
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

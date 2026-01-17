@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WonderLabs Equation Assistant</title>
+  <style>
+  body {
+    background: #050816;
+    color: #e0f7fa;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  /* MAIN CHATBOT CONTAINER */
+  #wl-chatbot {
+    width: 480px;          /* was 380px */
+    height: 680px;         /* was 540px */
+    background: #0b1020;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 32px rgba(79, 195, 247, 0.45);
+    border: 1px solid rgba(79, 195, 247, 0.35);
+  }
+
+  /* HEADER */
+  #chat-header {
+    padding: 1rem 1.2rem;  /* bigger */
+    background: #111827;
+    border-bottom: 1px solid rgba(79, 195, 247, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  #chat-header span.logo {
+    width: 32px;           /* was 26px */
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #4fc3f7, #1e3a8a);
+    display: inline-block;
+  }
+
+  #chat-header h2 {
+    margin: 0;
+    font-size: 1.25rem;    /* was 1rem */
+  }
+
+  #chat-header p {
+    margin: 0;
+    font-size: 0.9rem;     /* was 0.75rem */
+    color: #9ca3af;
+  }
+
+  /* CHAT WINDOW */
+  #chat-window {
+    flex: 1;
+    padding: 1.1rem;       /* was 0.9rem */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;           /* was 0.4rem */
+    background: radial-gradient(circle at top, #111827 0, #020617 55%);
+  }
+
+  /* MESSAGE BUBBLES */
+  .msg {
+    max-width: 85%;        /* slightly wider */
+    padding: 12px 15px;    /* was 8px 11px */
+    border-radius: 12px;
+    font-size: 1rem;       /* was 0.85rem */
+    line-height: 1.45;
+    white-space: pre-wrap;
+  }
+
+  .user-msg {
+    background: #4fc3f7;
+    color: #020617;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+  }
+
+  .bot-msg {
+    background: #1f2937;
+    color: #e5e7eb;
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+  }
+
+  .typing {
+    font-style: italic;
+    color: #9ca3af;
+    font-size: 0.95rem;
+  }
+
+  /* INPUT AREA */
+  #chat-input-area {
+    display: flex;
+    padding: 0.8rem;       /* was 0.6rem */
+    background: #020617;
+    gap: 0.6rem;
+    border-top: 1px solid rgba(79, 195, 247, 0.35);
+  }
+
+  #chat-input {
+    flex: 1;
+    padding: 0.65rem 0.75rem; /* was 0.5rem 0.6rem */
+    border-radius: 10px;
+    border: 1px solid #1f2937;
+    background: #020617;
+    color: #e5e7eb;
+    outline: none;
+    font-size: 1rem;       /* was 0.85rem */
+  }
+
+  #chat-input::placeholder {
+    color: #6b7280;
+  }
+
+  #chat-send {
+    padding: 0.65rem 1.1rem; /* was 0.5rem 0.9rem */
+    border-radius: 10px;
+    border: none;
+    background: #4fc3f7;
+    color: #020617;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;       /* was 0.85rem */
+  }
+
+  #chat-send:hover {
+    background: #38bdf8;
+  }
+</style>
+</head>
+<body>
+    <!-- Circular AI Button -->
+<a href="../index.html" id="ai-button">🏠</a>
+
+<style>
+  #ai-button {
+    position: fixed;
+    bottom: 20px;       /* distance from bottom */
+    right: 20px;        /* distance from right */
+    width: 60px;        /* button size */
+    height: 60px;
+    border-radius: 50%; /* makes it circular */
+    background: #4fc3f7;
+    color: #020617;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(79, 195, 247, 0.6);
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  #ai-button:hover {
+    background: #38bdf8;
+    transform: scale(1.1);
+  }
+</style>
+  <div id="wl-chatbot">
+    <div id="chat-header">
+      <span class="logo"></span>
+      <div>
+        <h2>WonderLabs Equation Assistant</h2>
+        <p>Ask for formulas.</p>
+      </div>
+    </div>
+    <div id="chat-window">
+      <div class="msg bot-msg">
+Hi, I'm the WonderLabs Equation Assistant.
+I’ve loaded Physics, Biology, Chemistry, Earth Science, General Science, and Astronomy equations.
+Ask for any formula
+Try: "ohms law", "magnification", "hubbles law", "population density".
+      </div>
+    </div>
+    <div id="chat-input-area">
+      <input id="chat-input" type="text" placeholder="e.g. ohms law, magnification, orbital speed..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // -----------------------------
+    // TOPIC JSONS
+    // -----------------------------
+
+    // PHYSICS (placeholder – paste your full 139 here)
+    const physicsEquations = [
+      {
+        name: "ohms law",
+        keywords: ["voltage", "current", "resistance", "ohm", "electric"],
+        formula: "V = I * R",
+        variables: {
+          V: "potential difference in volts",
+          I: "current in amperes",
+          R: "resistance in ohms"
+        },
+        description: "Relates voltage, current, and resistance in an electrical circuit."
+      }
+      // ... your other physics equations ...
+    ];
+
+    // GCSE BIOLOGY (paste full JSON from earlier)
+    const biologyEquations = [
+      {
+        name: "magnification",
+        keywords: ["microscope", "image size", "real size", "magnification"],
+        formula: "magnification = image_size / real_size",
+        variables: {
+          magnification: "how many times larger the image is",
+          image_size: "measured size of the image",
+          real_size: "actual size of the object"
+        },
+        description: "Calculates how much larger or smaller an image is compared to the real object."
+      },
+      {
+        name: "cardiac output",
+        keywords: ["heart", "blood flow", "stroke volume", "heart rate"],
+        formula: "cardiac_output = stroke_volume * heart_rate",
+        variables: {
+          stroke_volume: "volume of blood pumped per beat",
+          heart_rate: "beats per minute"
+        },
+        description: "Amount of blood pumped by the heart per minute."
+      }
+      // ... rest of GCSE biology equations ...
+    ];
+
+    // GCSE CHEMISTRY
+    const chemistryEquations = [
+      {
+        name: "concentration in g per dm3",
+        keywords: ["concentration", "solution", "mass", "volume"],
+        formula: "concentration = mass_of_solute / volume_of_solution",
+        variables: {
+          concentration: "concentration in g/dm3",
+          mass_of_solute: "mass of solute in grams",
+          volume_of_solution: "volume of solution in dm3"
+        },
+        description: "Calculates concentration of a solution in grams per cubic decimetre."
+      }
+      // ... rest of GCSE chemistry equations ...
+    ];
+
+    // EARTH SCIENCE
+    const earthEquations = [
+      {
+        name: "density",
+        keywords: ["density", "mass", "volume", "rocks", "minerals"],
+        formula: "density = mass / volume",
+        variables: {
+          density: "density of the material",
+          mass: "mass of the sample",
+          volume: "volume of the sample"
+        },
+        description: "Used to identify rocks and minerals by comparing mass and volume."
+      }
+      // ... rest of Earth Science equations ...
+    ];
+
+    // GENERAL SCIENCE
+    const generalScienceEquations = [
+      {
+        name: "efficiency",
+        keywords: ["efficiency", "energy", "general science"],
+        formula: "efficiency = (useful_output / total_input) * 100",
+        variables: {
+          useful_output: "useful energy or power",
+          total_input: "total energy or power supplied"
+        },
+        description: "Used across physics, biology, and ecology."
+      }
+      // ... rest of general science equations ...
+    ];
+
+    // ASTRONOMY
+    const astronomyEquations = [
+      {
+        name: "orbital speed",
+        keywords: ["orbit", "speed", "astronomy", "circular motion"],
+        formula: "orbital_speed = distance / time",
+        variables: {
+          orbital_speed: "speed of an object in orbit",
+          distance: "distance travelled in one orbit",
+          time: "time taken for one orbit"
+        },
+        description: "Basic formula for calculating the speed of an orbiting object."
+      },
+      {
+        name: "hubbles law",
+        keywords: ["hubble", "expansion", "universe", "astronomy"],
+        formula: "recessional_velocity = hubble_constant * distance",
+        variables: {
+          recessional_velocity: "speed at which a galaxy moves away",
+          hubble_constant: "rate of expansion of the universe",
+          distance: "distance to the galaxy"
+        },
+        description: "Shows that galaxies further away move faster, evidence for expansion."
+      }
+      // ... rest of astronomy equations ...
+    ];
+
+    // MERGED MASTER DATASET
+    const allEquations = [
+      ...physicsEquations,
+      ...biologyEquations,
+      ...chemistryEquations,
+      ...earthEquations,
+      ...generalScienceEquations,
+      ...astronomyEquations
+    ];
+
+    // -----------------------------
+    // MATCHING LOGIC
+    // -----------------------------
+    function findBestEquation(query) {
+      const q = query.toLowerCase().trim();
+      if (!q) return null;
+
+      let best = null;
+      let bestScore = 0;
+
+      for (const eq of allEquations) {
+        let score = 0;
+
+        // exact name boost
+        if (eq.name && q.includes(eq.name.toLowerCase())) {
+          score += 20;
+        }
+
+        // keyword matches
+        if (eq.keywords && Array.isArray(eq.keywords)) {
+          for (const k of eq.keywords) {
+            if (q.includes(k.toLowerCase())) {
+              score += 5;
+            }
+          }
+        }
+
+        // loose token overlap
+        const tokens = q.split(/\s+/);
+        for (const t of tokens) {
+          if (!t) continue;
+          if (eq.name && eq.name.toLowerCase().includes(t)) score += 2;
+          if (eq.formula && eq.formula.toLowerCase().includes(t)) score += 1;
+        }
+
+        if (score > bestScore) {
+          bestScore = score;
+          best = eq;
+        }
+      }
+
+      if (bestScore < 5) return null;
+      return best;
+    }
+
+    function formatEquation(eq, query) {
+      if (!eq) {
+        return `I couldn't confidently match "${query}".\nTry a clearer name like "ohms law", "magnification", or "orbital speed".`;
+      }
+
+      const vars = eq.variables
+        ? Object.entries(eq.variables)
+            .map(([k, v]) => `- ${k}: ${v}`)
+            .join("\n")
+        : "(no variables listed)";
+
+      return (
+`Equation for: ${eq.name}
+
+Formula:
+${eq.formula}
+
+Description:
+${eq.description}
+
+Variables:
+${vars}`
+      );
+    }
+
+    // -----------------------------
+    // CHAT WIRING
+    // -----------------------------
+    const chatWindow = document.getElementById("chat-window");
+    const chatInput = document.getElementById("chat-input");
+    const chatSend = document.getElementById("chat-send");
+
+    function addMessage(text, isUser = false) {
+      const div = document.createElement("div");
+      div.className = "msg " + (isUser ? "user-msg" : "bot-msg");
+      div.textContent = text;
+      chatWindow.appendChild(div);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function handleUserMessage() {
+      const q = chatInput.value.trim();
+      if (!q) return;
+      addMessage(q, true);
+      chatInput.value = "";
+
+      const eq = findBestEquation(q);
+      const reply = formatEquation(eq, q);
+      addMessage(reply, false);
+    }
+
+    chatSend.addEventListener("click", handleUserMessage);
+    chatInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") handleUserMessage();
+    });
+    
+  </script>
+</body>
+</html>

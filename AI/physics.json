@@ -1,0 +1,1143 @@
+[
+  {
+    "name": "newtons first law",
+    "keywords": ["newton", "first law", "inertia", "motion"],
+    "formula": "F_net = 0",
+    "variables": ["F_net"],
+    "description": "An object remains at rest or in uniform motion unless acted on by a net external force."
+  },
+  {
+    "name": "newtons second law",
+    "keywords": ["newton", "second law", "force", "f=ma", "acceleration"],
+    "formula": "F = m * a",
+    "variables": ["F", "m", "a"],
+    "description": "Force equals mass times acceleration."
+  },
+  {
+    "name": "newtons third law",
+    "keywords": ["newton", "third law", "action", "reaction"],
+    "formula": "F_12 = -F_21",
+    "variables": ["F_12", "F_21"],
+    "description": "For every action there is an equal and opposite reaction."
+  },
+  {
+    "name": "weight",
+    "keywords": ["weight", "gravity", "mg"],
+    "formula": "W = m * g",
+    "variables": ["W", "m", "g"],
+    "description": "Weight is the force of gravity acting on a mass."
+  },
+  {
+    "name": "momentum",
+    "keywords": ["momentum", "p=mv", "motion"],
+    "formula": "p = m * v",
+    "variables": ["p", "m", "v"],
+    "description": "Momentum is mass multiplied by velocity."
+  },
+  {
+    "name": "impulse",
+    "keywords": ["impulse", "force", "time"],
+    "formula": "J = F * t",
+    "variables": ["J", "F", "t"],
+    "description": "Impulse is force applied over time."
+  },
+  {
+    "name": "kinetic energy",
+    "keywords": ["kinetic", "energy", "ke"],
+    "formula": "KE = 0.5 * m * v * v",
+    "variables": ["KE", "m", "v"],
+    "description": "Kinetic energy is the energy of motion."
+  },
+  {
+    "name": "potential energy",
+    "keywords": ["potential", "energy", "gpe"],
+    "formula": "PE = m * g * h",
+    "variables": ["PE", "m", "g", "h"],
+    "description": "Gravitational potential energy depends on height."
+  },
+  {
+    "name": "work done",
+    "keywords": ["work", "force", "distance"],
+    "formula": "W = F * d",
+    "variables": ["W", "F", "d"],
+    "description": "Work is force multiplied by distance moved."
+  },
+  {
+    "name": "power",
+    "keywords": ["power", "work", "time"],
+    "formula": "P = W / t",
+    "variables": ["P", "W", "t"],
+    "description": "Power is the rate of doing work."
+  },
+  {
+    "name": "power electrical",
+    "keywords": ["power", "electrical", "p=vi"],
+    "formula": "P = V * I",
+    "variables": ["P", "V", "I"],
+    "description": "Electrical power equals voltage times current."
+  },
+  {
+    "name": "ohms law",
+    "keywords": ["ohm", "voltage", "current", "resistance"],
+    "formula": "V = I * R",
+    "variables": ["V", "I", "R"],
+    "description": "Voltage equals current times resistance."
+  },
+  {
+    "name": "resistance",
+    "keywords": ["resistance", "rho", "length", "area"],
+    "formula": "R = rho * L / A",
+    "variables": ["R", "rho", "L", "A"],
+    "description": "Resistance depends on resistivity, length, and cross-sectional area."
+  },
+  {
+    "name": "coulombs law",
+    "keywords": ["coulomb", "charge", "electric force"],
+    "formula": "F = k * q1 * q2 / (r * r)",
+    "variables": ["F", "k", "q1", "q2", "r"],
+    "description": "Electric force between two charges."
+  },
+  {
+    "name": "gravitational force",
+    "keywords": ["gravity", "force", "newton", "universal law"],
+    "formula": "F = G * m1 * m2 / (r * r)",
+    "variables": ["F", "G", "m1", "m2", "r"],
+    "description": "Newton's law of universal gravitation."
+  },
+  {
+    "name": "density",
+    "keywords": ["density", "mass", "volume"],
+    "formula": "rho = m / V",
+    "variables": ["rho", "m", "V"],
+    "description": "Density is mass divided by volume."
+  },
+  {
+    "name": "pressure",
+    "keywords": ["pressure", "force", "area"],
+    "formula": "P = F / A",
+    "variables": ["P", "F", "A"],
+    "description": "Pressure is force per unit area."
+  },
+  {
+    "name": "hookes law",
+    "keywords": ["spring", "force", "extension"],
+    "formula": "F = k * x",
+    "variables": ["F", "k", "x"],
+    "description": "Force in a spring is proportional to extension."
+  },
+  {
+    "name": "spring energy",
+    "keywords": ["spring", "energy", "elastic"],
+    "formula": "E = 0.5 * k * x * x",
+    "variables": ["E", "k", "x"],
+    "description": "Elastic potential energy stored in a spring."
+  },
+  {
+    "name": "wave speed",
+    "keywords": ["wave", "speed", "frequency", "wavelength"],
+    "formula": "v = f * lambda",
+    "variables": ["v", "f", "lambda"],
+    "description": "Wave speed equals frequency times wavelength."
+  },
+  {
+    "name": "frequency",
+    "keywords": ["frequency", "period"],
+    "formula": "f = 1 / T",
+    "variables": ["f", "T"],
+    "description": "Frequency is the inverse of period."
+  },
+  {
+    "name": "snells law",
+    "keywords": ["refraction", "light", "snell"],
+    "formula": "n1 * sin(theta1) = n2 * sin(theta2)",
+    "variables": ["n1", "theta1", "n2", "theta2"],
+    "description": "Snell's law describes refraction of light."
+  },
+  {
+    "name": "magnification",
+    "keywords": ["magnification", "image", "object"],
+    "formula": "M = h_i / h_o",
+    "variables": ["M", "h_i", "h_o"],
+    "description": "Magnification is image height divided by object height."
+  },
+  {
+    "name": "lens equation",
+    "keywords": ["lens", "optics", "image distance"],
+    "formula": "1/f = 1/d_o + 1/d_i",
+    "variables": ["f", "d_o", "d_i"],
+    "description": "Relates focal length, object distance, and image distance."
+  },
+  {
+    "name": "centripetal force",
+    "keywords": ["centripetal", "circular motion"],
+    "formula": "F = m * v * v / r",
+    "variables": ["F", "m", "v", "r"],
+    "description": "Force required for circular motion."
+  },
+  {
+    "name": "centripetal acceleration",
+    "keywords": ["centripetal", "acceleration"],
+    "formula": "a = v * v / r",
+    "variables": ["a", "v", "r"],
+    "description": "Acceleration toward the center of circular motion."
+  },
+  {
+    "name": "escape velocity",
+    "keywords": ["escape", "velocity", "gravity"],
+    "formula": "v = sqrt(2 * G * M / r)",
+    "variables": ["v", "G", "M", "r"],
+    "description": "Minimum velocity needed to escape a gravitational field."
+  },
+  {
+    "name": "orbital velocity",
+    "keywords": ["orbit", "velocity", "gravity"],
+    "formula": "v = sqrt(G * M / r)",
+    "variables": ["v", "G", "M", "r"],
+    "description": "Velocity required to maintain a stable orbit."
+  },
+  {
+    "name": "ideal gas law",
+    "keywords": ["gas", "pv=nrt"],
+    "formula": "P * V = n * R * T",
+    "variables": ["P", "V", "n", "R", "T"],
+    "description": "Relates pressure, volume, temperature, and moles of gas."
+  },
+  {
+    "name": "boyles law",
+    "keywords": ["boyle", "pressure", "volume"],
+    "formula": "P1 * V1 = P2 * V2",
+    "variables": ["P1", "V1", "P2", "V2"],
+    "description": "Pressure is inversely proportional to volume."
+  },
+  {
+    "name": "charles law",
+    "keywords": ["charles", "temperature", "volume"],
+    "formula": "V1 / T1 = V2 / T2",
+    "variables": ["V1", "T1", "V2", "T2"],
+    "description": "Volume is proportional to temperature."
+  },
+  {
+    "name": "thermal energy",
+    "keywords": ["thermal", "energy", "heat"],
+    "formula": "Q = m * c * ΔT",
+    "variables": ["Q", "m", "c", "ΔT"],
+    "description": "Heat energy depends on mass, specific heat, and temperature change."
+  },
+  {
+    "name": "latent heat",
+    "keywords": ["latent", "heat", "phase change"],
+    "formula": "Q = m * L",
+    "variables": ["Q", "m", "L"],
+    "description": "Energy required for a phase change."
+  },
+  {
+    "name": "efficiency",
+    "keywords": ["efficiency", "energy"],
+    "formula": "eff = useful / input",
+    "variables": ["eff", "useful", "input"],
+    "description": "Efficiency is useful energy divided by input energy."
+  },
+  {
+    "name": "mechanical advantage",
+    "keywords": ["mechanical advantage", "machines"],
+    "formula": "MA = F_out / F_in",
+    "variables": ["MA", "F_out", "F_in"],
+    "description": "Mechanical advantage compares output force to input force."
+  },
+  {
+    "name": "pressure in fluids",
+    "keywords": ["pressure", "fluids", "depth"],
+    "formula": "P = rho * g * h",
+    "variables": ["P", "rho", "g", "h"],
+    "description": "Pressure increases with depth in a fluid."
+  },
+  {
+    "name": "buoyant force",
+    "keywords": ["buoyancy", "force", "fluid"],
+    "formula": "F_b = rho * V * g",
+    "variables": ["F_b", "rho", "V", "g"],
+    "description": "Buoyant force equals weight of displaced fluid."
+  },
+  {
+    "name": "electric field",
+    "keywords": ["electric field", "charge"],
+    "formula": "E = F / q",
+    "variables": ["E", "F", "q"],
+    "description": "Electric field is force per unit charge."
+  },
+  {
+    "name": "electric potential energy",
+    "keywords": ["electric", "potential", "energy"],
+    "formula": "U = k * q1 * q2 / r",
+    "variables": ["U", "k", "q1", "q2", "r"],
+    "description": "Potential energy between two charges."
+  },
+  {
+    "name": "magnetic force",
+    "keywords": ["magnetic", "force", "charge"],
+    "formula": "F = q * v * B",
+    "variables": ["F", "q", "v", "B"],
+    "description": "Force on a moving charge in a magnetic field."
+  },
+  {
+    "name": "lorentz force",
+    "keywords": ["lorentz", "force", "electric", "magnetic"],
+    "formula": "F = q * (E + v * B)",
+    "variables": ["F", "q", "E", "v", "B"],
+    "description": "Combined electric and magnetic force on a charge."
+  },
+  {
+    "name": "magnetic flux",
+    "keywords": ["magnetic", "flux"],
+    "formula": "phi = B * A",
+    "variables": ["phi", "B", "A"],
+    "description": "Magnetic flux is field strength times area."
+  },
+  {
+    "name": "faradays law",
+    "keywords": ["faraday", "induction"],
+    "formula": "emf = -N * (Δphi / Δt)",
+    "variables": ["emf", "N", "Δphi", "Δt"],
+    "description": "Induced emf is proportional to rate of change of magnetic flux."
+  },
+  {
+    "name": "capacitance",
+    "keywords": ["capacitance", "charge", "voltage"],
+    "formula": "C = Q / V",
+    "variables": ["C", "Q", "V"],
+    "description": "Capacitance is charge stored per volt."
+  },
+  {
+    "name": "energy stored in capacitor",
+    "keywords": ["capacitor", "energy"],
+    "formula": "E = 0.5 * C * V * V",
+    "variables": ["E", "C", "V"],
+    "description": "Energy stored in a capacitor."
+  },
+  {
+    "name": "inductive reactance",
+    "keywords": ["inductor", "reactance"],
+    "formula": "X_L = 2 * pi * f * L",
+    "variables": ["X_L", "f", "L"],
+    "description": "Reactance of an inductor."
+  },
+  {
+    "name": "capacitive reactance",
+    "keywords": ["capacitor", "reactance"],
+    "formula": "X_C = 1 / (2 * pi * f * C)",
+    "variables": ["X_C", "f", "C"],
+    "description": "Reactance of a capacitor."
+  },
+  {
+    "name": "angular velocity",
+    "keywords": ["angular velocity", "omega", "rotation", "rotational speed"],
+    "formula": "omega = theta / t",
+    "variables": ["omega", "theta", "t"],
+    "description": "Angular velocity is the rate of change of angular displacement."
+  },
+  {
+    "name": "angular acceleration",
+    "keywords": ["angular acceleration", "alpha", "rotation"],
+    "formula": "alpha = omega_f - omega_i / t",
+    "variables": ["alpha", "omega_f", "omega_i", "t"],
+    "description": "Angular acceleration is the rate of change of angular velocity."
+  },
+  {
+    "name": "moment of inertia solid sphere",
+    "keywords": ["moment of inertia", "solid sphere", "rotation"],
+    "formula": "I = (2/5) * m * r * r",
+    "variables": ["I", "m", "r"],
+    "description": "Moment of inertia for a solid sphere rotating about its center."
+  },
+  {
+    "name": "moment of inertia solid cylinder",
+    "keywords": ["moment of inertia", "solid cylinder", "rotation"],
+    "formula": "I = 0.5 * m * r * r",
+    "variables": ["I", "m", "r"],
+    "description": "Moment of inertia for a solid cylinder rotating about its axis."
+  },
+  {
+    "name": "moment of inertia thin rod center",
+    "keywords": ["moment of inertia", "thin rod", "center"],
+    "formula": "I = (1/12) * m * L * L",
+    "variables": ["I", "m", "L"],
+    "description": "Moment of inertia of a thin rod about its center."
+  },
+  {
+    "name": "moment of inertia thin rod end",
+    "keywords": ["moment of inertia", "thin rod", "end"],
+    "formula": "I = (1/3) * m * L * L",
+    "variables": ["I", "m", "L"],
+    "description": "Moment of inertia of a thin rod about one end."
+  },
+  {
+    "name": "torque",
+    "keywords": ["torque", "rotation", "force", "moment"],
+    "formula": "tau = r * F",
+    "variables": ["tau", "r", "F"],
+    "description": "Torque is the rotational equivalent of force."
+  },
+  {
+    "name": "rotational kinetic energy",
+    "keywords": ["rotational kinetic energy", "rotation", "energy"],
+    "formula": "KE_rot = 0.5 * I * omega * omega",
+    "variables": ["KE_rot", "I", "omega"],
+    "description": "Energy of a rotating object."
+  },
+  {
+    "name": "harmonic oscillator",
+    "keywords": ["harmonic oscillator", "shm", "simple harmonic motion"],
+    "formula": "x = A * cos(omega * t)",
+    "variables": ["x", "A", "omega", "t"],
+    "description": "Position of a simple harmonic oscillator."
+  },
+  {
+    "name": "pendulum period small angle",
+    "keywords": ["pendulum", "period", "small angle"],
+    "formula": "T = 2 * pi * sqrt(L / g)",
+    "variables": ["T", "L", "g"],
+    "description": "Period of a simple pendulum for small oscillations."
+  },
+  {
+    "name": "spring period",
+    "keywords": ["spring", "period", "oscillation"],
+    "formula": "T = 2 * pi * sqrt(m / k)",
+    "variables": ["T", "m", "k"],
+    "description": "Period of a mass-spring oscillator."
+  },
+  {
+    "name": "wave equation",
+    "keywords": ["wave equation", "speed", "tension"],
+    "formula": "v = sqrt(T / mu)",
+    "variables": ["v", "T", "mu"],
+    "description": "Wave speed on a stretched string."
+  },
+  {
+    "name": "intensity",
+    "keywords": ["intensity", "sound", "light"],
+    "formula": "I = P / A",
+    "variables": ["I", "P", "A"],
+    "description": "Intensity is power per unit area."
+  },
+  {
+    "name": "sound level",
+    "keywords": ["sound level", "decibels", "db"],
+    "formula": "beta = 10 * log10(I / I0)",
+    "variables": ["beta", "I", "I0"],
+    "description": "Sound level in decibels."
+  },
+  {
+    "name": "index of refraction",
+    "keywords": ["index of refraction", "light", "speed"],
+    "formula": "n = c / v",
+    "variables": ["n", "c", "v"],
+    "description": "Index of refraction is the ratio of light speed in vacuum to medium."
+  },
+  {
+    "name": "magnification lens",
+    "keywords": ["magnification", "lens", "optics"],
+    "formula": "M = -d_i / d_o",
+    "variables": ["M", "d_i", "d_o"],
+    "description": "Magnification for thin lenses."
+  },
+  {
+    "name": "electric field point charge",
+    "keywords": ["electric field", "point charge"],
+    "formula": "E = k * q / (r * r)",
+    "variables": ["E", "k", "q", "r"],
+    "description": "Electric field around a point charge."
+  },
+  {
+    "name": "electric potential point charge",
+    "keywords": ["electric potential", "point charge"],
+    "formula": "V = k * q / r",
+    "variables": ["V", "k", "q", "r"],
+    "description": "Electric potential around a point charge."
+  },
+  {
+    "name": "capacitance parallel plate",
+    "keywords": ["capacitance", "parallel plate"],
+    "formula": "C = epsilon * A / d",
+    "variables": ["C", "epsilon", "A", "d"],
+    "description": "Capacitance of a parallel plate capacitor."
+  },
+  {
+    "name": "magnetic force on wire",
+    "keywords": ["magnetic force", "wire", "current"],
+    "formula": "F = I * L * B",
+    "variables": ["F", "I", "L", "B"],
+    "description": "Force on a current-carrying wire in a magnetic field."
+  },
+  {
+    "name": "magnetic flux",
+    "keywords": ["magnetic flux", "magnetism"],
+    "formula": "phi = B * A * cos(theta)",
+    "variables": ["phi", "B", "A", "theta"],
+    "description": "Magnetic flux through a surface."
+  },
+  {
+    "name": "induced emf",
+    "keywords": ["emf", "induction", "faraday"],
+    "formula": "emf = -N * (delta_phi / delta_t)",
+    "variables": ["emf", "N", "delta_phi", "delta_t"],
+    "description": "Induced emf from changing magnetic flux."
+  },
+  {
+    "name": "lorentz force full",
+    "keywords": ["lorentz force", "electric", "magnetic"],
+    "formula": "F = q * (E + v * B)",
+    "variables": ["F", "q", "E", "v", "B"],
+    "description": "Force on a charged particle in electric and magnetic fields."
+  },
+  {
+    "name": "resonant frequency lc circuit",
+    "keywords": ["resonant frequency", "lc circuit"],
+    "formula": "f = 1 / (2 * pi * sqrt(L * C))",
+    "variables": ["f", "L", "C"],
+    "description": "Resonant frequency of an LC circuit."
+  },
+  {
+    "name": "thermal conduction",
+    "keywords": ["thermal conduction", "heat transfer"],
+    "formula": "Q = k * A * (delta_T / d)",
+    "variables": ["Q", "k", "A", "delta_T", "d"],
+    "description": "Heat conduction through a material."
+  },
+  {
+    "name": "radiation heat transfer",
+    "keywords": ["radiation", "heat transfer"],
+    "formula": "P = sigma * A * T^4",
+    "variables": ["P", "sigma", "A", "T"],
+    "description": "Thermal radiation power emitted by a surface."
+  },
+  {
+    "name": "ideal gas internal energy",
+    "keywords": ["internal energy", "ideal gas"],
+    "formula": "U = (3/2) * n * R * T",
+    "variables": ["U", "n", "R", "T"],
+    "description": "Internal energy of a monatomic ideal gas."
+  },
+  {
+    "name": "bernoulli equation",
+    "keywords": ["bernoulli", "fluid", "pressure"],
+    "formula": "P + 0.5 * rho * v^2 + rho * g * h = constant",
+    "variables": ["P", "rho", "v", "g", "h"],
+    "description": "Bernoulli's principle for fluid flow."
+  },
+  {
+    "name": "continuity equation",
+    "keywords": ["continuity", "fluid", "flow"],
+    "formula": "A1 * v1 = A2 * v2",
+    "variables": ["A1", "v1", "A2", "v2"],
+    "description": "Conservation of mass in fluid flow."
+  },
+  {
+    "name": "escape energy",
+    "keywords": ["escape energy", "gravity"],
+    "formula": "E = G * M * m / r",
+    "variables": ["E", "G", "M", "m", "r"],
+    "description": "Energy needed to escape a gravitational field."
+  },
+  {
+    "name": "relativistic time dilation",
+    "keywords": ["time dilation", "relativity"],
+    "formula": "t_prime = t / sqrt(1 - (v*v)/(c*c))",
+    "variables": ["t_prime", "t", "v", "c"],
+    "description": "Time dilation in special relativity."
+  },
+  {
+    "name": "relativistic length contraction",
+    "keywords": ["length contraction", "relativity"],
+    "formula": "L_prime = L * sqrt(1 - (v*v)/(c*c))",
+    "variables": ["L_prime", "L", "v", "c"],
+    "description": "Length contraction in special relativity."
+  },
+  {
+    "name": "relativistic momentum",
+    "keywords": ["relativistic momentum", "relativity"],
+    "formula": "p = gamma * m * v",
+    "variables": ["p", "gamma", "m", "v"],
+    "description": "Momentum at relativistic speeds."
+  },
+  {
+    "name": "lorentz factor",
+    "keywords": ["lorentz factor", "gamma", "relativity"],
+    "formula": "gamma = 1 / sqrt(1 - (v*v)/(c*c))",
+    "variables": ["gamma", "v", "c"],
+    "description": "Lorentz factor in relativity."
+  },
+  {
+    "name": "relativistic energy",
+    "keywords": ["relativistic energy", "relativity"],
+    "formula": "E = gamma * m * c * c",
+    "variables": ["E", "gamma", "m", "c"],
+    "description": "Total relativistic energy."
+  },
+  {
+    "name": "mass energy equivalence",
+    "keywords": ["mass energy", "einstein", "e=mc2"],
+    "formula": "E = m * c * c",
+    "variables": ["E", "m", "c"],
+    "description": "Einstein's mass-energy equivalence."
+  },
+  {
+    "name": "photoelectric effect",
+    "keywords": ["photoelectric", "photon", "work function"],
+    "formula": "KE_max = h * f - phi",
+    "variables": ["KE_max", "h", "f", "phi"],
+    "description": "Maximum kinetic energy of photoelectrons."
+  },
+  {
+    "name": "de broglie wavelength",
+    "keywords": ["de broglie", "wavelength", "quantum"],
+    "formula": "lambda = h / p",
+    "variables": ["lambda", "h", "p"],
+    "description": "Wavelength of a particle."
+  },
+  {
+    "name": "heisenberg uncertainty",
+    "keywords": ["uncertainty", "heisenberg"],
+    "formula": "delta_x * delta_p >= h / (4 * pi)",
+    "variables": ["delta_x", "delta_p", "h"],
+    "description": "Position-momentum uncertainty principle."
+  },
+  {
+    "name": "bohr radius",
+    "keywords": ["bohr radius", "hydrogen"],
+    "formula": "a0 = h*h / (4 * pi*pi * m * e*e * k)",
+    "variables": ["a0", "h", "m", "e", "k"],
+    "description": "Radius of the lowest orbit in the Bohr model."
+  },
+  {
+    "name": "hydrogen energy levels",
+    "keywords": ["hydrogen", "energy levels"],
+    "formula": "E_n = -13.6 / (n*n)",
+    "variables": ["E_n", "n"],
+    "description": "Energy levels of the hydrogen atom."
+  },
+  {
+    "name": "thermal wavelength",
+    "keywords": ["thermal wavelength", "quantum"],
+    "formula": "lambda = h / sqrt(2 * pi * m * k * T)",
+    "variables": ["lambda", "h", "m", "k", "T"],
+    "description": "Thermal de Broglie wavelength."
+  },
+  {
+  "name": "lagrangian mechanics",
+  "keywords": ["lagrangian", "L", "T-V", "analytical mechanics"],
+  "formula": "L = T - V",
+  "variables": ["L", "T", "V"],
+  "description": "The Lagrangian is defined as kinetic energy minus potential energy."
+},
+{
+  "name": "euler lagrange equation",
+  "keywords": ["euler", "lagrange", "euler-lagrange", "d/dt"],
+  "formula": "d/dt(∂L/∂q_dot) - ∂L/∂q = 0",
+  "variables": ["L", "q", "q_dot"],
+  "description": "Gives the equations of motion for a system described by a Lagrangian."
+},
+{
+  "name": "hamiltonian mechanics",
+  "keywords": ["hamiltonian", "H", "canonical", "phase space"],
+  "formula": "H = T + V",
+  "variables": ["H", "T", "V"],
+  "description": "The Hamiltonian is the total energy of the system expressed in canonical coordinates."
+},
+{
+  "name": "damped harmonic oscillator",
+  "keywords": ["damped", "oscillator", "gamma", "beta"],
+  "formula": "x(t) = A * e^(-γt) * cos(ωt + φ)",
+  "variables": ["x", "A", "γ", "ω", "t", "φ"],
+  "description": "Solution for a damped harmonic oscillator."
+},
+{
+  "name": "driven harmonic oscillator",
+  "keywords": ["driven", "forced", "oscillator"],
+  "formula": "m*x_ddot + b*x_dot + k*x = F0 * cos(ωt)",
+  "variables": ["m", "b", "k", "x", "F0", "ω", "t"],
+  "description": "Equation of motion for a driven damped oscillator."
+},
+{
+  "name": "first law of thermodynamics",
+  "keywords": ["first law", "thermo", "internal energy"],
+  "formula": "ΔU = Q - W",
+  "variables": ["ΔU", "Q", "W"],
+  "description": "Change in internal energy equals heat added minus work done by the system."
+},
+{
+  "name": "entropy change",
+  "keywords": ["entropy", "ΔS", "thermodynamics"],
+  "formula": "ΔS = Q_rev / T",
+  "variables": ["ΔS", "Q_rev", "T"],
+  "description": "Entropy change for a reversible process."
+},
+{
+  "name": "carnot efficiency",
+  "keywords": ["carnot", "efficiency", "heat engine"],
+  "formula": "η = 1 - (Tc / Th)",
+  "variables": ["η", "Tc", "Th"],
+  "description": "Maximum theoretical efficiency of a heat engine."
+},
+{
+  "name": "adiabatic process ideal gas",
+  "keywords": ["adiabatic", "PV^γ", "ideal gas"],
+  "formula": "P * V^γ = constant",
+  "variables": ["P", "V", "γ"],
+  "description": "Adiabatic condition for an ideal gas."
+},
+{
+  "name": "bernoulli equation",
+  "keywords": ["bernoulli", "fluids", "pressure"],
+  "formula": "P + 1/2 * ρ * v^2 + ρgh = constant",
+  "variables": ["P", "ρ", "v", "g", "h"],
+  "description": "Bernoulli's principle for incompressible flow."
+},
+{
+  "name": "continuity equation fluid",
+  "keywords": ["continuity", "fluids", "flow rate"],
+  "formula": "A1 * v1 = A2 * v2",
+  "variables": ["A1", "A2", "v1", "v2"],
+  "description": "Conservation of mass in fluid flow."
+},
+{
+  "name": "reynolds number",
+  "keywords": ["reynolds", "Re", "turbulence"],
+  "formula": "Re = (ρ * v * L) / μ",
+  "variables": ["Re", "ρ", "v", "L", "μ"],
+  "description": "Dimensionless number predicting laminar or turbulent flow."
+},
+{
+  "name": "poynting vector",
+  "keywords": ["poynting", "EM wave", "energy flux"],
+  "formula": "S = E × H",
+  "variables": ["S", "E", "H"],
+  "description": "Represents the directional energy flux of an electromagnetic field."
+},
+{
+  "name": "maxwell faraday law",
+  "keywords": ["maxwell", "faraday", "curl E"],
+  "formula": "∇ × E = -∂B/∂t",
+  "variables": ["E", "B", "t"],
+  "description": "One of Maxwell's equations describing how changing magnetic fields induce electric fields."
+},
+{
+  "name": "maxwell ampere law",
+  "keywords": ["maxwell", "ampere", "curl B"],
+  "formula": "∇ × B = μ0 * J + μ0ε0 * ∂E/∂t",
+  "variables": ["B", "J", "E", "t", "μ0", "ε0"],
+  "description": "Relates magnetic fields to electric currents and changing electric fields."
+},
+{
+  "name": "time dilation relativity",
+  "keywords": ["time dilation", "relativity", "gamma"],
+  "formula": "Δt' = Δt / √(1 - v^2/c^2)",
+  "variables": ["Δt", "Δt'", "v", "c"],
+  "description": "Time dilation from special relativity."
+},
+{
+  "name": "length contraction relativity",
+  "keywords": ["length contraction", "relativity"],
+  "formula": "L = L0 * √(1 - v^2/c^2)",
+  "variables": ["L", "L0", "v", "c"],
+  "description": "Length contraction from special relativity."
+},
+{
+  "name": "lorentz transformation",
+  "keywords": ["lorentz", "relativity", "gamma"],
+  "formula": "x' = γ(x - vt)",
+  "variables": ["x", "x'", "v", "t", "γ"],
+  "description": "Lorentz transformation for position."
+},
+{
+  "name": "schrodinger equation time dependent",
+  "keywords": ["schrodinger", "quantum", "wavefunction"],
+  "formula": "iħ ∂ψ/∂t = Ĥψ",
+  "variables": ["ψ", "t", "ħ"],
+  "description": "Time-dependent Schrödinger equation."
+},
+{
+  "name": "uncertainty principle",
+  "keywords": ["uncertainty", "heisenberg", "Δx", "Δp"],
+  "formula": "Δx * Δp ≥ ħ/2",
+  "variables": ["Δx", "Δp", "ħ"],
+  "description": "Heisenberg uncertainty principle."
+},
+{
+  "name": "particle in a box energy levels",
+  "keywords": ["particle in a box", "quantum", "energy levels"],
+  "formula": "E_n = (n^2 * h^2) / (8mL^2)",
+  "variables": ["E_n", "n", "h", "m", "L"],
+  "description": "Energy levels for a particle in a 1D infinite potential well."
+},
+{
+  "name": "radioactive decay law",
+  "keywords": ["radioactive", "decay", "half life"],
+  "formula": "N(t) = N0 * e^(-λt)",
+  "variables": ["N", "N0", "λ", "t"],
+  "description": "Radioactive decay equation."
+},
+{
+  "name": "mass defect",
+  "keywords": ["mass defect", "binding energy"],
+  "formula": "Δm = Zmp + Nmn - M",
+  "variables": ["Δm", "Z", "mp", "N", "mn", "M"],
+  "description": "Difference between mass of nucleons and actual nucleus mass."
+},
+{
+  "name": "hubble law",
+  "keywords": ["hubble", "expansion", "velocity"],
+  "formula": "v = H0 * d",
+  "variables": ["v", "H0", "d"],
+  "description": "Recession velocity proportional to distance."
+},
+{
+  "name": "schwarzschild radius",
+  "keywords": ["schwarzschild", "black hole", "radius"],
+  "formula": "Rs = 2GM / c^2",
+  "variables": ["Rs", "G", "M", "c"],
+  "description": "Radius of a non-rotating black hole."
+},
+{
+  "name": "stefan boltzmann law",
+  "keywords": ["stefan boltzmann", "luminosity", "radiation"],
+  "formula": "P = σAT^4",
+  "variables": ["P", "σ", "A", "T"],
+  "description": "Total power radiated by a blackbody."
+},
+{
+  "name": "schrodinger equation time independent",
+  "keywords": ["schrodinger", "time independent", "quantum", "ψ"],
+  "formula": "Ĥψ = Eψ",
+  "variables": ["Ĥ", "ψ", "E"],
+  "description": "Time-independent Schrödinger equation describing stationary states."
+},
+{
+  "name": "de broglie wavelength",
+  "keywords": ["de broglie", "wavelength", "quantum"],
+  "formula": "λ = h / p",
+  "variables": ["λ", "h", "p"],
+  "description": "Matter-wave wavelength of a particle."
+},
+{
+  "name": "probability density quantum",
+  "keywords": ["probability density", "quantum", "ψ"],
+  "formula": "P = |ψ|^2",
+  "variables": ["P", "ψ"],
+  "description": "Probability density of finding a particle at a given position."
+},
+{
+  "name": "hydrogen atom energy levels",
+  "keywords": ["hydrogen", "energy levels", "quantum"],
+  "formula": "E_n = -13.6 eV / n^2",
+  "variables": ["E_n", "n"],
+  "description": "Energy levels of the hydrogen atom."
+},
+{
+  "name": "relativistic momentum",
+  "keywords": ["relativistic momentum", "gamma", "relativity"],
+  "formula": "p = γmv",
+  "variables": ["p", "γ", "m", "v"],
+  "description": "Momentum at relativistic speeds."
+},
+{
+  "name": "relativistic energy",
+  "keywords": ["relativistic energy", "gamma", "relativity"],
+  "formula": "E = γmc^2",
+  "variables": ["E", "γ", "m", "c"],
+  "description": "Total relativistic energy of a particle."
+},
+{
+  "name": "lorentz factor",
+  "keywords": ["lorentz factor", "gamma", "relativity"],
+  "formula": "γ = 1 / √(1 - v^2/c^2)",
+  "variables": ["γ", "v", "c"],
+  "description": "Relativistic gamma factor."
+},
+{
+  "name": "relativistic doppler shift",
+  "keywords": ["doppler", "relativistic", "frequency shift"],
+  "formula": "f' = f * √((1 - β) / (1 + β))",
+  "variables": ["f'", "f", "β"],
+  "description": "Relativistic Doppler shift for light."
+},
+{
+  "name": "electric field of point charge",
+  "keywords": ["electric field", "point charge", "coulomb"],
+  "formula": "E = k * q / r^2",
+  "variables": ["E", "k", "q", "r"],
+  "description": "Electric field magnitude from a point charge."
+},
+{
+  "name": "magnetic field of long wire",
+  "keywords": ["magnetic field", "long wire", "ampere"],
+  "formula": "B = μ0 * I / (2πr)",
+  "variables": ["B", "μ0", "I", "r"],
+  "description": "Magnetic field around a long straight current-carrying wire."
+},
+{
+  "name": "induced emf faraday",
+  "keywords": ["faraday", "induced emf", "flux"],
+  "formula": "ε = -dΦ/dt",
+  "variables": ["ε", "Φ", "t"],
+  "description": "Induced EMF from changing magnetic flux."
+},
+{
+  "name": "capacitance parallel plate",
+  "keywords": ["capacitance", "parallel plate", "capacitor"],
+  "formula": "C = ε0 * A / d",
+  "variables": ["C", "ε0", "A", "d"],
+  "description": "Capacitance of a parallel-plate capacitor."
+},
+{
+  "name": "stokes drag",
+  "keywords": ["stokes", "drag", "fluid"],
+  "formula": "F_d = 6πμrv",
+  "variables": ["F_d", "μ", "r", "v"],
+  "description": "Drag force on a sphere in laminar flow."
+},
+{
+  "name": "poiseuille law",
+  "keywords": ["poiseuille", "flow rate", "viscosity"],
+  "formula": "Q = (π * r^4 * ΔP) / (8μL)",
+  "variables": ["Q", "r", "ΔP", "μ", "L"],
+  "description": "Flow rate of a viscous fluid through a pipe."
+},
+{
+  "name": "buoyant force",
+  "keywords": ["buoyancy", "archimedes", "fluid"],
+  "formula": "F_b = ρ * V * g",
+  "variables": ["F_b", "ρ", "V", "g"],
+  "description": "Buoyant force on an object submerged in a fluid."
+},
+{
+  "name": "ideal gas law alternate",
+  "keywords": ["ideal gas", "PV=nRT"],
+  "formula": "PV = nRT",
+  "variables": ["P", "V", "n", "R", "T"],
+  "description": "Equation of state for an ideal gas."
+},
+{
+  "name": "boltzmann factor",
+  "keywords": ["boltzmann", "statistical mechanics"],
+  "formula": "P(E) ∝ e^(-E / kT)",
+  "variables": ["E", "k", "T"],
+  "description": "Probability of a system being in a state with energy E."
+},
+{
+  "name": "heat engine efficiency",
+  "keywords": ["heat engine", "efficiency"],
+  "formula": "η = W_out / Q_in",
+  "variables": ["η", "W_out", "Q_in"],
+  "description": "Efficiency of a heat engine."
+},
+{
+  "name": "orbital velocity",
+  "keywords": ["orbital velocity", "gravity", "orbit"],
+  "formula": "v = √(GM / r)",
+  "variables": ["v", "G", "M", "r"],
+  "description": "Orbital velocity for a circular orbit."
+},
+{
+  "name": "kepler third law",
+  "keywords": ["kepler", "orbital period"],
+  "formula": "T^2 = (4π^2 / GM) * r^3",
+  "variables": ["T", "G", "M", "r"],
+  "description": "Relates orbital period to orbital radius."
+},
+{
+  "name": "wien displacement law",
+  "keywords": ["wien", "blackbody", "peak wavelength"],
+  "formula": "λ_max = b / T",
+  "variables": ["λ_max", "b", "T"],
+  "description": "Peak wavelength of blackbody radiation."
+},
+{
+  "name": "snell law",
+  "keywords": ["snell", "refraction", "optics"],
+  "formula": "n1 * sin(θ1) = n2 * sin(θ2)",
+  "variables": ["n1", "n2", "θ1", "θ2"],
+  "description": "Law of refraction for light."
+},
+{
+  "name": "lens equation",
+  "keywords": ["lens", "optics", "1/f"],
+  "formula": "1/f = 1/do + 1/di",
+  "variables": ["f", "do", "di"],
+  "description": "Thin lens equation."
+},
+{
+  "name": "diffraction grating equation",
+  "keywords": ["diffraction", "grating", "optics"],
+  "formula": "d * sin(θ) = mλ",
+  "variables": ["d", "θ", "m", "λ"],
+  "description": "Condition for constructive interference in a diffraction grating."
+},
+  {
+    "name": "maxwell wave equation electric field",
+    "keywords": ["maxwell", "wave equation", "electric field", "em wave"],
+    "formula": "∇²E = μ0ε0 ∂²E/∂t²",
+    "variables": ["E", "μ0", "ε0", "t"],
+    "description": "Wave equation for the electric field in free space."
+  },
+  {
+    "name": "maxwell wave equation magnetic field",
+    "keywords": ["maxwell", "wave equation", "magnetic field", "em wave"],
+    "formula": "∇²B = μ0ε0 ∂²B/∂t²",
+    "variables": ["B", "μ0", "ε0", "t"],
+    "description": "Wave equation for the magnetic field in free space."
+  },
+  {
+    "name": "quantum tunneling probability",
+    "keywords": ["quantum tunneling", "barrier", "probability"],
+    "formula": "T ≈ e^{-2κL}",
+    "variables": ["T", "κ", "L"],
+    "description": "Approximate tunneling probability through a potential barrier."
+  },
+  {
+    "name": "fermi energy",
+    "keywords": ["fermi energy", "quantum", "electron gas"],
+    "formula": "E_F = (ħ² / 2m) * (3π²n)^{2/3}",
+    "variables": ["E_F", "ħ", "m", "n"],
+    "description": "Fermi energy of an electron gas."
+  },
+  {
+    "name": "bose einstein distribution",
+    "keywords": ["bose einstein", "distribution", "quantum statistics"],
+    "formula": "n(E) = 1 / (e^{(E - μ)/kT} - 1)",
+    "variables": ["n", "E", "μ", "k", "T"],
+    "description": "Distribution of bosons over energy states."
+  },
+  {
+    "name": "fermi dirac distribution",
+    "keywords": ["fermi dirac", "distribution", "quantum statistics"],
+    "formula": "n(E) = 1 / (e^{(E - μ)/kT} + 1)",
+    "variables": ["n", "E", "μ", "k", "T"],
+    "description": "Distribution of fermions over energy states."
+  },
+  {
+    "name": "compton scattering formula",
+    "keywords": ["compton", "scattering", "photon"],
+    "formula": "λ' - λ = (h/mc)(1 - cosθ)",
+    "variables": ["λ'", "λ", "h", "m", "c", "θ"],
+    "description": "Wavelength shift due to Compton scattering."
+  },
+  {
+    "name": "planck radiation law",
+    "keywords": ["planck", "blackbody", "radiation"],
+    "formula": "I(λ, T) = (2hc² / λ⁵) * 1/(e^{hc/(λkT)} - 1)",
+    "variables": ["I", "λ", "T", "h", "c", "k"],
+    "description": "Spectral radiance of a blackbody at temperature T."
+  },
+  {
+    "name": "rayleigh jeans law",
+    "keywords": ["rayleigh jeans", "blackbody"],
+    "formula": "I(λ, T) = (2ckT) / λ⁴",
+    "variables": ["I", "λ", "T", "c", "k"],
+    "description": "Low-frequency approximation of blackbody radiation."
+  },
+  {
+    "name": "gravitational redshift",
+    "keywords": ["gravitational redshift", "relativity"],
+    "formula": "Δλ/λ = ΔΦ / c²",
+    "variables": ["Δλ", "λ", "ΔΦ", "c"],
+    "description": "Redshift of light escaping a gravitational field."
+  },
+  {
+    "name": "escape velocity",
+    "keywords": ["escape velocity", "gravity"],
+    "formula": "v = √(2GM / r)",
+    "variables": ["v", "G", "M", "r"],
+    "description": "Minimum velocity needed to escape a gravitational field."
+  },
+  {
+    "name": "gravitational potential energy general",
+    "keywords": ["gravitational potential", "gravity"],
+    "formula": "U = -GMm / r",
+    "variables": ["U", "G", "M", "m", "r"],
+    "description": "Gravitational potential energy for two masses."
+  },
+  {
+    "name": "cosmological hubble time",
+    "keywords": ["hubble time", "cosmology"],
+    "formula": "t_H = 1 / H0",
+    "variables": ["t_H", "H0"],
+    "description": "Approximate age of the universe from Hubble's constant."
+  },
+  {
+    "name": "cosmological critical density",
+    "keywords": ["critical density", "cosmology"],
+    "formula": "ρ_c = 3H0² / (8πG)",
+    "variables": ["ρ_c", "H0", "G"],
+    "description": "Density required for a flat universe."
+  },
+  {
+    "name": "plasma frequency",
+    "keywords": ["plasma frequency", "plasma physics"],
+    "formula": "ω_p = √(n e² / (ε0 m))",
+    "variables": ["ω_p", "n", "e", "ε0", "m"],
+    "description": "Natural oscillation frequency of electrons in a plasma."
+  },
+  {
+    "name": "cyclotron frequency",
+    "keywords": ["cyclotron", "frequency", "charged particle"],
+    "formula": "ω_c = qB / m",
+    "variables": ["ω_c", "q", "B", "m"],
+    "description": "Frequency of circular motion of a charged particle in a magnetic field."
+  },
+  {
+    "name": "nuclear binding energy",
+    "keywords": ["binding energy", "nuclear"],
+    "formula": "E_b = Δm c²",
+    "variables": ["E_b", "Δm", "c"],
+    "description": "Energy required to separate a nucleus into its nucleons."
+  },
+  {
+    "name": "half life formula",
+    "keywords": ["half life", "radioactive decay"],
+    "formula": "t_1/2 = ln(2) / λ",
+    "variables": ["t_1/2", "λ"],
+    "description": "Time required for half of a radioactive sample to decay."
+  },
+  {
+    "name": "wave speed on string",
+    "keywords": ["wave speed", "string", "tension"],
+    "formula": "v = √(T / μ)",
+    "variables": ["v", "T", "μ"],
+    "description": "Speed of a wave on a stretched string."
+  },
+  {
+    "name": "standing wave frequencies string",
+    "keywords": ["standing waves", "harmonics", "string"],
+    "formula": "f_n = n(v / 2L)",
+    "variables": ["f_n", "n", "v", "L"],
+    "description": "Harmonic frequencies for a string fixed at both ends."
+  },
+  {
+    "name": "intensity sound wave",
+    "keywords": ["sound intensity", "wave"],
+    "formula": "I = P / (4πr²)",
+    "variables": ["I", "P", "r"],
+    "description": "Intensity of a sound wave spreading spherically."
+  },
+  {
+    "name": "doppler effect sound",
+    "keywords": ["doppler", "sound", "frequency shift"],
+    "formula": "f' = f * (v + v_o) / (v - v_s)",
+    "variables": ["f'", "f", "v", "v_o", "v_s"],
+    "description": "Doppler shift for sound waves."
+  },
+  {
+    "name": "thin film interference",
+    "keywords": ["thin film", "interference", "optics"],
+    "formula": "2nt = (m + 1/2)λ",
+    "variables": ["n", "t", "m", "λ"],
+    "description": "Condition for destructive interference in thin films."
+  },
+  {
+    "name": "malus law",
+    "keywords": ["malus", "polarization", "optics"],
+    "formula": "I = I0 cos²θ",
+    "variables": ["I", "I0", "θ"],
+    "description": "Intensity of polarized light after passing through a polarizer."
+  }
+]

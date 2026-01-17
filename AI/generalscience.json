@@ -1,0 +1,109 @@
+[
+  {
+    "name": "density",
+    "keywords": ["density", "mass", "volume", "general science"],
+    "formula": "density = mass / volume",
+    "variables": {
+      "density": "density of a substance",
+      "mass": "mass in grams or kilograms",
+      "volume": "volume in cm3 or m3"
+    },
+    "description": "A core formula used across physics, chemistry, and earth science."
+  },
+  {
+    "name": "rate of reaction",
+    "keywords": ["rate", "reaction", "chemistry", "biology"],
+    "formula": "rate = change_in_amount / time",
+    "variables": {
+      "change_in_amount": "amount of product formed or reactant used",
+      "time": "time taken"
+    },
+    "description": "General formula for calculating the rate of a chemical or biological process."
+  },
+  {
+    "name": "magnification",
+    "keywords": ["magnification", "microscope", "biology"],
+    "formula": "magnification = image_size / real_size",
+    "variables": {
+      "magnification": "how many times larger the image is",
+      "image_size": "measured size of the image",
+      "real_size": "actual size of the object"
+    },
+    "description": "Used in biology to calculate microscope magnification."
+  },
+  {
+    "name": "force",
+    "keywords": ["force", "mass", "acceleration", "physics"],
+    "formula": "force = mass * acceleration",
+    "variables": {
+      "force": "force in newtons",
+      "mass": "mass in kilograms",
+      "acceleration": "acceleration in m/s2"
+    },
+    "description": "Newton's second law of motion."
+  },
+  {
+    "name": "work done",
+    "keywords": ["work", "force", "distance", "physics"],
+    "formula": "work_done = force * distance",
+    "variables": {
+      "work_done": "energy transferred",
+      "force": "force applied",
+      "distance": "distance moved in the direction of the force"
+    },
+    "description": "Calculates energy transferred when a force moves an object."
+  },
+  {
+    "name": "power",
+    "keywords": ["power", "energy", "time", "physics"],
+    "formula": "power = energy_transferred / time",
+    "variables": {
+      "power": "power in watts",
+      "energy_transferred": "energy in joules",
+      "time": "time in seconds"
+    },
+    "description": "Rate of energy transfer."
+  },
+  {
+    "name": "efficiency",
+    "keywords": ["efficiency", "energy", "general science"],
+    "formula": "efficiency = (useful_output / total_input) * 100",
+    "variables": {
+      "useful_output": "useful energy or power",
+      "total_input": "total energy or power supplied"
+    },
+    "description": "Used across physics, biology, and ecology."
+  },
+  {
+    "name": "concentration",
+    "keywords": ["concentration", "solution", "chemistry"],
+    "formula": "concentration = mass_of_solute / volume_of_solution",
+    "variables": {
+      "concentration": "concentration in g/dm3",
+      "mass_of_solute": "mass of solute in grams",
+      "volume_of_solution": "volume in dm3"
+    },
+    "description": "Basic concentration formula used in chemistry."
+  },
+  {
+    "name": "population density",
+    "keywords": ["population", "density", "biology", "ecology"],
+    "formula": "population_density = number_of_organisms / area",
+    "variables": {
+      "number_of_organisms": "count of individuals",
+      "area": "area sampled"
+    },
+    "description": "Used in ecology to measure how crowded a habitat is."
+  },
+  {
+    "name": "wave speed",
+    "keywords": ["wave", "speed", "frequency", "wavelength", "physics"],
+    "formula": "wave_speed = frequency * wavelength",
+    "variables": {
+      "wave_speed": "speed of the wave",
+      "frequency": "number of waves per second",
+      "wavelength": "distance between wave peaks"
+    },
+    "description": "Core physics equation used for sound, light, and seismic waves."
+  }
+]

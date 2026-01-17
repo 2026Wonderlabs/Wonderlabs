@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="refresh" content="30">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/simulations.css">
 </head>
 <body>
 
@@ -33,7 +34,7 @@
       </ul>
 
       
-      <a class="login-btn" href="login.html">Log In</a>
+      <a class="login-btn" href="../login.html">Log In</a>
       <button id="logout-btn" class="login-btn" style="display:none; margin-left:0.5rem;">Logout</button>
       <button id="theme-toggle">🌙</button>
 
@@ -41,107 +42,1082 @@
   </header>
 
 <!-- MAIN CONTENT -->
-<main id="simulations">
+<main>
 
-  <!-- 1. Hero / Introduction -->
-  <section id="simulations-hero">
-    <h1>Interactive Science Simulations</h1>
-    <p>
-      Explore physics, chemistry, biology, maths, and space through hands-on
-      simulations designed to make learning intuitive and engaging.
-    </p>
-  </section>
-
-  <!-- 2. How Simulations Work (Collapsible) -->
-  <section id="simulations-how">
-    <details>
-      <summary>How do these simulations work?</summary>
-      <p>
-        Each simulation allows you to change variables, observe outcomes,
-        and learn through experimentation. No prior knowledge required —
-        just curiosity.
-      </p>
-    </details>
-  </section>
-
-  <!-- 3. Discovery Controls -->
-  <section id="simulations-controls">
-
-    <!-- Subject Tabs -->
-    <nav id="simulation-tabs" aria-label="Simulation subjects">
-      <button data-subject="all">All</button>
-      <button data-subject="physics">Physics</button>
-      <button data-subject="chemistry">Chemistry</button>
-      <button data-subject="biology">Biology</button>
-      <button data-subject="maths">Maths</button>
-      <button data-subject="space">Space</button>
-    </nav>
-
-    <!-- Search -->
-    <div id="simulation-search">
-      <label for="search-input" class="visually-hidden">Search simulations</label>
-      <input
-        type="search"
-        id="search-input"
-        placeholder="Search simulations..."
-        autocomplete="off"
-      />
+  <!-- Period 1 -->
+  <a class="sim-card H group-nonmetal" href="../simulations/hydrogen">
+    <div class="symbol">H</div>
+    <div class="overlay">
+      <h2>H · Hydrogen — Atomic Structure Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #1.</p>
     </div>
+  </a>
 
-  </section>
+  <a class="sim-card He group-noble" href="../simulations/helium">
+    <div class="symbol">He</div>
+    <div class="overlay">
+      <h2>He · Helium — Noble Gas Behaviour Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #2.</p>
+    </div>
+  </a>
 
-  <!-- 4. Simulations Grid -->
-  <section id="simulations-grid" aria-live="polite">
+  <!-- Period 2 -->
+  <a class="sim-card Li group-alkali" href="../simulations/lithium">
+    <div class="symbol">Li</div>
+    <div class="overlay">
+      <h2>Li · Lithium — Reactivity of Alkali Metals Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #3.</p>
+    </div>
+  </a>
 
-    <!-- Simulation Card (template) -->
-    <article class="simulation-card">
-      <h2>Projectile Motion</h2>
-      <p>Physics • Intermediate</p>
-      <p>
-        Investigate how angle, velocity, and gravity affect projectile paths.
-      </p>
-      <button>Open Simulation</button>
-    </article>
+  <a class="sim-card Be group-alkaline" href="../simulations/beryllium">
+    <div class="symbol">Be</div>
+    <div class="overlay">
+      <h2>Be · Beryllium — Periodic Trends Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #4.</p>
+    </div>
+  </a>
 
-    <!-- More cards injected here -->
+  <a class="sim-card B group-metalloid" href="../simulations/boron">
+    <div class="symbol">B</div>
+    <div class="overlay">
+      <h2>B · Boron — Metalloids and Bonding Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #5.</p>
+    </div>
+  </a>
 
-  </section>
+  <a class="sim-card C group-nonmetal" href="../simulations/carbon">
+    <div class="symbol">C</div>
+    <div class="overlay">
+      <h2>C · Carbon — Allotropes and Structure Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #6.</p>
+    </div>
+  </a>
 
-  <!-- 5. No Results State -->
-  <section id="simulations-empty" hidden>
-    <p>No simulations match your search.</p>
-  </section>
+  <a class="sim-card N group-nonmetal" href="../simulations/nitrogen">
+    <div class="symbol">N</div>
+    <div class="overlay">
+      <h2>N · Nitrogen — The Nitrogen Cycle Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #7.</p>
+    </div>
+  </a>
 
-  <!-- 6. Coming Soon -->
-  <section id="simulations-coming-soon">
-    <h2>Coming Soon</h2>
+  <a class="sim-card O group-nonmetal" href="../simulations/oxygen">
+    <div class="symbol">O</div>
+    <div class="overlay">
+      <h2>O · Oxygen — Combustion and Oxidation Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #8.</p>
+    </div>
+  </a>
 
-    <article class="simulation-card coming-soon">
-      <h3>Climate Systems</h3>
-      <p>Earth Science</p>
-      <p>Explore global temperature, precipitation, and feedback loops.</p>
-    </article>
+  <a class="sim-card F group-halogen" href="../simulations/fluorine">
+    <div class="symbol">F</div>
+    <div class="overlay">
+      <h2>F · Fluorine — Halogen Reactivity Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #9.</p>
+    </div>
+  </a>
 
-  </section>
+  <a class="sim-card Ne group-noble" href="../simulations/neon">
+    <div class="symbol">Ne</div>
+    <div class="overlay">
+      <h2>Ne · Neon — Emission Spectra Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #10.</p>
+    </div>
+  </a>
 
-  <!-- 7. Explore More -->
-  <section id="simulations-next">
-    <h2>Keep Exploring</h2>
-    <p>
-      Want deeper explanations or challenges? Visit lessons, experiments,
-      or ask Wonder AI.
-    </p>
-    <nav>
-      <a href="lessons.html">Lessons</a>
-      <a href="experiments.html">Experiments</a>
-      <a href="ai.html">Wonder AI</a>
-    </nav>
-  </section>
+  <!-- Period 3 -->
+  <a class="sim-card Na group-alkali" href="../simulations/sodium">
+    <div class="symbol">Na</div>
+    <div class="overlay">
+      <h2>Na · Sodium — Flame Tests and Ions Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #11.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Mg group-alkaline" href="../simulations/magnesium">
+    <div class="symbol">Mg</div>
+    <div class="overlay">
+      <h2>Mg · Magnesium — Energy Changes in Reactions Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #12.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Al group-post" href="../simulations/aluminium">
+    <div class="symbol">Al</div>
+    <div class="overlay">
+      <h2>Al · Aluminium — Corrosion and Protection Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #13.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Si group-metalloid" href="../simulations/silicon">
+    <div class="symbol">Si</div>
+    <div class="overlay">
+      <h2>Si · Silicon — Semiconductors and Band Gaps Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #14.</p>
+    </div>
+  </a>
+
+  <a class="sim-card P group-nonmetal" href="../simulations/phosphorus">
+    <div class="symbol">P</div>
+    <div class="overlay">
+      <h2>P · Phosphorus — Fertilisers and Eutrophication Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #15.</p>
+    </div>
+  </a>
+
+  <a class="sim-card S group-nonmetal" href="../simulations/sulfur">
+    <div class="symbol">S</div>
+    <div class="overlay">
+      <h2>S · Sulfur — Acid Rain and Pollution Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #16.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Cl group-halogen" href="../simulations/chlorine">
+    <div class="symbol">Cl</div>
+    <div class="overlay">
+      <h2>Cl · Chlorine — Displacement Reactions Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #17.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ar group-noble" href="../simulations/argon">
+    <div class="symbol">Ar</div>
+    <div class="overlay">
+      <h2>Ar · Argon — Inert Atmospheres in Industry Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #18.</p>
+    </div>
+  </a>
+
+  <!-- Period 4 -->
+  <a class="sim-card K group-alkali" href="../simulations/potassium">
+    <div class="symbol">K</div>
+    <div class="overlay">
+      <h2>K · Potassium — Reactivity Series Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #19.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ca group-alkaline" href="../simulations/calcium">
+    <div class="symbol">Ca</div>
+    <div class="overlay">
+      <h2>Ca · Calcium — Hard Water and Precipitation Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #20.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Sc group-transition" href="../simulations/scandium">
+    <div class="symbol">Sc</div>
+    <div class="overlay">
+      <h2>Sc · Scandium — Transition Metal Properties Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #21.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ti group-transition" href="../simulations/titanium">
+    <div class="symbol">Ti</div>
+    <div class="overlay">
+      <h2>Ti · Titanium — Alloys and Strength Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #22.</p>
+    </div>
+  </a>
+
+  <a class="sim-card V group-transition" href="../simulations/vanadium">
+    <div class="symbol">V</div>
+    <div class="overlay">
+      <h2>V · Vanadium — Variable Oxidation States Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #23.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Cr group-transition" href="../simulations/chromium">
+    <div class="symbol">Cr</div>
+    <div class="overlay">
+      <h2>Cr · Chromium — Electroplating and Corrosion Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #24.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Mn group-transition" href="../simulations/manganese">
+    <div class="symbol">Mn</div>
+    <div class="overlay">
+      <h2>Mn · Manganese — Catalysts in Decomposition Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #25.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Fe group-transition" href="../simulations/iron">
+    <div class="symbol">Fe</div>
+    <div class="overlay">
+      <h2>Fe · Iron — Redox and Rusting Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #26.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Co group-transition" href="../simulations/cobalt">
+    <div class="symbol">Co</div>
+    <div class="overlay">
+      <h2>Co · Cobalt — Complex Ions and Colour Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #27.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ni group-transition" href="../simulations/nickel">
+    <div class="symbol">Ni</div>
+    <div class="overlay">
+      <h2>Ni · Nickel — Electrochemistry and Cells Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #28.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Cu group-transition" href="../simulations/copper">
+    <div class="symbol">Cu</div>
+    <div class="overlay">
+      <h2>Cu · Copper — Electrolysis and Purification Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #29.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Zn group-transition" href="../simulations/zinc">
+    <div class="symbol">Zn</div>
+    <div class="overlay">
+      <h2>Zn · Zinc — Galvanising and Protection Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #30.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ga group-post" href="../simulations/gallium">
+    <div class="symbol">Ga</div>
+    <div class="overlay">
+      <h2>Ga · Gallium — Low Melting Metals Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #31.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ge group-metalloid" href="../simulations/germanium">
+    <div class="symbol">Ge</div>
+    <div class="overlay">
+      <h2>Ge · Germanium — Semiconductor Devices Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #32.</p>
+    </div>
+  </a>
+
+  <a class="sim-card As group-metalloid" href="../simulations/arsenic">
+    <div class="symbol">As</div>
+    <div class="overlay">
+      <h2>As · Arsenic — Toxicity and Environmental Impact Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #33.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Se group-nonmetal" href="../simulations/selenium">
+    <div class="symbol">Se</div>
+    <div class="overlay">
+      <h2>Se · Selenium — Photoconductivity Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #34.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Br group-halogen" href="../simulations/bromine">
+    <div class="symbol">Br</div>
+    <div class="overlay">
+      <h2>Br · Bromine — Halogen Displacement Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #35.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Kr group-noble" href="../simulations/krypton">
+    <div class="symbol">Kr</div>
+    <div class="overlay">
+      <h2>Kr · Krypton — Lighting and Excited States Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #36.</p>
+    </div>
+  </a>
+
+  <!-- Period 5 -->
+  <a class="sim-card Rb group-alkali" href="../simulations/rubidium">
+    <div class="symbol">Rb</div>
+    <div class="overlay">
+      <h2>Rb · Rubidium — Reactivity of Group 1 Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #37.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Sr group-alkaline" href="../simulations/strontium">
+    <div class="symbol">Sr</div>
+    <div class="overlay">
+      <h2>Sr · Strontium — Flame Colours and Spectra Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #38.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Y group-transition" href="../simulations/yttrium">
+    <div class="symbol">Y</div>
+    <div class="overlay">
+      <h2>Y · Yttrium — Phosphors and LEDs Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #39.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Zr group-transition" href="../simulations/zirconium">
+    <div class="symbol">Zr</div>
+    <div class="overlay">
+      <h2>Zr · Zirconium — Nuclear Materials Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #40.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Nb group-transition" href="../simulations/niobium">
+    <div class="symbol">Nb</div>
+    <div class="overlay">
+      <h2>Nb · Niobium — Superconductors Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #41.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Mo group-transition" href="../simulations/molybdenum">
+    <div class="symbol">Mo</div>
+    <div class="overlay">
+      <h2>Mo · Molybdenum — Catalytic Cycles Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #42.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Tc group-transition" href="../simulations/technetium">
+    <div class="symbol">Tc</div>
+    <div class="overlay">
+      <h2>Tc · Technetium — Radioisotopes in Medicine Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #43.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ru group-transition" href="../simulations/ruthenium">
+    <div class="symbol">Ru</div>
+    <div class="overlay">
+      <h2>Ru · Ruthenium — Organometallic Catalysis Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #44.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Rh group-transition" href="../simulations/rhodium">
+    <div class="symbol">Rh</div>
+    <div class="overlay">
+      <h2>Rh · Rhodium — Industrial Catalysts Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #45.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Pd group-transition" href="../simulations/palladium">
+    <div class="symbol">Pd</div>
+    <div class="overlay">
+      <h2>Pd · Palladium — Hydrogen Storage Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #46.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ag group-transition" href="../simulations/silver">
+    <div class="symbol">Ag</div>
+    <div class="overlay">
+      <h2>Ag · Silver — Photographic Chemistry Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #47.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Cd group-transition" href="../simulations/cadmium">
+    <div class="symbol">Cd</div>
+    <div class="overlay">
+      <h2>Cd · Cadmium — Toxic Metals and Environment Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #48.</p>
+    </div>
+  </a>
+
+  <a class="sim-card In group-post" href="../simulations/indium">
+    <div class="symbol">In</div>
+    <div class="overlay">
+      <h2>In · Indium — Touchscreens and Conductive Coatings Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #49.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Sn group-post" href="../simulations/tin">
+    <div class="symbol">Sn</div>
+    <div class="overlay">
+      <h2>Sn · Tin — Alloys and Soldering Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #50.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Sb group-metalloid" href="../simulations/antimony">
+    <div class="symbol">Sb</div>
+    <div class="overlay">
+      <h2>Sb · Antimony — Flame Retardants Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #51.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Te group-metalloid" href="../simulations/tellurium">
+    <div class="symbol">Te</div>
+    <div class="overlay">
+      <h2>Te · Tellurium — Thermoelectric Materials Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #52.</p>
+    </div>
+  </a>
+
+  <a class="sim-card I group-halogen" href="../simulations/iodine">
+    <div class="symbol">I</div>
+    <div class="overlay">
+      <h2>I · Iodine — Halogen Reactions in Solution Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #53.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Xe group-noble" href="../simulations/xenon">
+    <div class="symbol">Xe</div>
+    <div class="overlay">
+      <h2>Xe · Xenon — Noble Gas Compounds Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #54.</p>
+    </div>
+  </a>
+
+  <!-- Period 6 -->
+  <a class="sim-card Cs group-alkali" href="../simulations/cesium">
+    <div class="symbol">Cs</div>
+    <div class="overlay">
+      <h2>Cs · Caesium — Atomic Clocks Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #55.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ba group-alkaline" href="../simulations/barium">
+    <div class="symbol">Ba</div>
+    <div class="overlay">
+      <h2>Ba · Barium — Contrast Agents in Medicine Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #56.</p>
+    </div>
+  </a>
+
+  <!-- Lanthanides -->
+  <a class="sim-card La group-lanthanide" href="../simulations/lanthanum">
+    <div class="symbol">La</div>
+    <div class="overlay">
+      <h2>La · Lanthanum — Rare Earth Applications Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #57.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ce group-lanthanide" href="../simulations/cerium">
+    <div class="symbol">Ce</div>
+    <div class="overlay">
+      <h2>Ce · Cerium — Catalytic Converters and Oxidation Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #58.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Pr group-lanthanide" href="../simulations/praseodymium">
+    <div class="symbol">Pr</div>
+    <div class="overlay">
+      <h2>Pr · Praseodymium — Magnets and Alloys Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #59.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Nd group-lanthanide" href="../simulations/neodymium">
+    <div class="symbol">Nd</div>
+    <div class="overlay">
+      <h2>Nd · Neodymium — Strong Permanent Magnets Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #60.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Pm group-lanthanide" href="../simulations/promethium">
+    <div class="symbol">Pm</div>
+    <div class="overlay">
+      <h2>Pm · Promethium — Radioactive Elements Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #61.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Sm group-lanthanide" href="../simulations/samarium">
+    <div class="symbol">Sm</div>
+    <div class="overlay">
+      <h2>Sm · Samarium — High Temperature Magnets Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #62.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Eu group-lanthanide" href="../simulations/europium">
+    <div class="symbol">Eu</div>
+    <div class="overlay">
+      <h2>Eu · Europium — Phosphors and Screens Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #63.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Gd group-lanthanide" href="../simulations/gadolinium">
+    <div class="symbol">Gd</div>
+    <div class="overlay">
+      <h2>Gd · Gadolinium — MRI Contrast Agents Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #64.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Tb group-lanthanide" href="../simulations/terbium">
+    <div class="symbol">Tb</div>
+    <div class="overlay">
+      <h2>Tb · Terbium — Green Phosphors Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #65.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Dy group-lanthanide" href="../simulations/dysprosium">
+    <div class="symbol">Dy</div>
+    <div class="overlay">
+      <h2>Dy · Dysprosium — High Performance Magnets Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #66.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ho group-lanthanide" href="../simulations/holmium">
+    <div class="symbol">Ho</div>
+    <div class="overlay">
+      <h2>Ho · Holmium — Magnetic Refrigeration Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #67.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Er group-lanthanide" href="../simulations/erbium">
+    <div class="symbol">Er</div>
+    <div class="overlay">
+      <h2>Er · Erbium — Optical Fibres Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #68.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Tm group-lanthanide" href="../simulations/thulium">
+    <div class="symbol">Tm</div>
+    <div class="overlay">
+      <h2>Tm · Thulium — Laser Materials Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #69.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Yb group-lanthanide" href="../simulations/ytterbium">
+    <div class="symbol">Yb</div>
+    <div class="overlay">
+      <h2>Yb · Ytterbium — Atomic Clocks and Cooling Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #70.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Lu group-lanthanide" href="../simulations/lutetium">
+    <div class="symbol">Lu</div>
+    <div class="overlay">
+      <h2>Lu · Lutetium — PET Scanning Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #71.</p>
+    </div>
+  </a>
+
+  <!-- Period 6 continued -->
+  <a class="sim-card Hf group-transition" href="../simulations/hafnium">
+    <div class="symbol">Hf</div>
+    <div class="overlay">
+      <h2>Hf · Hafnium — Control Rods in Reactors Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #72.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ta group-transition" href="../simulations/tantalum">
+    <div class="symbol">Ta</div>
+    <div class="overlay">
+      <h2>Ta · Tantalum — Capacitors and Electronics Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #73.</p>
+    </div>
+  </a>
+
+  <a class="sim-card W group-transition" href="../simulations/tungsten">
+    <div class="symbol">W</div>
+    <div class="overlay">
+      <h2>W · Tungsten — High Melting Point Metals Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #74.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Re group-transition" href="../simulations/rhenium">
+    <div class="symbol">Re</div>
+    <div class="overlay">
+      <h2>Re · Rhenium — Superalloys Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #75.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Os group-transition" href="../simulations/osmium">
+    <div class="symbol">Os</div>
+    <div class="overlay">
+      <h2>Os · Osmium — Density and Structure Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #76.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ir group-transition" href="../simulations/iridium">
+    <div class="symbol">Ir</div>
+    <div class="overlay">
+      <h2>Ir · Iridium — Extreme Conditions Materials Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #77.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Pt group-transition" href="../simulations/platinum">
+    <div class="symbol">Pt</div>
+    <div class="overlay">
+      <h2>Pt · Platinum — Catalytic Converters Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #78.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Au group-transition" href="../simulations/gold">
+    <div class="symbol">Au</div>
+    <div class="overlay">
+      <h2>Au · Gold — Nanoparticles and Medicine Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #79.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Hg group-transition" href="../simulations/mercury">
+    <div class="symbol">Hg</div>
+    <div class="overlay">
+      <h2>Hg · Mercury — Liquid Metals and Toxicity Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #80.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Tl group-post" href="../simulations/thallium">
+    <div class="symbol">Tl</div>
+    <div class="overlay">
+      <h2>Tl · Thallium — Heavy Metal Poisoning Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #81.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Pb group-post" href="../simulations/lead">
+    <div class="symbol">Pb</div>
+    <div class="overlay">
+      <h2>Pb · Lead — Historical Fuels and Health Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #82.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Bi group-post" href="../simulations/bismuth">
+    <div class="symbol">Bi</div>
+    <div class="overlay">
+      <h2>Bi · Bismuth — Low Toxicity Heavy Metals Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #83.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Po group-post" href="../simulations/polonium">
+    <div class="symbol">Po</div>
+    <div class="overlay">
+      <h2>Po · Polonium — Radioactivity and Safety Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #84.</p>
+    </div>
+  </a>
+
+  <a class="sim-card At group-halogen" href="../simulations/astatine">
+    <div class="symbol">At</div>
+    <div class="overlay">
+      <h2>At · Astatine — Rare Halogens Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #85.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Rn group-noble" href="../simulations/radon">
+    <div class="symbol">Rn</div>
+    <div class="overlay">
+      <h2>Rn · Radon — Radioactive Gases and Homes Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #86.</p>
+    </div>
+  </a>
+
+  <!-- Period 7 -->
+  <a class="sim-card Fr group-alkali" href="../simulations/francium">
+    <div class="symbol">Fr</div>
+    <div class="overlay">
+      <h2>Fr · Francium — Extreme Reactivity Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #87.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ra group-alkaline" href="../simulations/radium">
+    <div class="symbol">Ra</div>
+    <div class="overlay">
+      <h2>Ra · Radium — Historical Uses of Radioactivity Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #88.</p>
+    </div>
+  </a>
+
+  <!-- Actinides -->
+  <a class="sim-card Ac group-actinide" href="../simulations/actinium">
+    <div class="symbol">Ac</div>
+    <div class="overlay">
+      <h2>Ac · Actinium — Actinide Series Overview Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #89.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Th group-actinide" href="../simulations/thorium">
+    <div class="symbol">Th</div>
+    <div class="overlay">
+      <h2>Th · Thorium — Alternative Nuclear Fuels Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #90.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Pa group-actinide" href="../simulations/protactinium">
+    <div class="symbol">Pa</div>
+    <div class="overlay">
+      <h2>Pa · Protactinium — Rare Actinides Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #91.</p>
+    </div>
+  </a>
+
+  <a class="sim-card U group-actinide" href="../simulations/uranium">
+    <div class="symbol">U</div>
+    <div class="overlay">
+      <h2>U · Uranium — Nuclear Fission and Power Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #92.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Np group-actinide" href="../simulations/neptunium">
+    <div class="symbol">Np</div>
+    <div class="overlay">
+      <h2>Np · Neptunium — Transuranic Elements Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #93.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Pu group-actinide" href="../simulations/plutonium">
+    <div class="symbol">Pu</div>
+    <div class="overlay">
+      <h2>Pu · Plutonium — Weapons and Power Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #94.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Am group-actinide" href="../simulations/americium">
+    <div class="symbol">Am</div>
+    <div class="overlay">
+      <h2>Am · Americium — Smoke Detectors Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #95.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Cm group-actinide" href="../simulations/curium">
+    <div class="symbol">Cm</div>
+    <div class="overlay">
+      <h2>Cm · Curium — Synthetic Elements Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #96.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Bk group-actinide" href="../simulations/berkelium">
+    <div class="symbol">Bk</div>
+    <div class="overlay">
+      <h2>Bk · Berkelium — Research-Only Elements Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #97.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Cf group-actinide" href="../simulations/californium">
+    <div class="symbol">Cf</div>
+    <div class="overlay">
+      <h2>Cf · Californium — Neutron Sources Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #98.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Es group-actinide" href="../simulations/einsteinium">
+    <div class="symbol">Es</div>
+    <div class="overlay">
+      <h2>Es · Einsteinium — Naming Elements Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #99.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Fm group-actinide" href="../simulations/fermium">
+    <div class="symbol">Fm</div>
+    <div class="overlay">
+      <h2>Fm · Fermium — High Neutron Flux Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #100.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Md group-actinide" href="../simulations/mendelevium">
+    <div class="symbol">Md</div>
+    <div class="overlay">
+      <h2>Md · Mendelevium — Element Discovery Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #101.</p>
+    </div>
+  </a>
+
+  <a class="sim-card No group-actinide" href="../simulations/nobelium">
+    <div class="symbol">No</div>
+    <div class="overlay">
+      <h2>No · Nobelium — Short-Lived Isotopes Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #102.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Lr group-actinide" href="../simulations/lawrencium">
+    <div class="symbol">Lr</div>
+    <div class="overlay">
+      <h2>Lr · Lawrencium — Edge of the Actinides Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #103.</p>
+    </div>
+  </a>
+
+  <!-- Superheavy transition/post/noble (104–118) -->
+  <a class="sim-card Rf group-transition" href="../simulations/rutherfordium">
+    <div class="symbol">Rf</div>
+    <div class="overlay">
+      <h2>Rf · Rutherfordium — Superheavy Element Synthesis Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #104.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Db group-transition" href="../simulations/dubnium">
+    <div class="symbol">Db</div>
+    <div class="overlay">
+      <h2>Db · Dubnium — Nuclear Research Facilities Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #105.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Sg group-transition" href="../simulations/seaborgium">
+    <div class="symbol">Sg</div>
+    <div class="overlay">
+      <h2>Sg · Seaborgium — Naming After Scientists Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #106.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Bh group-transition" href="../simulations/bohrium">
+    <div class="symbol">Bh</div>
+    <div class="overlay">
+      <h2>Bh · Bohrium — Synthetic Element Stability Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #107.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Hs group-transition" href="../simulations/hassium">
+    <div class="symbol">Hs</div>
+    <div class="overlay">
+      <h2>Hs · Hassium — Superheavy Chemistry Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #108.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Mt group-transition" href="../simulations/meitnerium">
+    <div class="symbol">Mt</div>
+    <div class="overlay">
+      <h2>Mt · Meitnerium — Women in Science Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #109.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ds group-transition" href="../simulations/darmstadtium">
+    <div class="symbol">Ds</div>
+    <div class="overlay">
+      <h2>Ds · Darmstadtium — Particle Accelerators Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #110.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Rg group-transition" href="../simulations/roentgenium">
+    <div class="symbol">Rg</div>
+    <div class="overlay">
+      <h2>Rg · Roentgenium — High Energy Physics and Detection Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #111.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Cn group-transition" href="../simulations/copernicium">
+    <div class="symbol">Cn</div>
+    <div class="overlay">
+      <h2>Cn · Copernicium — Relativistic Effects in Heavy Atoms Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #112.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Nh group-post" href="../simulations/nihonium">
+    <div class="symbol">Nh</div>
+    <div class="overlay">
+      <h2>Nh · Nihonium — International Collaboration in Science Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #113.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Fl group-post" href="../simulations/flerovium">
+    <div class="symbol">Fl</div>
+    <div class="overlay">
+      <h2>Fl · Flerovium — Stability Islands and Nuclear Models Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #114.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Mc group-post" href="../simulations/moscovium">
+    <div class="symbol">Mc</div>
+    <div class="overlay">
+      <h2>Mc · Moscovium — Predicting Unknown Element Properties Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #115.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Lv group-post" href="../simulations/livermorium">
+    <div class="symbol">Lv</div>
+    <div class="overlay">
+      <h2>Lv · Livermorium — Superheavy Element Decay Simulation</h2>
+      <span class="level">Level 2</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #116.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Ts group-halogen" href="../simulations/tennessine">
+    <div class="symbol">Ts</div>
+    <div class="overlay">
+      <h2>Ts · Tennessine — Halogen Trends at the Edge Simulation</h2>
+      <span class="level">Level 3</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #117.</p>
+    </div>
+  </a>
+
+  <a class="sim-card Og group-noble" href="../simulations/oganesson">
+    <div class="symbol">Og</div>
+    <div class="overlay">
+      <h2>Og · Oganesson — Extreme Noble Gas Behaviour Simulation</h2>
+      <span class="level">Level 1</span>
+      <p class="practical"><strong>Required Practical:</strong> Practical #118.</p>
+    </div>
+  </a>
 
 </main>
-
-
-
 <!-- FOOTER -->
  <footer>
     <p>© 2026 Wonder Labs. Built for curiosity.</p>

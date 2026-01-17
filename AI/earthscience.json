@@ -1,0 +1,112 @@
+[
+  {
+    "name": "density",
+    "keywords": ["density", "mass", "volume", "rocks", "minerals"],
+    "formula": "density = mass / volume",
+    "variables": {
+      "density": "density of the material",
+      "mass": "mass of the sample",
+      "volume": "volume of the sample"
+    },
+    "description": "Used to identify rocks and minerals by comparing mass and volume."
+  },
+  {
+    "name": "rate of erosion",
+    "keywords": ["erosion", "geology", "rate", "landscape change"],
+    "formula": "erosion_rate = amount_eroded / time",
+    "variables": {
+      "erosion_rate": "rate of material removed",
+      "amount_eroded": "mass or volume of material removed",
+      "time": "time period"
+    },
+    "description": "Measures how quickly material is removed from a landscape."
+  },
+  {
+    "name": "carbon cycle flux",
+    "keywords": ["carbon cycle", "flux", "environment", "climate"],
+    "formula": "carbon_flux = carbon_transferred / time",
+    "variables": {
+      "carbon_flux": "rate of carbon movement",
+      "carbon_transferred": "amount of carbon moved between stores",
+      "time": "time period"
+    },
+    "description": "Describes movement of carbon between Earth’s major stores."
+  },
+  {
+    "name": "earthquake magnitude",
+    "keywords": ["earthquake", "richter", "magnitude", "seismology"],
+    "formula": "magnitude = log10(amplitude) + correction_factor",
+    "variables": {
+      "magnitude": "earthquake magnitude",
+      "amplitude": "seismic wave amplitude",
+      "correction_factor": "adjustment for distance to epicentre"
+    },
+    "description": "Simplified form of the Richter scale used to estimate earthquake strength."
+  },
+  {
+    "name": "wave speed",
+    "keywords": ["seismic waves", "wave speed", "geology"],
+    "formula": "wave_speed = distance / time",
+    "variables": {
+      "wave_speed": "speed of seismic or ocean waves",
+      "distance": "distance travelled",
+      "time": "time taken"
+    },
+    "description": "Used to calculate the speed of seismic waves through Earth."
+  },
+  {
+    "name": "rainfall intensity",
+    "keywords": ["rainfall", "weather", "climate", "precipitation"],
+    "formula": "rainfall_intensity = rainfall_amount / time",
+    "variables": {
+      "rainfall_intensity": "rate of rainfall",
+      "rainfall_amount": "total rainfall",
+      "time": "time period"
+    },
+    "description": "Measures how heavy rainfall is over a given period."
+  },
+  {
+    "name": "river discharge",
+    "keywords": ["river", "discharge", "hydrology", "flow rate"],
+    "formula": "discharge = cross_sectional_area * velocity",
+    "variables": {
+      "discharge": "volume of water flowing per second",
+      "cross_sectional_area": "area of river channel",
+      "velocity": "speed of water flow"
+    },
+    "description": "Calculates how much water flows through a river channel."
+  },
+  {
+    "name": "weathering rate",
+    "keywords": ["weathering", "geology", "rate"],
+    "formula": "weathering_rate = material_lost / time",
+    "variables": {
+      "weathering_rate": "rate of breakdown of rock",
+      "material_lost": "mass or volume lost",
+      "time": "time period"
+    },
+    "description": "Measures how quickly rock breaks down due to weathering."
+  },
+  {
+    "name": "albedo",
+    "keywords": ["albedo", "climate", "reflection", "energy balance"],
+    "formula": "albedo = reflected_radiation / incoming_radiation",
+    "variables": {
+      "albedo": "fraction of radiation reflected",
+      "reflected_radiation": "energy reflected by a surface",
+      "incoming_radiation": "energy arriving at the surface"
+    },
+    "description": "Indicates how reflective a surface is, important in climate science."
+  },
+  {
+    "name": "global warming potential",
+    "keywords": ["gwp", "climate", "greenhouse gases"],
+    "formula": "gwp = radiative_efficiency * atmospheric_lifetime",
+    "variables": {
+      "gwp": "global warming potential",
+      "radiative_efficiency": "warming effect per unit mass",
+      "atmospheric_lifetime": "how long the gas stays in the atmosphere"
+    },
+    "description": "Compares the warming effect of greenhouse gases relative to CO2."
+  }
+]

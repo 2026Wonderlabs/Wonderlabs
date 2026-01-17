@@ -82,7 +82,38 @@
       <!-- placeholder for illustration / image -->
     </div>
   </section>
+<!-- Circular AI Button -->
+<a href="../Ai/Ai.html" id="ai-button">🤖</a>
 
+<style>
+  #ai-button {
+    position: fixed;
+    bottom: 20px;       /* distance from bottom */
+    right: 20px;        /* distance from right */
+    width: 60px;        /* button size */
+    height: 60px;
+    border-radius: 50%; /* makes it circular */
+    background: #4fc3f7;
+    color: #020617;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 0 12px rgba(79, 195, 247, 0.6);
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  #ai-button:hover {
+    background: #38bdf8;
+    transform: scale(1.1);
+  }
+  #ai-button:active {
+    transform: scale(0.95);
+  }
+</style>
+<button id="help-btn"><a href="pages/help.html">Help ❓</a></button>
   <!-- FOOTER -->
    <footer>
     <p>© 2026 Wonder Labs. Built for curiosity.</p>
