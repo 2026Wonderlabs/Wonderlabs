@@ -26,13 +26,16 @@ main {
   overflow: visible; /* allow pop-out */
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  isolation: isolate; /* creates a clean stacking context */
 }
 
 .sim-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 0 15px rgba(255,255,255,0.25);
 }
-
+.sim-card:hover .symbol {
+  opacity: 0;
+}
 /* --- Symbol visible by default --- */
 
 .sim-card h2,
@@ -64,8 +67,8 @@ main {
   justify-content: center;
   align-items: center;
 
-  transition: transform 0.25s ease, opacity 0.25s ease;
-  z-index: 999;
+  transform-origin: center center;
+  z-index: 10000;
 }
 
 /* --- Show overlay on hover --- */
@@ -241,4 +244,35 @@ main {
   main {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
+}
+#sim-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+
+  background: #1a1f36;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 999999; /* above everything */
+  pointer-events: none;
+}
+#sim-overlay.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+.sim-card .overlay {
+  display: none;
 }
